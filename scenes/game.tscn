@@ -34,7 +34,7 @@ position = Vector2(313, 200)
 script = ExtResource("4_lbhrr")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(578, 339)
+position = Vector2(576, 339)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(63, 680)

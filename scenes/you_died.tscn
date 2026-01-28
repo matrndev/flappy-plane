@@ -5,7 +5,7 @@
 [ext_resource type="StyleBox" uid="uid://bbvt117ekb27v" path="res://styles/button_normal.tres" id="2_qk8dk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cl810"]
-bg_color = Color(0.3665946, 0.36659464, 0.36659443, 0.74509805)
+bg_color = Color(1, 0, 0, 0.3372549)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k4bmk"]
 bg_color = Color(0, 0, 0, 1)
@@ -120,6 +120,7 @@ offset_right = 732.5
 offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_0hmh4")
 theme_override_font_sizes/font_size = 77
 text = "You Died!"
 

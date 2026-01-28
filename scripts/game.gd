@@ -23,6 +23,7 @@ var scroll_speed = SCROLL_SPEED
 const REFUELING_SPEED: float = 10.0
 var is_refueling: bool = false
 const GENERATE_STATION_ON_FUEL_LEVEL: float = 40.0
+var hold: bool = false
 
 # TODO:
 # - parallax effect
@@ -35,6 +36,7 @@ func _ready() -> void:
 	screen_size = get_window().size
 	ground_height = $Ground.get_node("TileMapLayer").tile_set.tile_size.y * 7 # ground is made of 7 tiles
 	generate_pipe()
+	hold = true
 	start.emit() # temp
 
 func _process(delta: float) -> void:
@@ -47,9 +49,15 @@ func _process(delta: float) -> void:
 
 	if $Player.dead: # temp
 		show_death_message(true)
-	else:
-		show_death_message(false)
-
+	#else:
+		#show_death_message(false)
+	
+	# hold in air when starting new game
+	if hold:
+		if Input.is_action_just_pressed("keyboard_space"):
+			hold = false
+		return
+	
 	if $Player.ready_to_start == true or $Player.dead == true and $Player.is_on_floor() == true:
 		#if Input.is_action_just_pressed("keyboard_space"):
 			#start.emit() # restart game
@@ -58,7 +66,7 @@ func _process(delta: float) -> void:
 	if $Player.dead: # this triggers only when dead because of fuel depletion
 		$"GameStats".fuel_warning = false
 		return
-
+	
 	# refueling
 	if is_refueling:
 		return
@@ -172,7 +180,7 @@ func coin_hit() -> void:
 	coin_score += 1
 
 func bird_score() -> void:
-	score += 10
+	score += 1
 
 func clear_pipes() -> void:
 	pipes.clear()
@@ -197,7 +205,9 @@ func _on_player_died() -> void:
 	clear_coins()
 	clear_pipes()
 	clear_stations()
+	show_death_message(false)
 	$PlaneTrail.clear_points()
+	hold = true
 
 var death_message: Control
 func show_death_message(display: bool) -> void:
@@ -207,7 +217,7 @@ func show_death_message(display: bool) -> void:
 		death_message = death_message_scene.instantiate()
 		death_message.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
 		death_message.z_index = 2
-		death_message.play_again.connect(start.emit) #???
+		death_message.play_again.connect(start.emit)
 		add_child(death_message)
 	elif not display and death_message:
 		remove_child(death_message)

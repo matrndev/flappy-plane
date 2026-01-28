@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 	if ready_to_start:
 		return
 	
-	if $"..".is_refueling:
+	if $"..".is_refueling or $"..".hold:
 		return
 	
 	if dead and is_on_floor():
