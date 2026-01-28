@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://qee546yqe1ne"]
+
+[ext_resource type="Texture2D" uid="uid://ks8usda6jg4v" path="res://assets/plane_pack/planes/plane_3/plane_3_green.png" id="1_3vyb7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
+radius = 16.0
+height = 100.0
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(79.953964, -29.312489)
+scale = Vector2(0.12609895, 0.12609896)
+texture = ExtResource("1_3vyb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(83, -23)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_g2els")

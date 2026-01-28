@@ -1,0 +1,116 @@
+[gd_scene load_steps=10 format=4 uid="uid://ceq6rslseh62j"]
+
+[ext_resource type="Texture2D" uid="uid://boppv27n51ywm" path="res://assets/Flappy Bird Assets/Tiles/Style 4/PipeStyle4.png" id="1_8x3ej"]
+[ext_resource type="Script" uid="uid://dv2wx85qs8cdp" path="res://scenes/pipe.gd" id="1_arpqm"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_arpqm"]
+texture = ExtResource("1_8x3ej")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_8p0di"]
+sources/0 = SubResource("TileSetAtlasSource_arpqm")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejsh2"]
+size = Vector2(52, 25.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ybk5"]
+size = Vector2(42, 869)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8x3ej"]
+size = Vector2(42, 769)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdldm"]
+size = Vector2(51.5, 25.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arpqm"]
+size = Vector2(8, 153)
+
+[node name="Pipe" type="Area2D"]
+script = ExtResource("1_arpqm")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(0, 77.99999)
+scale = Vector2(1.6, 1.6)
+tile_map_data = PackedByteArray("AAD//+//AAAGAAEAAAAAAO//AAAHAAEAAAD///D/AAAGAAEAAAAAAPD/AAAHAAEAAAD///H/AAAGAAEAAAAAAPH/AAAHAAEAAAD///L/AAAGAAEAAAAAAPL/AAAHAAEAAAD///P/AAAGAAEAAAAAAPP/AAAHAAEAAAD///T/AAAGAAEAAAAAAPT/AAAHAAEAAAD///X/AAAGAAEAAAAAAPX/AAAHAAEAAAD///b/AAAGAAEAAAAAAPb/AAAHAAEAAAD//wMAAAAGAAEAAAAAAAMAAAAHAAEAAAD//wQAAAAGAAEAAAAAAAQAAAAHAAEAAAD//wUAAAAGAAEAAAAAAAUAAAAHAAEAAAD//wYAAAAGAAEAAAAAAAYAAAAHAAEAAAD//wcAAAAGAAEAAAAAAAcAAAAHAAEAAAD//wgAAAAGAAEAAAAAAAgAAAAHAAEAAAD//wkAAAAGAAEAAAAAAAkAAAAHAAEAAAD//woAAAAGAAEAAAAAAAoAAAAHAAEAAAD//wsAAAAGAAEAAAAAAAsAAAAHAAEAAAD//wwAAAAGAAEAAAAAAAwAAAAHAAEAAAD//w0AAAAGAAEAAAAAAA0AAAAHAAEAAAD//w4AAAAGAAEAAAAAAA4AAAAHAAEAAAD//w8AAAAGAAEAAAAAAA8AAAAHAAEAAAD//xAAAAAGAAEAAAAAABAAAAAHAAEAAAD//xEAAAAGAAEAAAAAABEAAAAHAAEAAAD//+7/AAAGAAEAAAAAAO7/AAAHAAEAAAD//+3/AAAGAAEAAAAAAO3/AAAHAAEAAAD//+z/AAAGAAEAAAAAAOz/AAAHAAEAAAD//+v/AAAGAAEAAAAAAOv/AAAHAAEAAAD//+r/AAAGAAEAAAAAAOr/AAAHAAEAAAD//+n/AAAGAAEAAAAAAOn/AAAHAAEAAAD//+j/AAAGAAEAAAAAAOj/AAAHAAEAAAD//+f/AAAGAAEAAAAAAOf/AAAHAAEAAAD//+b/AAAGAAEAAAAAAOb/AAAHAAEAAAD//+X/AAAGAAEAAAAAAOX/AAAHAAEAAAD//+T/AAAGAAEAAAAAAOT/AAAHAAEAAAD//+P/AAAGAAEAAAAAAOP/AAAHAAEAAAD//+L/AAAGAAEAAAAAAOL/AAAHAAEAAAD//+H/AAAGAAEAAAAAAOH/AAAHAAEAAAD//+D/AAAGAAEAAAAAAOD/AAAHAAEAAAD//9//AAAGAAEAAAAAAN//AAAHAAEAAAD//97/AAAGAAEAAAAAAN7/AAAHAAEAAAD//93/AAAGAAEAAAAAAN3/AAAHAAEAAAD//9z/AAAGAAEAAAAAANz/AAAHAAEAAAD//9v/AAAGAAEAAAAAANv/AAAHAAEAAAD//xIAAAAGAAEAAAAAABIAAAAHAAEAAAD//xMAAAAGAAEAAAAAABMAAAAHAAEAAAD//xQAAAAGAAEAAAAAABQAAAAHAAEAAAD//xUAAAAGAAEAAAAAABUAAAAHAAEAAAD//xYAAAAGAAEAAAAAABYAAAAHAAEAAAD//xcAAAAGAAEAAAAAABcAAAAHAAEAAAD//xgAAAAGAAEAAAAAABgAAAAHAAEAAAD//xkAAAAGAAEAAAAAABkAAAAHAAEAAAD//xoAAAAGAAEAAAAAABoAAAAHAAEAAAD//xsAAAAGAAEAAAAAABsAAAAHAAEAAAD//xwAAAAGAAEAAAAAABwAAAAHAAEAAAD//x0AAAAGAAEAAAAAAB0AAAAHAAEAAAD//x4AAAAGAAEAAAAAAB4AAAAHAAEAAAD//x8AAAAGAAEAAAAAAB8AAAAHAAEAAAD//yAAAAAGAAEAAAAAACAAAAAHAAEAAAD//yIAAAAGAAEAAAAAACIAAAAHAAEAAAD//yEAAAAGAAEAAAAAACEAAAAHAAEAAAAAAPj/AAAHAAEAAAD///j/AAAGAAEAAAD//wEAAAAGAAEAAAAAAAEAAAAHAAEAAAD//wIAAAAGAAEAAAAAAAIAAAAHAAEAAAD///f/AAAGAAEAAAAAAPf/AAAHAAEAAAD//wAAAAAGAAAAAAAAAAAAAAAHAAAAAAD///n/AAAGAAIAAAAAAPn/AAAHAAIAAAA=")
+tile_set = SubResource("TileSet_8p0di")
+
+[node name="CollisionUpperEnd" type="CollisionShape2D" parent="."]
+position = Vector2(0, -88.25)
+shape = SubResource("RectangleShape2D_ejsh2")
+disabled = true
+debug_color = Color(0.78212124, 0.12338609, 1, 0.41960785)
+
+[node name="CollisionLower" type="CollisionShape2D" parent="."]
+position = Vector2(0, 538.5)
+shape = SubResource("RectangleShape2D_4ybk5")
+disabled = true
+debug_color = Color(0.92211145, 0.08408897, 0.6515761, 0.41960785)
+
+[node name="CollisionUpper" type="CollisionShape2D" parent="."]
+position = Vector2(0, -485.5)
+shape = SubResource("RectangleShape2D_8x3ej")
+disabled = true
+debug_color = Color(0.93331736, 2.3391545e-05, 0.6472082, 0.41960785)
+
+[node name="CollisionLowerEnd" type="CollisionShape2D" parent="."]
+position = Vector2(0, 91)
+shape = SubResource("RectangleShape2D_tdldm")
+disabled = true
+debug_color = Color(0.9519178, 1.540184e-06, 0.5637016, 0.41960785)
+
+[node name="SafeZone" type="Area2D" parent="."]
+
+[node name="CollisionSafeZone" type="CollisionShape2D" parent="SafeZone"]
+position = Vector2(30, 1.5)
+shape = SubResource("RectangleShape2D_arpqm")
+debug_color = Color(0, 0.63677144, 0.40466172, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="SafeZone" to="." method="_on_safe_zone_body_entered"]

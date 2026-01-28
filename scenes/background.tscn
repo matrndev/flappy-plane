@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvb04h07xoe0q"]
+
+[ext_resource type="Texture2D" uid="uid://g0xlorw6vj8g" path="res://assets/plane_pack/sky_background/example/sky_background_green_hills.png" id="1_bkp1e"]
+
+[node name="Background" type="Sprite2D"]
+
+[node name="SkyBackgroundGreenHills" type="Sprite2D" parent="."]
+position = Vector2(590, 328.00003)
+scale = Vector2(0.4423828, 0.44238284)
+texture = ExtResource("1_bkp1e")

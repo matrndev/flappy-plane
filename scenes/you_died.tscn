@@ -1,0 +1,126 @@
+[gd_scene load_steps=10 format=3 uid="uid://dlhmbm8et6p6h"]
+
+[ext_resource type="FontFile" uid="uid://byrn6tqmul438" path="res://fonts/Zen_Dots/ZenDots-Regular.ttf" id="1_0hmh4"]
+[ext_resource type="Script" uid="uid://bqaiogudlkm6c" path="res://scripts/you_died.gd" id="1_k4bmk"]
+[ext_resource type="StyleBox" uid="uid://bbvt117ekb27v" path="res://styles/button_normal.tres" id="2_qk8dk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cl810"]
+bg_color = Color(0.3665946, 0.36659464, 0.36659443, 0.74509805)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k4bmk"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0.85882354, 0.85882354, 0.85882354, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 14.0
+expand_margin_top = 10.0
+expand_margin_right = 14.0
+expand_margin_bottom = 10.0
+shadow_size = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qk8dk"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0.85882354, 0.85882354, 0.85882354, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 14.0
+expand_margin_top = 10.0
+expand_margin_right = 14.0
+expand_margin_bottom = 10.0
+shadow_size = 7
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cl810"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_k4bmk"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_cl810"]
+events = [SubResource("InputEventKey_k4bmk")]
+
+[node name="YouDied" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_k4bmk")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cl810")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 268.5
+offset_top = 440.0
+offset_right = 843.5
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 239
+
+[node name="MainMenuButton" type="Button" parent="Control/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_0hmh4")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = ExtResource("2_qk8dk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k4bmk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qk8dk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cl810")
+text = "Main Menu"
+
+[node name="PlayAgainButton" type="Button" parent="Control/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_0hmh4")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = ExtResource("2_qk8dk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k4bmk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qk8dk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cl810")
+shortcut = SubResource("Shortcut_cl810")
+text = "Play Again"
+
+[node name="YouDiedLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 379.5
+offset_top = 94.0
+offset_right = 732.5
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 77
+text = "You Died!"
+
+[connection signal="pressed" from="Control/HBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
