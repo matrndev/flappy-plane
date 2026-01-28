@@ -118,9 +118,9 @@ text = "21"
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 485.0
-offset_top = 19.0
+offset_top = 2.0
 offset_right = 608.0
-offset_bottom = 64.0
+offset_bottom = 47.0
 theme_override_constants/separation = 17
 
 [node name="ScoreLabel2" type="Label" parent="HBoxContainer"]
@@ -136,6 +136,29 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_thv0x")
 theme_override_font_sizes/font_size = 37
+text = "21"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 485.0
+offset_top = 43.0
+offset_right = 608.0
+offset_bottom = 88.0
+theme_override_constants/separation = 17
+
+[node name="BestScoreLabel2" type="Label" parent="HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.6052743, 0.6052744, 0.6052741, 1)
+theme_override_fonts/font = ExtResource("2_thv0x")
+theme_override_font_sizes/font_size = 15
+text = "Best  "
+
+[node name="BestScoreLabel" type="Label" parent="HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_thv0x")
+theme_override_font_sizes/font_size = 26
 text = "21"
 
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
