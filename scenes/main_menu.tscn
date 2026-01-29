@@ -1,4 +1,36 @@
-[gd_scene format=3 uid="uid://bhg8xxkoha6hy"]
+[gd_scene load_steps=7 format=3 uid="uid://bhg8xxkoha6hy"]
+
+[ext_resource type="Script" uid="uid://dxkk2h2t6tq6h" path="res://scripts/main_menu.gd" id="1_bqqt6"]
+[ext_resource type="FontFile" uid="uid://byrn6tqmul438" path="res://fonts/Zen_Dots/ZenDots-Regular.ttf" id="1_l6cm7"]
+[ext_resource type="StyleBox" uid="uid://bbvt117ekb27v" path="res://styles/button_normal.tres" id="3_wu84c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0.85882354, 0.85882354, 0.85882354, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 14.0
+expand_margin_top = 10.0
+expand_margin_right = 14.0
+expand_margin_bottom = 10.0
+shadow_size = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0.85882354, 0.85882354, 0.85882354, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 14.0
+expand_margin_top = 10.0
+expand_margin_right = 14.0
+expand_margin_bottom = 10.0
+shadow_size = 7
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oa1go"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -7,3 +39,49 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_bqqt6")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -342.0
+offset_top = 48.0
+offset_right = 342.0
+offset_bottom = 152.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 86
+text = "Flappy Plane"
+
+[node name="PlayButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.5
+offset_top = -16.5
+offset_right = 84.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = ExtResource("3_wu84c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_oa1go")
+text = "Play"
+
+[connection signal="pressed" from="Panel/PlayButton" to="." method="_on_play_button_pressed"]
