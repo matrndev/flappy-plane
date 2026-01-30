@@ -5,7 +5,7 @@ const CONFIG_FILE_PATH: String = "user://tunables.cfg"
 # default base assignments
 
 # game
-var scroll_speed: int = 3
+var scroll_speed: float = 3.0
 var refueling_speed: float = 10.0
 var generate_station_on_fuel_level: float = 40.0
 var trail_length: int = 200
@@ -38,7 +38,7 @@ func reset_all() -> void:
 	# default base assignments
 	
 	# game
-	scroll_speed = 3
+	scroll_speed = 3.0
 	refueling_speed = 10.0
 	generate_station_on_fuel_level = 40.0
 	trail_length = 200
@@ -65,7 +65,6 @@ func reset_all() -> void:
 	save_config()
 
 func load_config() -> void:
-	print("reloading config")
 	var config_file = ConfigFile.new()
 	if config_file.load(CONFIG_FILE_PATH) == OK:
 		# game

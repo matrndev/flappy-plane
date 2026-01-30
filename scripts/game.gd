@@ -26,13 +26,16 @@ var hold: bool = false
 
 # TODO:
 # - parallax effect
-# - menu screen
+# DONE: - menu screen
 # - shop
 # - tutorial
 # DONE: - you died screen
 # DONE: - refueling stations
+# - tunables tabs
 # - enemy torpedoes
+# - ally airplanes?
 # - change plane skin
+# - presets for tunables based on difficulty
 
 func _ready() -> void:
 	TunableVariables.load_config()
