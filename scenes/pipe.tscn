@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://ceq6rslseh62j"]
+[gd_scene load_steps=12 format=4 uid="uid://ceq6rslseh62j"]
 
 [ext_resource type="Texture2D" uid="uid://boppv27n51ywm" path="res://assets/Flappy Bird Assets/Tiles/Style 4/PipeStyle4.png" id="1_8x3ej"]
 [ext_resource type="Script" uid="uid://dv2wx85qs8cdp" path="res://scenes/pipe.gd" id="1_arpqm"]
+[ext_resource type="AudioStream" uid="uid://ce3wn8v3t3rd4" path="res://assets/flappy-bird-assets-master/audio/hit.wav" id="2_ejsh2"]
+[ext_resource type="AudioStream" uid="uid://syonuhecjkna" path="res://assets/flappy-bird-assets-master/audio/point.wav" id="3_4ybk5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_arpqm"]
 texture = ExtResource("1_8x3ej")
@@ -74,6 +76,12 @@ size = Vector2(8, 153)
 
 [node name="Pipe" type="Area2D"]
 script = ExtResource("1_arpqm")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ejsh2")
+
+[node name="ScoreSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_4ybk5")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(0, 77.99999)

@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://qee546yqe1ne"]
+[gd_scene load_steps=5 format=3 uid="uid://qee546yqe1ne"]
 
 [ext_resource type="Texture2D" uid="uid://ks8usda6jg4v" path="res://assets/plane_pack/planes/plane_3/plane_3_green.png" id="1_3vyb7"]
+[ext_resource type="AudioStream" uid="uid://y4auib3nnycj" path="res://assets/flappy-bird-assets-master/audio/wing.wav" id="2_g2els"]
+[ext_resource type="AudioStream" uid="uid://b63bmtmmo0mcc" path="res://assets/flappy-bird-assets-master/audio/die.wav" id="3_qhqgy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
 radius = 16.0
@@ -17,3 +19,12 @@ texture = ExtResource("1_3vyb7")
 position = Vector2(83, -23)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_g2els")
+
+[node name="WingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_g2els")
+
+[node name="DieSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_qhqgy")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true

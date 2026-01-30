@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://bnrgsw5bu3p6j" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://qee546yqe1ne" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://g0xlorw6vj8g" path="res://assets/plane_pack/sky_background/example/sky_background_green_hills.png" id="1_yqjtg"]
-[ext_resource type="Script" uid="uid://d34yuumxrwwm5" path="res://scenes/player.gd" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://ceq6rslseh62j" path="res://scenes/pipe.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://dhu8p3ftdx3wo" path="res://scenes/ground.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://bemfcfq10ud1f" path="res://scenes/coin.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://btvo7t7jdda1m" path="res://scenes/refueling_station.tscn" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://tv1so81v08fi" path="res://scenes/refueling_menu.tscn" id="9_0tnpc"]
+[ext_resource type="Script" uid="uid://d34yuumxrwwm5" path="res://scripts/player.gd" id="9_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://b6sttng1yxfx7" path="res://scenes/game_stats.tscn" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://dlhmbm8et6p6h" path="res://scenes/you_died.tscn" id="11_kvpfn"]
 
@@ -31,7 +31,7 @@ texture = ExtResource("1_yqjtg")
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 z_index = 1
 position = Vector2(313, 200)
-script = ExtResource("4_lbhrr")
+script = ExtResource("9_kvpfn")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 339)

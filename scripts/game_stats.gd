@@ -15,6 +15,9 @@ var best_score: int = 0
 func _process(delta: float) -> void:
 	if score > best_score:
 		best_score = score
+		$HBoxContainer/ScoreLabel.modulate = Color("#ffca00")
+	if score < best_score:
+		$HBoxContainer/ScoreLabel.modulate = Color("#ffffff")
 	fuel_bar.value = fuel_remaining
 	best_score_label.text = str(best_score)
 	score_label.text = str(score)
