@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://ceq6rslseh62j"]
+[gd_scene format=4 uid="uid://ceq6rslseh62j"]
 
 [ext_resource type="Texture2D" uid="uid://boppv27n51ywm" path="res://assets/Flappy Bird Assets/Tiles/Style 4/PipeStyle4.png" id="1_8x3ej"]
 [ext_resource type="Script" uid="uid://dv2wx85qs8cdp" path="res://scenes/pipe.gd" id="1_arpqm"]
@@ -74,44 +74,44 @@ size = Vector2(51.5, 25.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arpqm"]
 size = Vector2(8, 153)
 
-[node name="Pipe" type="Area2D"]
+[node name="Pipe" type="Area2D" unique_id=63689516]
 script = ExtResource("1_arpqm")
 
-[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+[node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=751808864]
 stream = ExtResource("2_ejsh2")
 
-[node name="ScoreSound" type="AudioStreamPlayer2D" parent="."]
+[node name="ScoreSound" type="AudioStreamPlayer2D" parent="." unique_id=93681627]
 stream = ExtResource("3_4ybk5")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=671687624]
 position = Vector2(0, 77.99999)
 scale = Vector2(1.6, 1.6)
 tile_map_data = PackedByteArray("AAD//+//AAAGAAEAAAAAAO//AAAHAAEAAAD///D/AAAGAAEAAAAAAPD/AAAHAAEAAAD///H/AAAGAAEAAAAAAPH/AAAHAAEAAAD///L/AAAGAAEAAAAAAPL/AAAHAAEAAAD///P/AAAGAAEAAAAAAPP/AAAHAAEAAAD///T/AAAGAAEAAAAAAPT/AAAHAAEAAAD///X/AAAGAAEAAAAAAPX/AAAHAAEAAAD///b/AAAGAAEAAAAAAPb/AAAHAAEAAAD//wMAAAAGAAEAAAAAAAMAAAAHAAEAAAD//wQAAAAGAAEAAAAAAAQAAAAHAAEAAAD//wUAAAAGAAEAAAAAAAUAAAAHAAEAAAD//wYAAAAGAAEAAAAAAAYAAAAHAAEAAAD//wcAAAAGAAEAAAAAAAcAAAAHAAEAAAD//wgAAAAGAAEAAAAAAAgAAAAHAAEAAAD//wkAAAAGAAEAAAAAAAkAAAAHAAEAAAD//woAAAAGAAEAAAAAAAoAAAAHAAEAAAD//wsAAAAGAAEAAAAAAAsAAAAHAAEAAAD//wwAAAAGAAEAAAAAAAwAAAAHAAEAAAD//w0AAAAGAAEAAAAAAA0AAAAHAAEAAAD//w4AAAAGAAEAAAAAAA4AAAAHAAEAAAD//w8AAAAGAAEAAAAAAA8AAAAHAAEAAAD//xAAAAAGAAEAAAAAABAAAAAHAAEAAAD//xEAAAAGAAEAAAAAABEAAAAHAAEAAAD//+7/AAAGAAEAAAAAAO7/AAAHAAEAAAD//+3/AAAGAAEAAAAAAO3/AAAHAAEAAAD//+z/AAAGAAEAAAAAAOz/AAAHAAEAAAD//+v/AAAGAAEAAAAAAOv/AAAHAAEAAAD//+r/AAAGAAEAAAAAAOr/AAAHAAEAAAD//+n/AAAGAAEAAAAAAOn/AAAHAAEAAAD//+j/AAAGAAEAAAAAAOj/AAAHAAEAAAD//+f/AAAGAAEAAAAAAOf/AAAHAAEAAAD//+b/AAAGAAEAAAAAAOb/AAAHAAEAAAD//+X/AAAGAAEAAAAAAOX/AAAHAAEAAAD//+T/AAAGAAEAAAAAAOT/AAAHAAEAAAD//+P/AAAGAAEAAAAAAOP/AAAHAAEAAAD//+L/AAAGAAEAAAAAAOL/AAAHAAEAAAD//+H/AAAGAAEAAAAAAOH/AAAHAAEAAAD//+D/AAAGAAEAAAAAAOD/AAAHAAEAAAD//9//AAAGAAEAAAAAAN//AAAHAAEAAAD//97/AAAGAAEAAAAAAN7/AAAHAAEAAAD//93/AAAGAAEAAAAAAN3/AAAHAAEAAAD//9z/AAAGAAEAAAAAANz/AAAHAAEAAAD//9v/AAAGAAEAAAAAANv/AAAHAAEAAAD//xIAAAAGAAEAAAAAABIAAAAHAAEAAAD//xMAAAAGAAEAAAAAABMAAAAHAAEAAAD//xQAAAAGAAEAAAAAABQAAAAHAAEAAAD//xUAAAAGAAEAAAAAABUAAAAHAAEAAAD//xYAAAAGAAEAAAAAABYAAAAHAAEAAAD//xcAAAAGAAEAAAAAABcAAAAHAAEAAAD//xgAAAAGAAEAAAAAABgAAAAHAAEAAAD//xkAAAAGAAEAAAAAABkAAAAHAAEAAAD//xoAAAAGAAEAAAAAABoAAAAHAAEAAAD//xsAAAAGAAEAAAAAABsAAAAHAAEAAAD//xwAAAAGAAEAAAAAABwAAAAHAAEAAAD//x0AAAAGAAEAAAAAAB0AAAAHAAEAAAD//x4AAAAGAAEAAAAAAB4AAAAHAAEAAAD//x8AAAAGAAEAAAAAAB8AAAAHAAEAAAD//yAAAAAGAAEAAAAAACAAAAAHAAEAAAD//yIAAAAGAAEAAAAAACIAAAAHAAEAAAD//yEAAAAGAAEAAAAAACEAAAAHAAEAAAAAAPj/AAAHAAEAAAD///j/AAAGAAEAAAD//wEAAAAGAAEAAAAAAAEAAAAHAAEAAAD//wIAAAAGAAEAAAAAAAIAAAAHAAEAAAD///f/AAAGAAEAAAAAAPf/AAAHAAEAAAD//wAAAAAGAAAAAAAAAAAAAAAHAAAAAAD///n/AAAGAAIAAAAAAPn/AAAHAAIAAAA=")
 tile_set = SubResource("TileSet_8p0di")
 
-[node name="CollisionUpperEnd" type="CollisionShape2D" parent="."]
+[node name="CollisionUpperEnd" type="CollisionShape2D" parent="." unique_id=960573204]
 position = Vector2(0, -88.25)
 shape = SubResource("RectangleShape2D_ejsh2")
 debug_color = Color(0.78212124, 0.12338609, 1, 0.41960785)
 
-[node name="CollisionLower" type="CollisionShape2D" parent="."]
+[node name="CollisionLower" type="CollisionShape2D" parent="." unique_id=1197243730]
 position = Vector2(0, 538.5)
 shape = SubResource("RectangleShape2D_4ybk5")
 debug_color = Color(0.92211145, 0.08408897, 0.6515761, 0.41960785)
 
-[node name="CollisionUpper" type="CollisionShape2D" parent="."]
+[node name="CollisionUpper" type="CollisionShape2D" parent="." unique_id=1957692449]
 position = Vector2(0, -485.5)
 shape = SubResource("RectangleShape2D_8x3ej")
 debug_color = Color(0.93331736, 2.3391545e-05, 0.6472082, 0.41960785)
 
-[node name="CollisionLowerEnd" type="CollisionShape2D" parent="."]
+[node name="CollisionLowerEnd" type="CollisionShape2D" parent="." unique_id=1989246260]
 position = Vector2(0, 91)
 shape = SubResource("RectangleShape2D_tdldm")
 debug_color = Color(0.9519178, 1.540184e-06, 0.5637016, 0.41960785)
 
-[node name="SafeZone" type="Area2D" parent="."]
+[node name="SafeZone" type="Area2D" parent="." unique_id=594615460]
 
-[node name="CollisionSafeZone" type="CollisionShape2D" parent="SafeZone"]
+[node name="CollisionSafeZone" type="CollisionShape2D" parent="SafeZone" unique_id=1370808670]
 position = Vector2(30, 1.5)
 shape = SubResource("RectangleShape2D_arpqm")
 debug_color = Color(0, 0.63677144, 0.40466172, 0.41960785)

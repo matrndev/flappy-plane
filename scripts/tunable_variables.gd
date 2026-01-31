@@ -65,9 +65,13 @@ func reset_all() -> void:
 
 	save_config()
 
-func load_config() -> void:
+func load_config(path: String = "") -> void:
+	if path == "":
+		path = CONFIG_FILE_PATH
+	
 	var config_file = ConfigFile.new()
-	if config_file.load(CONFIG_FILE_PATH) == OK:
+	
+	if config_file.load(path) == OK:
 		# game
 		scroll_speed = config_file.get_value("game", "scroll_speed", scroll_speed)
 		refueling_speed = config_file.get_value("game", "refueling_speed", refueling_speed)
@@ -94,7 +98,10 @@ func load_config() -> void:
 		collisions_enabled = config_file.get_value("pipe", "collisions_enabled", collisions_enabled)
 		
 
-func save_config() -> void:
+func save_config(path: String = "") -> void:
+	if path == "":
+		path = CONFIG_FILE_PATH
+	
 	var config_file: ConfigFile = ConfigFile.new()
 	
 	# game
@@ -123,5 +130,4 @@ func save_config() -> void:
 	config_file.set_value("pipe", "collisions_enabled", collisions_enabled)
 	
 	
-	
-	config_file.save(CONFIG_FILE_PATH)
+	config_file.save(path)

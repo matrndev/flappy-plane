@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://b3nmbkfa4f8sp"]
+
+[ext_resource type="Script" uid="uid://t7gxutp8i335" path="res://scripts/cheat_code_menu.gd" id="1_i281j"]
+[ext_resource type="FontFile" uid="uid://byrn6tqmul438" path="res://fonts/Zen_Dots/ZenDots-Regular.ttf" id="2_hvw7g"]
+
+[node name="CheatCodeMenu" type="Control" unique_id=1177656868]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i281j")
+
+[node name="LineEdit" type="LineEdit" parent="." unique_id=1456459926]
+layout_mode = 1
+offset_right = 1152.0
+offset_bottom = 31.0
+theme_override_colors/font_placeholder_color = Color(0.8745098, 0, 0, 0.6)
+theme_override_fonts/font = ExtResource("2_hvw7g")
+alignment = 1
+context_menu_enabled = false
+emoji_menu_enabled = false
+
+[node name="Label" type="Label" parent="LineEdit" unique_id=291751639]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -138.0
+offset_top = -32.0
+offset_right = 138.0
+offset_bottom = -2.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("2_hvw7g")
+theme_override_font_sizes/font_size = 24
+text = "Enter Cheat Code:"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]

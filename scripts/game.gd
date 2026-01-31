@@ -8,6 +8,7 @@ signal refueling_finalized
 @export var station_scene: PackedScene
 @export var refueling_menu_scene: PackedScene
 @export var death_message_scene: PackedScene
+@export var cheat_code_menu_scene: PackedScene
 var pipes: Array
 var coins: Array
 var stations: Array
@@ -32,8 +33,11 @@ var hold: bool = false
 # DONE: - you died screen
 # DONE: - refueling stations
 # DONE: - tunables tabs
-# - tunables finish (bug: rounding error)
-# - change plane skin
+# DONE: - tunables finish (bug: rounding error)
+# DONE: - cheat codes
+# - more tunables (e.g. more granular fuel consumption)
+# DONE: - saving/loading custom tunables settings
+# **: - change plane skin
 # - enemy torpedoes
 # - saving hs and coins into another singleton
 # - ally airplanes?
@@ -59,14 +63,21 @@ func _process(delta: float) -> void:
 		##scroll_speed = 3
 		#pass
 
+	if Input.is_action_just_pressed("keyboard_w"):
+		$CheatCodeMenu.show()
+		hold = true
+	
 	if $Player.dead:
 		show_death_message(true)
 	
 	# hold in air when starting new game
 	if hold:
+		$GamePausedLabel.show()
 		if Input.is_action_just_pressed("keyboard_space"):
 			hold = false
 		return
+	else:
+		$GamePausedLabel.hide()
 	
 	if $Player.ready_to_start == true or $Player.dead == true and $Player.is_on_floor() == true:
 		return
@@ -115,12 +126,16 @@ func _process(delta: float) -> void:
 
 
 func _on_pipe_timer_timeout() -> void:
+	if hold:
+		return
 	generate_pipe()
 	# spawn station
 	if $Player.fuel_remaining < generate_station_on_fuel_level:
 		generate_station()
 
 func _on_coin_timer_timeout() -> void:
+	if hold:
+		return
 	if randf() < 0.67:
 		generate_coin()
 

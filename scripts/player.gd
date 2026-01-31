@@ -61,8 +61,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("keyboard_d") and not dead: # debug: die
 		fuel_remaining = 0
 	
-	if Input.is_action_just_pressed("keyboard_w") and not dead: # debug: extra fuel
-		fuel_remaining += 500
+	#if Input.is_action_just_pressed("keyboard_w") and not dead: # debug: extra fuel
+		#fuel_remaining += 500
 	
 	if Input.is_action_just_pressed("keyboard_space") and not dead and not ready_to_start:
 		velocity.y = jump_velocity

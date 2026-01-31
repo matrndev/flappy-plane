@@ -1,22 +1,25 @@
 extends Control
 
 func _on_back_button_pressed() -> void:
-	# save
-	for slider in get_tree().get_nodes_in_group("sliders"):
-		if not slider.is_visible_in_tree():
-			continue
-		var key := name_to_key(slider.name)
-		TunableVariables.set(key, slider.value)
-	
-	for check_box in get_tree().get_nodes_in_group("check_boxes"):
-		if not check_box.is_visible_in_tree():
-			continue
-		var key := name_to_key(check_box.name)
-		TunableVariables.set(key, check_box.button_pressed)
+	save_vars()
 	
 	TunableVariables.save_config()
 	
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+func save_vars() -> void:
+	# save
+	for slider in get_tree().get_nodes_in_group("sliders"):
+		#if not slider.is_visible_in_tree():
+			#continue
+		var key := name_to_key(slider.name)
+		TunableVariables.set(key, slider.value)
+	
+	for check_box in get_tree().get_nodes_in_group("check_boxes"):
+		#if not check_box.is_visible_in_tree():
+			#continue
+		var key := name_to_key(check_box.name)
+		TunableVariables.set(key, check_box.button_pressed)
 
 func _on_reset_button_pressed() -> void:
 	$ResetDialog.show()
@@ -93,3 +96,21 @@ func _on_tab_bar_tab_changed(tab: int) -> void:
 		2:
 			$Panel/Panel/PipeConfigContainer.show()
 	
+
+
+func _on_file_dialog_file_selected(path: String) -> void:
+	save_vars()
+	TunableVariables.save_config(path)
+
+
+func _on_save_button_pressed() -> void:
+	$FileSaveDialog.show()
+
+
+func _on_load_button_pressed() -> void:
+	$FileLoadDialog.show()
+
+
+func _on_file_load_dialog_file_selected(path: String) -> void:
+	TunableVariables.load_config(path)
+	load_from_config()
