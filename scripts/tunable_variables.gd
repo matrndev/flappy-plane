@@ -35,6 +35,7 @@ func _ready() -> void:
 	save_config()
 
 func reset_all() -> void:
+	print("reset all")
 	# default base assignments
 	
 	# game
@@ -94,7 +95,8 @@ func load_config() -> void:
 		
 
 func save_config() -> void:
-	var config_file = ConfigFile.new()
+	var config_file: ConfigFile = ConfigFile.new()
+	
 	# game
 	config_file.set_value("game", "scroll_speed", scroll_speed)
 	config_file.set_value("game", "refueling_speed", refueling_speed)

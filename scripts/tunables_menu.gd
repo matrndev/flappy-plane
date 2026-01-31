@@ -3,21 +3,34 @@ extends Control
 func _on_back_button_pressed() -> void:
 	# save
 	for slider in get_tree().get_nodes_in_group("sliders"):
+		if not slider.is_visible_in_tree():
+			continue
 		var key := name_to_key(slider.name)
-		TunableVariables.set(key, float(slider.value))
+		TunableVariables.set(key, slider.value)
 	
 	for check_box in get_tree().get_nodes_in_group("check_boxes"):
+		if not check_box.is_visible_in_tree():
+			continue
 		var key := name_to_key(check_box.name)
 		TunableVariables.set(key, check_box.button_pressed)
 	
 	TunableVariables.save_config()
+	
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func _on_reset_button_pressed() -> void:
+	$ResetDialog.show()
+
+func _on_reset_dialog_confirmed() -> void:
+	$ResetDialog.hide()
 	TunableVariables.reset_all()
 	load_from_config()
 
 func _on_local_reset_button_pressed() -> void:
+	$LocalResetDialog.show()
+
+func _on_local_reset_dialog_confirmed() -> void:
+	$LocalResetDialog.hide()
 	load_from_config()
 
 func _ready() -> void:
@@ -53,7 +66,6 @@ func load_from_config() -> void:
 	
 	for check_box in get_tree().get_nodes_in_group("check_boxes"):
 		var key: String = name_to_key(check_box.name)
-		print(TunableVariables.get(key))
 		check_box.button_pressed = TunableVariables.get(key)
 		_on_any_check_box_toggled(check_box.button_pressed, check_box)
 
@@ -68,3 +80,16 @@ func name_to_key(node_name: String) -> String:
 			out += "_"
 		out += c.to_lower()
 	return out
+
+
+func _on_tab_bar_tab_changed(tab: int) -> void:
+	for container in get_tree().get_nodes_in_group("containers"):
+		container.hide()
+	match tab:
+		0:
+			$Panel/Panel/GameConfigContainer.show()
+		1:
+			$Panel/Panel/PlayerConfigContainer.show()
+		2:
+			$Panel/Panel/PipeConfigContainer.show()
+	

@@ -31,10 +31,12 @@ var hold: bool = false
 # - tutorial
 # DONE: - you died screen
 # DONE: - refueling stations
-# - tunables tabs
-# - enemy torpedoes
-# - ally airplanes?
+# DONE: - tunables tabs
+# - tunables finish (bug: rounding error)
 # - change plane skin
+# - enemy torpedoes
+# - saving hs and coins into another singleton
+# - ally airplanes?
 # - presets for tunables based on difficulty
 
 func _ready() -> void:

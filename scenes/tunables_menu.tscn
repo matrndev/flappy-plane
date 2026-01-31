@@ -16,33 +16,47 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="BackButton" type="Button" parent="Panel"]
+[node name="Panel" type="Panel" parent="Panel"]
 layout_mode = 1
-offset_left = 16.0
-offset_top = 8.0
-offset_right = 64.0
-offset_bottom = 39.0
-text = "Back"
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -497.85938
+offset_top = -305.5
+offset_right = 497.85938
+offset_bottom = 241.5
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="GameConfigContainer" type="VBoxContainer" parent="Panel"]
+[node name="TabBar" type="TabBar" parent="Panel/Panel"]
 layout_mode = 1
-offset_left = 39.0
-offset_top = 51.0
-offset_right = 259.0
-offset_bottom = 602.0
+offset_left = 32.0
+offset_top = 16.0
+offset_right = 1020.0
+offset_bottom = 52.0
+current_tab = 0
+tab_count = 3
+tab_0/title = "Game"
+tab_1/title = "Player"
+tab_2/title = "Pipe"
+
+[node name="GameConfigContainer" type="VBoxContainer" parent="Panel/Panel" groups=["containers"]]
+visible = false
+layout_mode = 1
+offset_left = 28.0
+offset_top = 88.0
+offset_right = 248.0
+offset_bottom = 578.0
 theme_override_constants/separation = 39
 
-[node name="Label" type="Label" parent="Panel/GameConfigContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Game"
-
-[node name="ScrollSpeedSlider" type="HSlider" parent="Panel/GameConfigContainer" groups=["sliders"]]
+[node name="ScrollSpeedSlider" type="HSlider" parent="Panel/Panel/GameConfigContainer" groups=["sliders"]]
 layout_mode = 2
 max_value = 10.0
 step = 0.5
 
-[node name="ValueLineEdit" type="LineEdit" parent="Panel/GameConfigContainer/ScrollSpeedSlider" groups=["line_edits"]]
+[node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/GameConfigContainer/ScrollSpeedSlider" groups=["line_edits"]]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -59,19 +73,19 @@ text = "100"
 context_menu_enabled = false
 emoji_menu_enabled = false
 
-[node name="DescLabel" type="Label" parent="Panel/GameConfigContainer/ScrollSpeedSlider"]
+[node name="DescLabel" type="Label" parent="Panel/Panel/GameConfigContainer/ScrollSpeedSlider"]
 layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
 text = "Scrolling Speed"
 
-[node name="GenerateStationOnFuelLevelSlider" type="HSlider" parent="Panel/GameConfigContainer" groups=["sliders"]]
+[node name="GenerateStationOnFuelLevelSlider" type="HSlider" parent="Panel/Panel/GameConfigContainer" groups=["sliders"]]
 layout_mode = 2
 step = 5.0
 rounded = true
 
-[node name="ValueLineEdit" type="LineEdit" parent="Panel/GameConfigContainer/GenerateStationOnFuelLevelSlider" groups=["line_edits"]]
+[node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/GameConfigContainer/GenerateStationOnFuelLevelSlider" groups=["line_edits"]]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -86,20 +100,20 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "100"
 
-[node name="DescLabel" type="Label" parent="Panel/GameConfigContainer/GenerateStationOnFuelLevelSlider"]
+[node name="DescLabel" type="Label" parent="Panel/Panel/GameConfigContainer/GenerateStationOnFuelLevelSlider"]
 layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
 text = "Generate Refueling Station At"
 
-[node name="TrailLengthSlider" type="HSlider" parent="Panel/GameConfigContainer" groups=["sliders"]]
+[node name="TrailLengthSlider" type="HSlider" parent="Panel/Panel/GameConfigContainer" groups=["sliders"]]
 layout_mode = 2
 max_value = 500.0
 step = 10.0
 rounded = true
 
-[node name="ValueLineEdit" type="LineEdit" parent="Panel/GameConfigContainer/TrailLengthSlider" groups=["line_edits"]]
+[node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/GameConfigContainer/TrailLengthSlider" groups=["line_edits"]]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -114,20 +128,20 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "100"
 
-[node name="DescLabel" type="Label" parent="Panel/GameConfigContainer/TrailLengthSlider"]
+[node name="DescLabel" type="Label" parent="Panel/Panel/GameConfigContainer/TrailLengthSlider"]
 layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
 text = "Max Trail Length"
 
-[node name="PipeVariabilitySlider" type="HSlider" parent="Panel/GameConfigContainer" groups=["sliders"]]
+[node name="PipeVariabilitySlider" type="HSlider" parent="Panel/Panel/GameConfigContainer" groups=["sliders"]]
 layout_mode = 2
 max_value = 300.0
 step = 5.0
 rounded = true
 
-[node name="ValueLineEdit" type="LineEdit" parent="Panel/GameConfigContainer/PipeVariabilitySlider" groups=["line_edits"]]
+[node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/GameConfigContainer/PipeVariabilitySlider" groups=["line_edits"]]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -142,19 +156,19 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "100"
 
-[node name="DescLabel" type="Label" parent="Panel/GameConfigContainer/PipeVariabilitySlider"]
+[node name="DescLabel" type="Label" parent="Panel/Panel/GameConfigContainer/PipeVariabilitySlider"]
 layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
 text = "Pipe Variability"
 
-[node name="PipeSpawnRateSlider" type="HSlider" parent="Panel/GameConfigContainer" groups=["sliders"]]
+[node name="PipeSpawnRateSlider" type="HSlider" parent="Panel/Panel/GameConfigContainer" groups=["sliders"]]
 layout_mode = 2
 max_value = 10.0
 step = 0.1
 
-[node name="ValueLineEdit" type="LineEdit" parent="Panel/GameConfigContainer/PipeSpawnRateSlider" groups=["line_edits"]]
+[node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/GameConfigContainer/PipeSpawnRateSlider" groups=["line_edits"]]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -169,19 +183,19 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "100"
 
-[node name="DescLabel" type="Label" parent="Panel/GameConfigContainer/PipeSpawnRateSlider"]
+[node name="DescLabel" type="Label" parent="Panel/Panel/GameConfigContainer/PipeSpawnRateSlider"]
 layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
 text = "Pipe Spawn Rate"
 
-[node name="CoinSpawnRateSlider" type="HSlider" parent="Panel/GameConfigContainer" groups=["sliders"]]
+[node name="CoinSpawnRateSlider" type="HSlider" parent="Panel/Panel/GameConfigContainer" groups=["sliders"]]
 layout_mode = 2
 max_value = 10.0
 step = 0.1
 
-[node name="ValueLineEdit" type="LineEdit" parent="Panel/GameConfigContainer/CoinSpawnRateSlider" groups=["line_edits"]]
+[node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/GameConfigContainer/CoinSpawnRateSlider" groups=["line_edits"]]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -196,34 +210,29 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "100"
 
-[node name="DescLabel" type="Label" parent="Panel/GameConfigContainer/CoinSpawnRateSlider"]
+[node name="DescLabel" type="Label" parent="Panel/Panel/GameConfigContainer/CoinSpawnRateSlider"]
 layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
 text = "Coin Spawn Rate"
 
-[node name="PlayerConfigContainer" type="VBoxContainer" parent="Panel"]
+[node name="PlayerConfigContainer" type="VBoxContainer" parent="Panel/Panel" groups=["containers"]]
 layout_mode = 1
-offset_left = 359.0
-offset_top = 51.0
-offset_right = 579.0
-offset_bottom = 602.0
+offset_left = 28.0
+offset_top = 88.0
+offset_right = 248.0
+offset_bottom = 639.0
 theme_override_constants/separation = 39
 
-[node name="Label" type="Label" parent="Panel/PlayerConfigContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Player"
-
-[node name="JumpVelocitySlider" type="HSlider" parent="Panel/PlayerConfigContainer" groups=["sliders"]]
+[node name="JumpVelocitySlider" type="HSlider" parent="Panel/Panel/PlayerConfigContainer" groups=["sliders"]]
 layout_mode = 2
 min_value = -1000.0
 max_value = 0.0
 step = 50.0
 rounded = true
 
-[node name="ValueLineEdit" type="LineEdit" parent="Panel/PlayerConfigContainer/JumpVelocitySlider" groups=["line_edits"]]
+[node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/PlayerConfigContainer/JumpVelocitySlider" groups=["line_edits"]]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -238,20 +247,20 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "100"
 
-[node name="DescLabel" type="Label" parent="Panel/PlayerConfigContainer/JumpVelocitySlider"]
+[node name="DescLabel" type="Label" parent="Panel/Panel/PlayerConfigContainer/JumpVelocitySlider"]
 layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
 text = "Jump Height"
 
-[node name="MaxJumpVelocitySlider" type="HSlider" parent="Panel/PlayerConfigContainer" groups=["sliders"]]
+[node name="MaxJumpVelocitySlider" type="HSlider" parent="Panel/Panel/PlayerConfigContainer" groups=["sliders"]]
 layout_mode = 2
 max_value = 1000.0
 step = 50.0
 rounded = true
 
-[node name="ValueLineEdit" type="LineEdit" parent="Panel/PlayerConfigContainer/MaxJumpVelocitySlider" groups=["line_edits"]]
+[node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/PlayerConfigContainer/MaxJumpVelocitySlider" groups=["line_edits"]]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -266,20 +275,20 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "100"
 
-[node name="DescLabel" type="Label" parent="Panel/PlayerConfigContainer/MaxJumpVelocitySlider"]
+[node name="DescLabel" type="Label" parent="Panel/Panel/PlayerConfigContainer/MaxJumpVelocitySlider"]
 layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
 text = "Terminal Falling Velocity"
 
-[node name="GravitySlider" type="HSlider" parent="Panel/PlayerConfigContainer" groups=["sliders"]]
+[node name="GravitySlider" type="HSlider" parent="Panel/Panel/PlayerConfigContainer" groups=["sliders"]]
 layout_mode = 2
 max_value = 5000.0
 step = 100.0
 rounded = true
 
-[node name="ValueLineEdit" type="LineEdit" parent="Panel/PlayerConfigContainer/GravitySlider" groups=["line_edits"]]
+[node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/PlayerConfigContainer/GravitySlider" groups=["line_edits"]]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -294,18 +303,19 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "100"
 
-[node name="DescLabel" type="Label" parent="Panel/PlayerConfigContainer/GravitySlider"]
+[node name="DescLabel" type="Label" parent="Panel/Panel/PlayerConfigContainer/GravitySlider"]
 layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
 text = "Gravity"
 
-[node name="TrailDensitySlider" type="HSlider" parent="Panel/PlayerConfigContainer" groups=["sliders"]]
+[node name="FuelConsumptionSlider" type="HSlider" parent="Panel/Panel/PlayerConfigContainer" groups=["sliders"]]
 layout_mode = 2
-rounded = true
+max_value = 1.0
+step = 0.001
 
-[node name="ValueLineEdit" type="LineEdit" parent="Panel/PlayerConfigContainer/TrailDensitySlider" groups=["line_edits"]]
+[node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/PlayerConfigContainer/FuelConsumptionSlider" groups=["line_edits"]]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -320,85 +330,409 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "100"
 
-[node name="DescLabel" type="Label" parent="Panel/PlayerConfigContainer/TrailDensitySlider"]
-layout_mode = 0
-offset_top = -26.0
-offset_right = 95.0
-offset_bottom = -3.0
-text = "Trail Point Density"
-
-[node name="FuelConsumptionSlider" type="HSlider" parent="Panel/PlayerConfigContainer" groups=["sliders"]]
-layout_mode = 2
-max_value = 10.0
-step = 0.05
-
-[node name="ValueLineEdit" type="LineEdit" parent="Panel/PlayerConfigContainer/FuelConsumptionSlider" groups=["line_edits"]]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 5.4375
-offset_top = -18.5
-offset_right = 74.0
-offset_bottom = 18.0
-grow_horizontal = 0
-grow_vertical = 2
-text = "100"
-
-[node name="DescLabel" type="Label" parent="Panel/PlayerConfigContainer/FuelConsumptionSlider"]
+[node name="DescLabel" type="Label" parent="Panel/Panel/PlayerConfigContainer/FuelConsumptionSlider"]
 layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
 text = "Base Fuel Consumption"
 
-[node name="PipeConfigContainer" type="VBoxContainer" parent="Panel"]
+[node name="PipeConfigContainer" type="VBoxContainer" parent="Panel/Panel" groups=["containers"]]
+visible = false
 layout_mode = 1
-offset_left = 679.0
-offset_top = 51.0
-offset_right = 899.0
-offset_bottom = 602.0
+offset_left = 28.0
+offset_top = 88.0
+offset_right = 248.0
+offset_bottom = 639.0
 theme_override_constants/separation = 39
 
-[node name="Label" type="Label" parent="Panel/PipeConfigContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Pipe"
-
-[node name="CollisionsEnabledCheckBox" type="CheckBox" parent="Panel/PipeConfigContainer" groups=["check_boxes"]]
+[node name="CollisionsEnabledCheckBox" type="CheckBox" parent="Panel/Panel/PipeConfigContainer" groups=["check_boxes"]]
 layout_mode = 2
 text = "Enable Collisions"
 
-[node name="ResetButton" type="Button" parent="Panel"]
-layout_mode = 0
-offset_left = 43.0
-offset_top = 560.0
-offset_right = 129.0
-offset_bottom = 607.0
-text = "reset to defaults"
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -316.5
+offset_top = 260.0
+offset_right = 316.5
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 59
 
-[node name="LocalResetButton" type="Button" parent="Panel"]
-layout_mode = 0
-offset_left = 187.0
-offset_top = 560.0
-offset_right = 322.0
-offset_bottom = 607.0
-text = "reset"
+[node name="BackButton" type="Button" parent="Panel/HBoxContainer"]
+layout_mode = 2
+text = "Save & Return"
 
-[node name="TabBar" type="TabBar" parent="Panel"]
+[node name="ResetButton" type="Button" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reset to Game Defaults"
+
+[node name="LocalResetButton" type="Button" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reset to Previous Options"
+
+[node name="TemporaryTest-TabContainer" type="TabContainer" parent="."]
+visible = false
 layout_mode = 0
-offset_left = 113.0
-offset_top = 26.0
-offset_right = 864.0
-offset_bottom = 62.0
+offset_left = 95.0
+offset_top = 46.0
+offset_right = 988.0
+offset_bottom = 451.0
+theme_override_constants/side_margin = 323
 current_tab = 0
-tab_count = 3
-tab_0/title = "Game"
-tab_1/title = "Player"
-tab_2/title = "Pipe"
 
-[connection signal="pressed" from="Panel/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="Panel/ResetButton" to="." method="_on_reset_button_pressed"]
-[connection signal="pressed" from="Panel/LocalResetButton" to="." method="_on_local_reset_button_pressed"]
+[node name="GameConfigContainer" type="VBoxContainer" parent="TemporaryTest-TabContainer" groups=["containers"]]
+layout_mode = 2
+theme_override_constants/separation = 39
+metadata/_tab_index = 0
+
+[node name="ScrollSpeedSlider" type="HSlider" parent="TemporaryTest-TabContainer/GameConfigContainer" groups=["sliders"]]
+layout_mode = 2
+max_value = 10.0
+step = 0.5
+
+[node name="ValueLineEdit" type="LineEdit" parent="TemporaryTest-TabContainer/GameConfigContainer/ScrollSpeedSlider" groups=["line_edits"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.4375
+offset_top = -18.5
+offset_right = 74.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+context_menu_enabled = false
+emoji_menu_enabled = false
+
+[node name="DescLabel" type="Label" parent="TemporaryTest-TabContainer/GameConfigContainer/ScrollSpeedSlider"]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = -3.0
+text = "Scrolling Speed"
+
+[node name="GenerateStationOnFuelLevelSlider" type="HSlider" parent="TemporaryTest-TabContainer/GameConfigContainer" groups=["sliders"]]
+layout_mode = 2
+step = 5.0
+rounded = true
+
+[node name="ValueLineEdit" type="LineEdit" parent="TemporaryTest-TabContainer/GameConfigContainer/GenerateStationOnFuelLevelSlider" groups=["line_edits"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.4375
+offset_top = -18.5
+offset_right = 74.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="DescLabel" type="Label" parent="TemporaryTest-TabContainer/GameConfigContainer/GenerateStationOnFuelLevelSlider"]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = -3.0
+text = "Generate Refueling Station At"
+
+[node name="TrailLengthSlider" type="HSlider" parent="TemporaryTest-TabContainer/GameConfigContainer" groups=["sliders"]]
+layout_mode = 2
+max_value = 500.0
+step = 10.0
+rounded = true
+
+[node name="ValueLineEdit" type="LineEdit" parent="TemporaryTest-TabContainer/GameConfigContainer/TrailLengthSlider" groups=["line_edits"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.4375
+offset_top = -18.5
+offset_right = 74.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="DescLabel" type="Label" parent="TemporaryTest-TabContainer/GameConfigContainer/TrailLengthSlider"]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = -3.0
+text = "Max Trail Length"
+
+[node name="PipeVariabilitySlider" type="HSlider" parent="TemporaryTest-TabContainer/GameConfigContainer" groups=["sliders"]]
+layout_mode = 2
+max_value = 300.0
+step = 5.0
+rounded = true
+
+[node name="ValueLineEdit" type="LineEdit" parent="TemporaryTest-TabContainer/GameConfigContainer/PipeVariabilitySlider" groups=["line_edits"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.4375
+offset_top = -18.5
+offset_right = 74.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="DescLabel" type="Label" parent="TemporaryTest-TabContainer/GameConfigContainer/PipeVariabilitySlider"]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = -3.0
+text = "Pipe Variability"
+
+[node name="PipeSpawnRateSlider" type="HSlider" parent="TemporaryTest-TabContainer/GameConfigContainer" groups=["sliders"]]
+layout_mode = 2
+max_value = 10.0
+step = 0.1
+
+[node name="ValueLineEdit" type="LineEdit" parent="TemporaryTest-TabContainer/GameConfigContainer/PipeSpawnRateSlider" groups=["line_edits"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.4375
+offset_top = -18.5
+offset_right = 74.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="DescLabel" type="Label" parent="TemporaryTest-TabContainer/GameConfigContainer/PipeSpawnRateSlider"]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = -3.0
+text = "Pipe Spawn Rate"
+
+[node name="CoinSpawnRateSlider" type="HSlider" parent="TemporaryTest-TabContainer/GameConfigContainer" groups=["sliders"]]
+layout_mode = 2
+max_value = 10.0
+step = 0.1
+
+[node name="ValueLineEdit" type="LineEdit" parent="TemporaryTest-TabContainer/GameConfigContainer/CoinSpawnRateSlider" groups=["line_edits"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.4375
+offset_top = -18.5
+offset_right = 74.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="DescLabel" type="Label" parent="TemporaryTest-TabContainer/GameConfigContainer/CoinSpawnRateSlider"]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = -3.0
+text = "Coin Spawn Rate"
+
+[node name="PlayerConfigContainer" type="VBoxContainer" parent="TemporaryTest-TabContainer" groups=["containers"]]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 39
+metadata/_tab_index = 1
+
+[node name="JumpVelocitySlider" type="HSlider" parent="TemporaryTest-TabContainer/PlayerConfigContainer" groups=["sliders"]]
+layout_mode = 2
+min_value = -1000.0
+max_value = 0.0
+step = 50.0
+rounded = true
+
+[node name="ValueLineEdit" type="LineEdit" parent="TemporaryTest-TabContainer/PlayerConfigContainer/JumpVelocitySlider" groups=["line_edits"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.4375
+offset_top = -18.5
+offset_right = 74.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="DescLabel" type="Label" parent="TemporaryTest-TabContainer/PlayerConfigContainer/JumpVelocitySlider"]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = -3.0
+text = "Jump Height"
+
+[node name="MaxJumpVelocitySlider" type="HSlider" parent="TemporaryTest-TabContainer/PlayerConfigContainer" groups=["sliders"]]
+layout_mode = 2
+max_value = 1000.0
+step = 50.0
+rounded = true
+
+[node name="ValueLineEdit" type="LineEdit" parent="TemporaryTest-TabContainer/PlayerConfigContainer/MaxJumpVelocitySlider" groups=["line_edits"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.4375
+offset_top = -18.5
+offset_right = 74.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="DescLabel" type="Label" parent="TemporaryTest-TabContainer/PlayerConfigContainer/MaxJumpVelocitySlider"]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = -3.0
+text = "Terminal Falling Velocity"
+
+[node name="GravitySlider" type="HSlider" parent="TemporaryTest-TabContainer/PlayerConfigContainer" groups=["sliders"]]
+layout_mode = 2
+max_value = 5000.0
+step = 100.0
+rounded = true
+
+[node name="ValueLineEdit" type="LineEdit" parent="TemporaryTest-TabContainer/PlayerConfigContainer/GravitySlider" groups=["line_edits"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.4375
+offset_top = -18.5
+offset_right = 74.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="DescLabel" type="Label" parent="TemporaryTest-TabContainer/PlayerConfigContainer/GravitySlider"]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = -3.0
+text = "Gravity"
+
+[node name="TrailDensitySlider" type="HSlider" parent="TemporaryTest-TabContainer/PlayerConfigContainer" groups=["sliders"]]
+layout_mode = 2
+rounded = true
+
+[node name="ValueLineEdit" type="LineEdit" parent="TemporaryTest-TabContainer/PlayerConfigContainer/TrailDensitySlider" groups=["line_edits"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.4375
+offset_top = -18.5
+offset_right = 74.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="DescLabel" type="Label" parent="TemporaryTest-TabContainer/PlayerConfigContainer/TrailDensitySlider"]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = -3.0
+text = "Trail Point Density"
+
+[node name="FuelConsumptionSlider" type="HSlider" parent="TemporaryTest-TabContainer/PlayerConfigContainer" groups=["sliders"]]
+layout_mode = 2
+max_value = 10.0
+step = 0.05
+
+[node name="ValueLineEdit" type="LineEdit" parent="TemporaryTest-TabContainer/PlayerConfigContainer/FuelConsumptionSlider" groups=["line_edits"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.4375
+offset_top = -18.5
+offset_right = 74.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="DescLabel" type="Label" parent="TemporaryTest-TabContainer/PlayerConfigContainer/FuelConsumptionSlider"]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = -3.0
+text = "Base Fuel Consumption"
+
+[node name="PipeConfigContainer" type="VBoxContainer" parent="TemporaryTest-TabContainer" groups=["containers"]]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 39
+metadata/_tab_index = 2
+
+[node name="CollisionsEnabledCheckBox" type="CheckBox" parent="TemporaryTest-TabContainer/PipeConfigContainer" groups=["check_boxes"]]
+layout_mode = 2
+text = "Enable Collisions"
+
+[node name="ResetDialog" type="ConfirmationDialog" parent="."]
+oversampling_override = 1.0
+title = "Are you sure?"
+initial_position = 2
+size = Vector2i(339, 106)
+dialog_text = "Reset to Game Defaults?
+All your modifications will be overwritten."
+
+[node name="LocalResetDialog" type="ConfirmationDialog" parent="."]
+oversampling_override = 1.0
+title = "Are you sure?"
+initial_position = 1
+size = Vector2i(339, 106)
+dialog_text = "Reset to Previous Options?
+All your modifications will be overwritten."
+
+[connection signal="tab_changed" from="Panel/Panel/TabBar" to="." method="_on_tab_bar_tab_changed"]
+[connection signal="pressed" from="Panel/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/LocalResetButton" to="." method="_on_local_reset_button_pressed"]
+[connection signal="confirmed" from="ResetDialog" to="." method="_on_reset_dialog_confirmed"]
+[connection signal="confirmed" from="LocalResetDialog" to="." method="_on_local_reset_dialog_confirmed"]

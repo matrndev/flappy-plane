@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dlhmbm8et6p6h"]
+[gd_scene load_steps=8 format=3 uid="uid://dlhmbm8et6p6h"]
 
 [ext_resource type="FontFile" uid="uid://byrn6tqmul438" path="res://fonts/Zen_Dots/ZenDots-Regular.ttf" id="1_0hmh4"]
 [ext_resource type="Script" uid="uid://bqaiogudlkm6c" path="res://scripts/you_died.gd" id="1_k4bmk"]
@@ -34,14 +34,6 @@ expand_margin_bottom = 10.0
 shadow_size = 7
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cl810"]
-
-[sub_resource type="InputEventKey" id="InputEventKey_k4bmk"]
-device = -1
-keycode = 32
-unicode = 32
-
-[sub_resource type="Shortcut" id="Shortcut_cl810"]
-events = [SubResource("InputEventKey_k4bmk")]
 
 [node name="YouDied" type="Control"]
 layout_mode = 3
@@ -104,7 +96,6 @@ theme_override_styles/normal = ExtResource("2_qk8dk")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_k4bmk")
 theme_override_styles/hover = SubResource("StyleBoxFlat_qk8dk")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cl810")
-shortcut = SubResource("Shortcut_cl810")
 text = "Play Again"
 
 [node name="YouDiedLabel" type="Label" parent="Control"]
