@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bu5whi6c50je7"]
+
+[ext_resource type="Script" uid="uid://wxreyo2c0syp" path="res://scripts/credits_menu.gd" id="1_27l6r"]
+
+[node name="CreditsMenu" type="Control" unique_id=1907394227]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_27l6r")
+
+[node name="Panel" type="Panel" parent="." unique_id=216688349]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="BackButton" type="Button" parent="." unique_id=179790286]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -31.0
+offset_top = -47.0
+offset_right = 31.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Return"
+
+[node name="AssetsPanel" type="Panel" parent="." unique_id=1547965935]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 32.0
+offset_right = 404.0
+offset_bottom = 336.0
+
+[node name="Label" type="Label" parent="AssetsPanel" unique_id=44541893]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.5
+offset_top = 8.0
+offset_right = 43.5
+offset_bottom = 47.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "Assets"
+
+[node name="LicenseButton1" type="Button" parent="AssetsPanel" unique_id=412640712]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 61.0
+offset_right = 128.0
+offset_bottom = 92.0
+text = "Show license"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="AssetsPanel/LicenseButton1" to="." method="_on_license_button_1_pressed"]

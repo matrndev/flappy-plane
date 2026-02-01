@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhg8xxkoha6hy"]
+[gd_scene format=3 uid="uid://bhg8xxkoha6hy"]
 
 [ext_resource type="Script" uid="uid://dxkk2h2t6tq6h" path="res://scripts/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="FontFile" uid="uid://byrn6tqmul438" path="res://fonts/Zen_Dots/ZenDots-Regular.ttf" id="1_l6cm7"]
@@ -32,7 +32,7 @@ shadow_size = 7
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oa1go"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=829053334]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,12 +41,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bqqt6")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=592724080]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="Panel" unique_id=985635854]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -60,7 +60,7 @@ theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 86
 text = "Flappy Plane"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=826009681]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -75,7 +75,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 40
 
-[node name="PlayButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="Panel/VBoxContainer" unique_id=1614134560]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -89,7 +89,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_oa1go")
 text = "Play"
 
-[node name="TunablesButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="TunablesButton" type="Button" parent="Panel/VBoxContainer" unique_id=599319513]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -103,7 +103,21 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_oa1go")
 text = "Tunables"
 
-[node name="CreditsButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="SkinButton" type="Button" parent="Panel/VBoxContainer" unique_id=760722891]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = ExtResource("3_wu84c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_oa1go")
+text = "Customize Look"
+
+[node name="CreditsButton" type="Button" parent="Panel/VBoxContainer" unique_id=1298757254]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -119,3 +133,5 @@ text = "Credits"
 
 [connection signal="pressed" from="Panel/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/TunablesButton" to="." method="_on_tunables_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/SkinButton" to="." method="_on_skin_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
