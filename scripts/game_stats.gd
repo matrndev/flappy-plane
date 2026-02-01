@@ -11,10 +11,13 @@ var best_score: int = 0
 @onready var coin_label: Label = $HBoxContainer2/CoinLabel
 @onready var best_score_label: Label = $HBoxContainer3/BestScoreLabel
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _ready() -> void:
+	best_score = SavedStats.best_score
+
 func _process(delta: float) -> void:
 	if score > best_score:
 		best_score = score
+		SavedStats.best_score = best_score
 		$HBoxContainer/ScoreLabel.modulate = Color("#ffca00")
 	if score < best_score:
 		$HBoxContainer/ScoreLabel.modulate = Color("#ffffff")
