@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bemfcfq10ud1f"]
+[gd_scene format=3 uid="uid://bemfcfq10ud1f"]
 
 [ext_resource type="Script" uid="uid://bbpacdf1w6rio" path="res://scenes/coin.gd" id="1_cpdtj"]
 [ext_resource type="Texture2D" uid="uid://dl3ihg8r03wwu" path="res://assets/plane_pack/flying_coins/keyframes/__gold_coin_fly_no_up_down_movement_000.png" id="1_pgtcm"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://b1kbesk00vu1b" path="res://assets/plane_pack/flying_coins/keyframes/__gold_coin_fly_up_down_movement_012.png" id="28_tiwyu"]
 [ext_resource type="Texture2D" uid="uid://cgnl6m287hfed" path="res://assets/plane_pack/flying_coins/keyframes/__gold_coin_fly_up_down_movement_013.png" id="29_uq0wu"]
 [ext_resource type="Texture2D" uid="uid://uafxtub0jk38" path="res://assets/plane_pack/flying_coins/keyframes/__gold_coin_fly_up_down_movement_014.png" id="30_ex1rj"]
+[ext_resource type="AudioStream" uid="uid://dvvgy7i0kot0f" path="res://assets/audio/cash.mp3" id="32_hiw6k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bgluh"]
 animations = [{
@@ -133,17 +134,20 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_70ip2"]
 radius = 23.0
 
-[node name="Coin" type="Area2D"]
+[node name="Coin" type="Area2D" unique_id=360976738]
 script = ExtResource("1_cpdtj")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1075636720]
 position = Vector2(1, 6.0000114)
 scale = Vector2(0.46456695, 0.46456692)
 sprite_frames = SubResource("SpriteFrames_bgluh")
 frame = 22
 frame_progress = 0.57246625
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=489897043]
 shape = SubResource("CircleShape2D_70ip2")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1130625108]
+stream = ExtResource("32_hiw6k")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
