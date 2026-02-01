@@ -63,7 +63,6 @@ position = Vector2(-21, 10)
 [node name="PlaneTrail" type="Line2D" parent="." unique_id=1698368031]
 z_index = 1
 width = 4.0
-default_color = Color(0.4375504, 0.5923193, 0.895719, 1)
 antialiased = true
 
 [node name="PipeTimer" type="Timer" parent="." unique_id=534063136]
@@ -105,7 +104,7 @@ offset_bottom = 579.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_constants/outline_size = 18
 theme_override_fonts/font = ExtResource("13_kvuet")
-text = "Press SPACE to Resume Game"
+text = "Press SPACE or X to Resume Game"
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="refueling_finalized" from="." to="Player" method="_on_game_refueling_finalized"]

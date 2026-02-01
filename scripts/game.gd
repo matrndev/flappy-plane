@@ -26,27 +26,46 @@ var generate_station_on_fuel_level: float = TunableVariables.generate_station_on
 var hold: bool = false
 
 # TODO:
-# - parallax effect
-# DONE: - menu screen
-# - shop
+# *** - ship first version
+# - more tunables (e.g. more granular fuel consumption, how easy the refueling station is)
+# - shop (find a use for coins)
 # - tutorial
+# - enemy torpedoes
+# - parallax effect
+# - ally airplanes?
+# - more different minigames in the refueling station
+# - change pipe skin / randomised pipe skin spawning
+# - calculate falling rotation instead of it being hardcoded
+# DONE: - change plane skin
+# DONE: - menu screen
 # DONE: - you died screen
 # DONE: - refueling stations
 # DONE: - tunables tabs
 # DONE: - tunables finish (bug: rounding error)
 # DONE: - cheat codes
-# - more tunables (e.g. more granular fuel consumption)
 # DONE: - saving/loading custom tunables settings
-# **: - change plane skin
-# - enemy torpedoes
-# - saving hs and coins into another singleton
-# - ally airplanes?
-# - presets for tunables based on difficulty
+# DONE: - saving hs and coins into another singleton
+# DONE: - presets for tunables based on difficulty
 
 func _ready() -> void:
+	coin_score = SavedStats.coin_score
+	
 	TunableVariables.load_config()
 	$PipeTimer.wait_time = TunableVariables.pipe_spawn_rate
 	$CoinTimer.wait_time = TunableVariables.coin_spawn_rate
+	
+	# set trail color based on plane color
+	match TunableVariables.player_sprite_color:
+		"blue":
+			$PlaneTrail.default_color = Color("6d97e7ff")
+		"green":
+			$PlaneTrail.default_color = Color("008a79ff")
+			if TunableVariables.player_sprite_number == 1:
+				$PlaneTrail.default_color = Color("c500b2ff")
+		"red":
+			$PlaneTrail.default_color = Color("dd0039ff")
+		"yellow":
+			$PlaneTrail.default_color = Color("b39703ff")
 	
 	screen_size = get_window().size
 	ground_height = $Ground.get_node("TileMapLayer").tile_set.tile_size.y * 7 # ground is made of 7 tiles
@@ -54,7 +73,7 @@ func _ready() -> void:
 	hold = true
 	start.emit() # temp
 
-func _process(delta: float) -> void:
+func _process(delta: float) -> void:	
 	#scroll_speed = lerp(2.0, SCROLL_SPEED, $Player.fuel_remaining / 100.0) # idk with this one mate
 	#if Input.is_action_pressed("keyboard_a"): # !debug
 		#scroll_speed = 1
@@ -62,13 +81,20 @@ func _process(delta: float) -> void:
 		#scroll_speed = TunableVariables.scroll_speed
 		##scroll_speed = 3
 		#pass
-
-	if Input.is_action_just_pressed("keyboard_w"):
+	
+	if Input.is_action_just_pressed("keyboard_t"):
 		$CheatCodeMenu.show()
 		hold = true
 	
+	if Input.is_action_just_pressed("keyboard_x"):
+		hold = !hold
+	
 	if $Player.dead:
 		show_death_message(true)
+	
+	# update gamestats
+	$GameStats.score = score
+	$GameStats.coins = coin_score
 	
 	# hold in air when starting new game
 	if hold:
@@ -107,10 +133,6 @@ func _process(delta: float) -> void:
 	# station moving
 	for station in stations:
 		station.position.x -= scroll_speed
-
-	# update gamestats
-	$GameStats.score = score
-	$GameStats.coins = coin_score
 
 	# plane trail
 	$PlaneTrail.add_point(Vector2($Player.position.x + 20, $Player.position.y - 20))
@@ -201,6 +223,7 @@ func refueling_done() -> void:
 
 func coin_hit() -> void:
 	coin_score += 1
+	SavedStats.coin_score = coin_score
 
 func bird_score() -> void:
 	score += 1
