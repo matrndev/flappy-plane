@@ -35,8 +35,8 @@ text = "Return"
 layout_mode = 1
 offset_left = 40.0
 offset_top = 32.0
-offset_right = 404.0
-offset_bottom = 336.0
+offset_right = 268.0
+offset_bottom = 340.0
 
 [node name="Label" type="Label" parent="AssetsPanel" unique_id=44541893]
 layout_mode = 1
@@ -55,9 +55,49 @@ text = "Assets"
 layout_mode = 0
 offset_left = 20.0
 offset_top = 61.0
-offset_right = 128.0
+offset_right = 206.0
 offset_bottom = 92.0
-text = "Show license"
+text = "flappy-bird-assets"
+
+[node name="LicenseButton2" type="Button" parent="AssetsPanel" unique_id=2035907476]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 109.0
+offset_right = 206.0
+offset_bottom = 140.0
+text = "Flappy Bird Assets"
+
+[node name="LicenseButton3" type="Button" parent="AssetsPanel" unique_id=502359665]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 157.0
+offset_right = 206.0
+offset_bottom = 188.0
+text = "plane_pack"
+
+[node name="LicenseButton4" type="Button" parent="AssetsPanel" unique_id=1523983155]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 205.0
+offset_right = 206.0
+offset_bottom = 236.0
+text = "Cash Sound Effect"
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=220790442]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -854.0
+offset_top = 30.0
+offset_right = -69.0
+offset_bottom = 577.0
+grow_horizontal = 0
+editable = false
+wrap_mode = 1
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="AssetsPanel/LicenseButton1" to="." method="_on_license_button_1_pressed"]
+[connection signal="pressed" from="AssetsPanel/LicenseButton2" to="." method="_on_license_button_2_pressed"]
+[connection signal="pressed" from="AssetsPanel/LicenseButton3" to="." method="_on_license_button_3_pressed"]
+[connection signal="pressed" from="AssetsPanel/LicenseButton4" to="." method="_on_license_button_4_pressed"]
