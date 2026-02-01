@@ -121,11 +121,11 @@ func _on_reset_dialog_canceled() -> void:
 func _on_reset_dialog_confirmed() -> void:
 	match currently_selected:
 		2: # easy
-			TunableVariables.load_config("res://config_presets/easy.fpcfg")
+			TunableVariables.load_config("res://config_presets/easy.cfg")
 		3: # medium
-			TunableVariables.load_config("res://config_presets/medium.fpcfg")
+			TunableVariables.load_config("res://config_presets/medium.cfg")
 		4: # hard
-			TunableVariables.load_config("res://config_presets/hard.fpcfg")
+			TunableVariables.load_config("res://config_presets/hard.cfg")
 		6: # money_maker
-			TunableVariables.load_config("res://config_presets/money_maker.fpcfg")
+			TunableVariables.load_config("res://config_presets/money_maker.cfg")
 	load_from_config()

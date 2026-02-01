@@ -42,7 +42,7 @@ func _ready() -> void:
 
 
 func reset_all() -> void:
-	load_config("res://config_presets/medium.fpcfg")
+	load_config("res://config_presets/medium.cfg")
 	save_config()
 
 func load_config(path: String = "") -> void:
