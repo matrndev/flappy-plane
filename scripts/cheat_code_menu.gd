@@ -2,6 +2,7 @@ extends Control
 
 func _on_line_edit_text_submitted(new_text: String) -> void:
 	$LineEdit.clear()
+	$LineEdit.placeholder_text = ""
 	hide()
 	
 	match new_text:
@@ -13,6 +14,8 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 			TunableVariables.collisions_enabled = false
 		"FILLMEUP":
 			$"../Player".fuel_remaining += 2000
+		"CLEARSTATS":
+			SavedStats.reset_all()
 		"":
 			pass
 		_:
