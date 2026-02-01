@@ -2,67 +2,47 @@ extends Node
 
 const CONFIG_FILE_PATH: String = "user://tunables.cfg"
 
-# default base assignments
-
 # game
-var scroll_speed: float = 3.0
-var refueling_speed: float = 10.0
-var generate_station_on_fuel_level: float = 40.0
-var trail_length: int = 200
-var pipe_variability: int = 150
-var pipe_spawn_rate: float = 2.4
-var coin_spawn_rate: float = 5.0
+var scroll_speed: float
+var refueling_speed: float
+var generate_station_on_fuel_level: float
+var trail_length: int
+var pipe_variability: int
+var pipe_spawn_rate: float
+var coin_spawn_rate: float
 
 # player
-var jump_velocity: float = -400.0
-var max_jump_velocity: float = 600.0
-var gravity: float = 800.0
-var rotation_down_step: int = 1
-var rotation_down_limit: int = 50
-var rotation_up_step: int = 6
-var rotation_up_limit: int = -10
-var trail_density: int = 10
-var fuel_consumption: float = 0.05
-var player_sprite_number: int = 1
-var player_sprite_color: String = "blue"
+var jump_velocity: float
+var max_jump_velocity: float
+var gravity: float
+var rotation_down_step: int
+var rotation_down_limit: int
+var rotation_up_step: int
+var rotation_up_limit: int
+var trail_density: int
+var fuel_consumption: float
+var player_sprite_number: int
+var player_sprite_color: String
 
 # pipe
-var collisions_enabled: bool = true
+var collisions_enabled: bool
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	load_config()
-	save_config()
+	var config_file = ConfigFile.new()
+	config_file.load(CONFIG_FILE_PATH)
+	
+	# if config doesn't exist, load default preset config
+	if config_file.get_sections().is_empty():
+		player_sprite_number = 2
+		player_sprite_color = "green"
+		reset_all()
+	else:
+		load_config()
+		save_config()
+
 
 func reset_all() -> void:
-	print("reset all")
-	# default base assignments
-	
-	# game
-	scroll_speed = 3.0
-	refueling_speed = 10.0
-	generate_station_on_fuel_level = 40.0
-	trail_length = 200
-	pipe_variability = 150
-	pipe_spawn_rate = 2.4
-	coin_spawn_rate = 5.0
-
-	# player
-	jump_velocity = -400.0
-	max_jump_velocity = 600.0
-	gravity = 800.0
-	rotation_down_step = 1
-	rotation_down_limit = 50
-	rotation_up_step = 6
-	rotation_up_limit = -10
-	trail_density = 10
-	fuel_consumption = 0.05
-	player_sprite_number = 1
-	player_sprite_color = "blue"
-
-	# pipe
-	collisions_enabled = true
-
+	load_config("res://config_presets/medium.fpcfg")
 	save_config()
 
 func load_config(path: String = "") -> void:
@@ -91,8 +71,11 @@ func load_config(path: String = "") -> void:
 		rotation_up_limit = config_file.get_value("player", "rotation_up_limit", rotation_up_limit)
 		trail_density = config_file.get_value("player", "trail_density", trail_density)
 		fuel_consumption = config_file.get_value("player", "fuel_consumption", fuel_consumption)
-		player_sprite_number = config_file.get_value("player", "player_sprite_number", player_sprite_number)
-		player_sprite_color = config_file.get_value("player", "player_sprite_color", player_sprite_color)
+		# sprite settings are controlled by separate menu and should not be overriden by loading custom config!
+		# hence, load sprite settings only if loading user configuration in tunables.cfg
+		if path == CONFIG_FILE_PATH: # only when loading from tunables.cfg
+			player_sprite_number = config_file.get_value("player", "player_sprite_number", player_sprite_number)
+			player_sprite_color = config_file.get_value("player", "player_sprite_color", player_sprite_color)
 		
 		# pipe
 		collisions_enabled = config_file.get_value("pipe", "collisions_enabled", collisions_enabled)
