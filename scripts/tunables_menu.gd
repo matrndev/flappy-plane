@@ -21,19 +21,10 @@ func save_vars() -> void:
 		var key := name_to_key(check_box.name)
 		TunableVariables.set(key, check_box.button_pressed)
 
-func _on_reset_button_pressed() -> void:
-	$ResetDialog.show()
-
-func _on_reset_dialog_confirmed() -> void:
-	$ResetDialog.hide()
-	TunableVariables.reset_all()
-	load_from_config()
-
 func _on_local_reset_button_pressed() -> void:
 	$LocalResetDialog.show()
 
 func _on_local_reset_dialog_confirmed() -> void:
-	$LocalResetDialog.hide()
 	load_from_config()
 
 func _ready() -> void:
@@ -113,4 +104,28 @@ func _on_load_button_pressed() -> void:
 
 func _on_file_load_dialog_file_selected(path: String) -> void:
 	TunableVariables.load_config(path)
+	load_from_config()
+
+
+var currently_selected: int = 0
+
+func _on_option_button_item_selected(index: int) -> void:
+	currently_selected = index
+	if index == 0:
+		return
+	$ResetDialog.show()
+
+func _on_reset_dialog_canceled() -> void:
+	$Panel/HBoxContainer/VBoxContainer/OptionButton.select(0)
+
+func _on_reset_dialog_confirmed() -> void:
+	match currently_selected:
+		2: # easy
+			pass
+		3: # medium
+			TunableVariables.load_config("res://config_presets/medium.fpcfg")
+		4: # hard
+			pass
+		6: # money_maker
+			TunableVariables.load_config("res://config_presets/money_maker.fpcfg")
 	load_from_config()

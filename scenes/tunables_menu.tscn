@@ -77,6 +77,8 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
+tooltip_text = "The overall speed of the game."
+mouse_filter = 0
 text = "Scrolling Speed"
 
 [node name="GenerateStationOnFuelLevelSlider" type="HSlider" parent="Panel/Panel/GameConfigContainer" unique_id=44862451 groups=["sliders"]]
@@ -104,6 +106,9 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
+tooltip_text = "Determines at which remaining fuel level should refueling stations start generating.
+Note: Refueling stations are always generated with pipes."
+mouse_filter = 0
 text = "Generate Refueling Station At"
 
 [node name="TrailLengthSlider" type="HSlider" parent="Panel/Panel/GameConfigContainer" unique_id=1337199172 groups=["sliders"]]
@@ -132,6 +137,8 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
+tooltip_text = "Determines the maximum length of the player's trail before it starts disappearing."
+mouse_filter = 0
 text = "Max Trail Length"
 
 [node name="PipeVariabilitySlider" type="HSlider" parent="Panel/Panel/GameConfigContainer" unique_id=1212219573 groups=["sliders"]]
@@ -160,6 +167,9 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
+tooltip_text = "Controls how much the vertical position of the pipe gap can vary.
+If set to zero, every pipe gap appears at the same height."
+mouse_filter = 0
 text = "Pipe Variability"
 
 [node name="PipeSpawnRateSlider" type="HSlider" parent="Panel/Panel/GameConfigContainer" unique_id=1671605392 groups=["sliders"]]
@@ -187,6 +197,9 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
+tooltip_text = "Determines how often should pipes spawn in seconds.
+Note: If set to zero, no refueling stations will spawn."
+mouse_filter = 0
 text = "Pipe Spawn Rate"
 
 [node name="CoinSpawnRateSlider" type="HSlider" parent="Panel/Panel/GameConfigContainer" unique_id=1969236959 groups=["sliders"]]
@@ -214,6 +227,8 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
+tooltip_text = "Determines how often should coins spawn in seconds."
+mouse_filter = 0
 text = "Coin Spawn Rate"
 
 [node name="PlayerConfigContainer" type="VBoxContainer" parent="Panel/Panel" unique_id=1943693623 groups=["containers"]]
@@ -252,6 +267,9 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
+tooltip_text = "Determines how high will the player jump.
+Note: a lower value means the player jumps higher."
+mouse_filter = 0
 text = "Jump Height"
 
 [node name="MaxJumpVelocitySlider" type="HSlider" parent="Panel/Panel/PlayerConfigContainer" unique_id=1650968535 groups=["sliders"]]
@@ -280,6 +298,8 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
+tooltip_text = "Limits how fast the player can fall."
+mouse_filter = 0
 text = "Terminal Falling Velocity"
 
 [node name="GravitySlider" type="HSlider" parent="Panel/Panel/PlayerConfigContainer" unique_id=1119148578 groups=["sliders"]]
@@ -308,6 +328,8 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
+tooltip_text = "Controls how strong gravity is for the player."
+mouse_filter = 0
 text = "Gravity"
 
 [node name="FuelConsumptionSlider" type="HSlider" parent="Panel/Panel/PlayerConfigContainer" unique_id=783516447 groups=["sliders"]]
@@ -335,6 +357,9 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
+tooltip_text = "Limits the player's baseline fuel consumption.
+Note: Jumping and pausing gravity uses more fuel. You can adjust those values below."
+mouse_filter = 0
 text = "Base Fuel Consumption"
 
 [node name="PipeConfigContainer" type="VBoxContainer" parent="Panel/Panel" unique_id=868444271 groups=["containers"]]
@@ -348,7 +373,24 @@ theme_override_constants/separation = 39
 
 [node name="CollisionsEnabledCheckBox" type="CheckBox" parent="Panel/Panel/PipeConfigContainer" unique_id=696147615 groups=["check_boxes"]]
 layout_mode = 2
+tooltip_text = "Enables death by collision of the player with pipes."
 text = "Enable Collisions"
+
+[node name="Label" type="Label" parent="Panel/Panel" unique_id=431391762]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -257.0
+offset_top = -31.0
+offset_right = -16.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.6052743, 0.6052743, 0.6052743, 1)
+text = "Hover over a setting's label to learn more."
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=872549973]
 layout_mode = 1
@@ -379,31 +421,55 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Load from File"
 
-[node name="ResetButton" type="Button" parent="Panel/HBoxContainer" unique_id=939568095]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Reset to Game Defaults"
-
 [node name="LocalResetButton" type="Button" parent="Panel/HBoxContainer" unique_id=287326823]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Reset to Previous Options"
+text = "Reset to Previous Config"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=138429433]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer" unique_id=1608631211]
+layout_mode = 2
+text = "Load Preset:"
+
+[node name="OptionButton" type="OptionButton" parent="Panel/HBoxContainer/VBoxContainer" unique_id=1807902778]
+layout_mode = 2
+selected = 0
+allow_reselect = true
+item_count = 7
+popup/item_0/text = "Not Selected"
+popup/item_0/id = 0
+popup/item_1/text = "General Difficulty"
+popup/item_1/id = 1
+popup/item_1/separator = true
+popup/item_2/text = "Easy"
+popup/item_2/id = 2
+popup/item_3/text = "Medium"
+popup/item_3/id = 3
+popup/item_4/text = "Hard"
+popup/item_4/id = 4
+popup/item_5/text = "Fun"
+popup/item_5/id = 5
+popup/item_5/separator = true
+popup/item_6/text = "Money Maker"
+popup/item_6/id = 6
 
 [node name="ResetDialog" type="ConfirmationDialog" parent="." unique_id=1773271970]
 oversampling_override = 1.0
 title = "Are you sure?"
-initial_position = 2
-size = Vector2i(339, 106)
-dialog_text = "Reset to Game Defaults?
-All your modifications will be overwritten."
+initial_position = 1
+size = Vector2i(343, 106)
+dialog_text = "Load preset?
+All your current changes will be overriden."
 
 [node name="LocalResetDialog" type="ConfirmationDialog" parent="." unique_id=400588972]
 oversampling_override = 1.0
 title = "Are you sure?"
 initial_position = 1
-size = Vector2i(339, 106)
-dialog_text = "Reset to Previous Options?
-All your modifications will be overwritten."
+size = Vector2i(343, 106)
+dialog_text = "Reset cofiguration?
+All your current changes will be overriden."
 
 [node name="FileSaveDialog" type="FileDialog" parent="." unique_id=904573422]
 oversampling_override = 1.0
@@ -442,8 +508,9 @@ layout_toggle_enabled = false
 [connection signal="pressed" from="Panel/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/LocalResetButton" to="." method="_on_local_reset_button_pressed"]
+[connection signal="item_selected" from="Panel/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="canceled" from="ResetDialog" to="." method="_on_reset_dialog_canceled"]
 [connection signal="confirmed" from="ResetDialog" to="." method="_on_reset_dialog_confirmed"]
 [connection signal="confirmed" from="LocalResetDialog" to="." method="_on_local_reset_dialog_confirmed"]
 [connection signal="file_selected" from="FileSaveDialog" to="." method="_on_file_dialog_file_selected"]
