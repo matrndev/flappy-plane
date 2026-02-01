@@ -279,6 +279,22 @@ tab_0/tooltip = "Customize your plane appearance"
 tab_1/title = "Pipe"
 tab_1/tooltip = "Customize how the pipes look"
 
+[node name="NotImplemented" type="Label" parent="TabBar" unique_id=1509654746]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -112.5
+offset_top = 1.0
+offset_right = 112.5
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Sorry, not implemented yet..."
+
 [connection signal="pressed" from="Panel/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/SwitchLeftButton" to="." method="_on_switch_left_button_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer/SwitchRightButton" to="." method="_on_switch_right_button_pressed"]
@@ -286,3 +302,4 @@ tab_1/tooltip = "Customize how the pipes look"
 [connection signal="pressed" from="Panel/HBoxContainer2/ColorSampleRect2/ColorSampleRectButton2" to="." method="_on_color_sample_rect_button_2_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer2/ColorSampleRect3/ColorSampleRectButton3" to="." method="_on_color_sample_rect_button_3_pressed"]
 [connection signal="pressed" from="Panel/HBoxContainer2/ColorSampleRect4/ColorSampleRectButton4" to="." method="_on_color_sample_rect_button_4_pressed"]
+[connection signal="tab_changed" from="TabBar" to="." method="_on_tab_bar_tab_changed"]

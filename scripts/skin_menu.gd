@@ -70,3 +70,10 @@ func _on_color_sample_rect_button_3_pressed() -> void:
 func _on_color_sample_rect_button_4_pressed() -> void:
 	TunableVariables.player_sprite_color = "yellow"
 	refresh_texture()
+
+
+func _on_tab_bar_tab_changed(tab: int) -> void:
+	if tab == 1:
+		$TabBar/NotImplemented.show()
+	else:
+		$TabBar/NotImplemented.hide()
