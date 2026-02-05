@@ -26,6 +26,8 @@ var player_sprite_color: String
 
 # pipe
 var collisions_enabled: bool
+var pipe_sprite_number: int
+var pipe_sprite_color: String
 
 func _ready() -> void:
 	var config_file = ConfigFile.new()
@@ -71,14 +73,18 @@ func load_config(path: String = "") -> void:
 		rotation_up_limit = config_file.get_value("player", "rotation_up_limit", rotation_up_limit)
 		trail_density = config_file.get_value("player", "trail_density", trail_density)
 		fuel_consumption = config_file.get_value("player", "fuel_consumption", fuel_consumption)
-		# sprite settings are controlled by separate menu and should not be overriden by loading custom config!
-		# hence, load sprite settings only if loading user configuration in tunables.cfg
-		if path == CONFIG_FILE_PATH: # only when loading from tunables.cfg
-			player_sprite_number = config_file.get_value("player", "player_sprite_number", player_sprite_number)
-			player_sprite_color = config_file.get_value("player", "player_sprite_color", player_sprite_color)
 		
 		# pipe
 		collisions_enabled = config_file.get_value("pipe", "collisions_enabled", collisions_enabled)
+		
+		# sprite settings are controlled by separate menu and should not be overriden by loading custom config!
+		# hence, load sprite settings only if loading user configuration from tunables.cfg (user-saved)
+		if path == CONFIG_FILE_PATH: # only when loading from tunables.cfg
+			player_sprite_number = config_file.get_value("player", "player_sprite_number", player_sprite_number)
+			player_sprite_color = config_file.get_value("player", "player_sprite_color", player_sprite_color)
+			
+			pipe_sprite_number = config_file.get_value("pipe", "pipe_sprite_number", pipe_sprite_number)
+			pipe_sprite_color = config_file.get_value("pipe", "pipe_sprite_color", pipe_sprite_color)
 		
 
 func save_config(path: String = "") -> void:
@@ -111,6 +117,8 @@ func save_config(path: String = "") -> void:
 	
 	# pipe
 	config_file.set_value("pipe", "collisions_enabled", collisions_enabled)
+	config_file.set_value("pipe", "pipe_sprite_number", pipe_sprite_number)
+	config_file.set_value("pipe", "pipe_sprite_color", pipe_sprite_color)
 	
 	
 	config_file.save(path)

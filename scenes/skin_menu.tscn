@@ -76,12 +76,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xt7lh")
 
-[node name="Panel" type="Panel" parent="." unique_id=355315360]
+[node name="PlayerPanel" type="Panel" parent="." unique_id=355315360]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="BackButton" type="Button" parent="Panel" unique_id=1269919021]
+[node name="BackButton" type="Button" parent="PlayerPanel" unique_id=1269919021]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -106,7 +106,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_18at4")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_21u2u")
 text = "Save"
 
-[node name="Label" type="Label" parent="Panel" unique_id=334408601]
+[node name="Label" type="Label" parent="PlayerPanel" unique_id=334408601]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -123,7 +123,7 @@ theme_override_fonts/font = ExtResource("2_xmlfx")
 theme_override_font_sizes/font_size = 28
 text = "Select Type:"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=690134052]
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayerPanel" unique_id=690134052]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -139,7 +139,7 @@ grow_vertical = 2
 theme_override_constants/separation = 67
 alignment = 1
 
-[node name="SwitchLeftButton" type="Button" parent="Panel/HBoxContainer" unique_id=377552679]
+[node name="SwitchLeftButton" type="Button" parent="PlayerPanel/HBoxContainer" unique_id=377552679]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -153,12 +153,12 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_21u2u")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_x8k7v")
 text = "<"
 
-[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer" unique_id=826057614]
+[node name="TextureRect" type="TextureRect" parent="PlayerPanel/HBoxContainer" unique_id=826057614]
 layout_mode = 2
 texture = ExtResource("1_viktg")
 expand_mode = 3
 
-[node name="SwitchRightButton" type="Button" parent="Panel/HBoxContainer" unique_id=1255409348]
+[node name="SwitchRightButton" type="Button" parent="PlayerPanel/HBoxContainer" unique_id=1255409348]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -172,7 +172,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_21u2u")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_x8k7v")
 text = ">"
 
-[node name="Label2" type="Label" parent="Panel" unique_id=1755022280]
+[node name="Label2" type="Label" parent="PlayerPanel" unique_id=1755022280]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -189,7 +189,7 @@ theme_override_fonts/font = ExtResource("2_xmlfx")
 theme_override_font_sizes/font_size = 28
 text = "Select Color:"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel" unique_id=1667419798]
+[node name="HBoxContainer2" type="HBoxContainer" parent="PlayerPanel" unique_id=1667419798]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -204,12 +204,12 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="ColorSampleRect1" type="TextureRect" parent="Panel/HBoxContainer2" unique_id=211499446]
+[node name="ColorSampleRect1" type="TextureRect" parent="PlayerPanel/HBoxContainer2" unique_id=211499446]
 layout_mode = 2
 texture = ExtResource("1_viktg")
 expand_mode = 3
 
-[node name="ColorSampleRectButton1" type="Button" parent="Panel/HBoxContainer2/ColorSampleRect1" unique_id=382101556 groups=["buttons"]]
+[node name="ColorSampleRectButton1" type="Button" parent="PlayerPanel/HBoxContainer2/ColorSampleRect1" unique_id=382101556 groups=["buttons"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -218,12 +218,12 @@ grow_horizontal = 2
 grow_vertical = 2
 flat = true
 
-[node name="ColorSampleRect2" type="TextureRect" parent="Panel/HBoxContainer2" unique_id=1014040873]
+[node name="ColorSampleRect2" type="TextureRect" parent="PlayerPanel/HBoxContainer2" unique_id=1014040873]
 layout_mode = 2
 texture = ExtResource("1_viktg")
 expand_mode = 3
 
-[node name="ColorSampleRectButton2" type="Button" parent="Panel/HBoxContainer2/ColorSampleRect2" unique_id=1307113059 groups=["buttons"]]
+[node name="ColorSampleRectButton2" type="Button" parent="PlayerPanel/HBoxContainer2/ColorSampleRect2" unique_id=1307113059 groups=["buttons"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -232,12 +232,12 @@ grow_horizontal = 2
 grow_vertical = 2
 flat = true
 
-[node name="ColorSampleRect3" type="TextureRect" parent="Panel/HBoxContainer2" unique_id=706842591]
+[node name="ColorSampleRect3" type="TextureRect" parent="PlayerPanel/HBoxContainer2" unique_id=706842591]
 layout_mode = 2
 texture = ExtResource("1_viktg")
 expand_mode = 3
 
-[node name="ColorSampleRectButton3" type="Button" parent="Panel/HBoxContainer2/ColorSampleRect3" unique_id=1525561752 groups=["buttons"]]
+[node name="ColorSampleRectButton3" type="Button" parent="PlayerPanel/HBoxContainer2/ColorSampleRect3" unique_id=1525561752 groups=["buttons"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -246,12 +246,12 @@ grow_horizontal = 2
 grow_vertical = 2
 flat = true
 
-[node name="ColorSampleRect4" type="TextureRect" parent="Panel/HBoxContainer2" unique_id=649923584]
+[node name="ColorSampleRect4" type="TextureRect" parent="PlayerPanel/HBoxContainer2" unique_id=649923584]
 layout_mode = 2
 texture = ExtResource("1_viktg")
 expand_mode = 3
 
-[node name="ColorSampleRectButton4" type="Button" parent="Panel/HBoxContainer2/ColorSampleRect4" unique_id=1273392718 groups=["buttons"]]
+[node name="ColorSampleRectButton4" type="Button" parent="PlayerPanel/HBoxContainer2/ColorSampleRect4" unique_id=1273392718 groups=["buttons"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -279,27 +279,11 @@ tab_0/tooltip = "Customize your plane appearance"
 tab_1/title = "Pipe"
 tab_1/tooltip = "Customize how the pipes look"
 
-[node name="NotImplemented" type="Label" parent="TabBar" unique_id=1509654746]
-visible = false
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -112.5
-offset_top = 1.0
-offset_right = 112.5
-offset_bottom = 24.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Sorry, not implemented yet..."
-
-[connection signal="pressed" from="Panel/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer/SwitchLeftButton" to="." method="_on_switch_left_button_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer/SwitchRightButton" to="." method="_on_switch_right_button_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer2/ColorSampleRect1/ColorSampleRectButton1" to="." method="_on_color_sample_rect_button_1_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer2/ColorSampleRect2/ColorSampleRectButton2" to="." method="_on_color_sample_rect_button_2_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer2/ColorSampleRect3/ColorSampleRectButton3" to="." method="_on_color_sample_rect_button_3_pressed"]
-[connection signal="pressed" from="Panel/HBoxContainer2/ColorSampleRect4/ColorSampleRectButton4" to="." method="_on_color_sample_rect_button_4_pressed"]
+[connection signal="pressed" from="PlayerPanel/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="PlayerPanel/HBoxContainer/SwitchLeftButton" to="." method="_on_switch_left_button_pressed"]
+[connection signal="pressed" from="PlayerPanel/HBoxContainer/SwitchRightButton" to="." method="_on_switch_right_button_pressed"]
+[connection signal="pressed" from="PlayerPanel/HBoxContainer2/ColorSampleRect1/ColorSampleRectButton1" to="." method="_on_color_sample_rect_button_1_pressed"]
+[connection signal="pressed" from="PlayerPanel/HBoxContainer2/ColorSampleRect2/ColorSampleRectButton2" to="." method="_on_color_sample_rect_button_2_pressed"]
+[connection signal="pressed" from="PlayerPanel/HBoxContainer2/ColorSampleRect3/ColorSampleRectButton3" to="." method="_on_color_sample_rect_button_3_pressed"]
+[connection signal="pressed" from="PlayerPanel/HBoxContainer2/ColorSampleRect4/ColorSampleRectButton4" to="." method="_on_color_sample_rect_button_4_pressed"]
 [connection signal="tab_changed" from="TabBar" to="." method="_on_tab_bar_tab_changed"]

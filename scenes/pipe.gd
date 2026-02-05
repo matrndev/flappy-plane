@@ -21,3 +21,14 @@ func _on_safe_zone_body_entered(body: Node2D) -> void:
 			$ScoreSound.play()
 			score_played = true
 		score.emit()
+
+func change_style(new_style_type: int, new_style_color: String) -> bool:
+	var changing_successful: bool = false
+	var new_pipe_name: String = "PipeStyle%d%s" % [new_style_type, new_style_color]
+	for child in $PipeStyles.get_children():
+		if child.name == new_pipe_name and changing_successful == false:
+			child.visible = true
+			changing_successful = true
+		else:
+			child.visible = false
+	return changing_successful
