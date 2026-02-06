@@ -10,10 +10,10 @@ var collisions_enabled: bool = TunableVariables.collisions_enabled
 
 func _ready() -> void:
 	change_style(TunableVariables.pipe_sprite_number, TunableVariables.pipe_sprite_color)
-	# todo: pick random color if color is ""
-	#if TunableVariables.pipe_sprite_color == "":
-		#var random_sprite_number: int = randi_range(1, 5)
-		#change_style(random_sprite_number, )
+	if TunableVariables.pipe_sprite_color == "": # random colors enabled
+		var colors: Array = ["Green", "Yellow", "Red", "Blue", "Gray", "Purple", "Brown", "Orange"]
+		var picked_color: String = colors[randi_range(0, colors.size() - 1)]
+		change_style(TunableVariables.pipe_sprite_number, picked_color)
 
 
 func _on_body_entered(body: Node2D) -> void:

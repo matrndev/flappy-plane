@@ -13,9 +13,7 @@ func _ready() -> void:
 	refresh_pipes()
 	for pipe_button in get_tree().get_nodes_in_group("pipe_buttons"):
 		pipe_button.pressed.connect(_on_any_pipe_button_pressed.bind(pipe_button))
-
-func refresh_pipes() -> void:
-	match TunableVariables.pipe_sprite_number:
+	match TunableVariables.pipe_sprite_number: # load currently selected style category
 		1:
 			$PipePanel/OptionButton.select(0)
 			_on_option_button_item_selected(0)
@@ -28,7 +26,8 @@ func refresh_pipes() -> void:
 		5:
 			$PipePanel/OptionButton.select(3)
 			_on_option_button_item_selected(3)
-	
+
+func refresh_pipes() -> void:
 	if TunableVariables.pipe_sprite_color == "":
 		disable_all_pipes()
 		$PipePanel/RandomizeCheckBox.button_pressed = true
@@ -132,7 +131,6 @@ func _on_any_pipe_button_pressed(button: Button) -> void:
 	disable_all_pipes(false)
 	button.disabled = true
 
-
 func _on_option_button_item_selected(index: int) -> void:
 	for node in get_tree().get_nodes_in_group("pipes"):
 		node.hide()
@@ -149,6 +147,7 @@ func _on_option_button_item_selected(index: int) -> void:
 		3:
 			$PipePanel/Pipes5.show()
 			TunableVariables.pipe_sprite_number = 5
+	refresh_pipes()
 
 
 func _on_randomize_check_box_toggled(toggled_on: bool) -> void:
