@@ -10,16 +10,46 @@ var current_mode: int = 0
 func _ready() -> void:
 	refresh_texture()
 	refresh_color_samples()
+	refresh_pipes()
 	for pipe_button in get_tree().get_nodes_in_group("pipe_buttons"):
 		pipe_button.pressed.connect(_on_any_pipe_button_pressed.bind(pipe_button))
 
+func refresh_pipes() -> void:
+	match TunableVariables.pipe_sprite_number:
+		1:
+			$PipePanel/OptionButton.select(0)
+			_on_option_button_item_selected(0)
+		2:
+			$PipePanel/OptionButton.select(1)
+			_on_option_button_item_selected(1)
+		4:
+			$PipePanel/OptionButton.select(2)
+			_on_option_button_item_selected(2)
+		5:
+			$PipePanel/OptionButton.select(3)
+			_on_option_button_item_selected(3)
+	
+	if TunableVariables.pipe_sprite_color == "":
+		disable_all_pipes()
+		$PipePanel/RandomizeCheckBox.button_pressed = true
+		return
+	
+	for pipe_button in get_tree().get_nodes_in_group("pipe_buttons"):
+		var pipe_color: String = pipe_button.name.replace("Pipe", "")
+		var pipe_style: String = pipe_button.get_parent().name.replace("Pipes", "")
+		
+		if pipe_color == TunableVariables.pipe_sprite_color and int(pipe_style) == TunableVariables.pipe_sprite_number:
+			pipe_button.disabled = true
+
+
+func disable_all_pipes(disable: bool = true) -> void:
+	for pipe_button in get_tree().get_nodes_in_group("pipe_buttons"):
+		pipe_button.disabled = disable
+		
 
 func refresh_texture() -> void:
-	if current_mode == 0:
-		plane_sprite_path = "res://assets/plane_pack/planes/plane_%d/plane_%d_%s.png" % [TunableVariables.player_sprite_number, TunableVariables.player_sprite_number, TunableVariables.player_sprite_color]
-		$PlayerPanel/HBoxContainer/TextureRect.texture = load(plane_sprite_path)
-	elif current_mode == 1:
-		pass
+	plane_sprite_path = "res://assets/plane_pack/planes/plane_%d/plane_%d_%s.png" % [TunableVariables.player_sprite_number, TunableVariables.player_sprite_number, TunableVariables.player_sprite_color]
+	$PlayerPanel/HBoxContainer/TextureRect.texture = load(plane_sprite_path)
 
 
 func refresh_color_samples() -> void:
@@ -30,16 +60,13 @@ func refresh_color_samples() -> void:
 		$PlayerPanel/HBoxContainer2/ColorSampleRect4
 	]
 	
-	if current_mode == 0:
-		var colors: Array = ["blue", "green", "red", "yellow"]
-	
-		var i = 0
-		for color in colors:
-			plane_sprite_path = "res://assets/plane_pack/planes/plane_%d/plane_%d_%s.png" % [TunableVariables.player_sprite_number, TunableVariables.player_sprite_number, color]
-			rects[i].texture = load(plane_sprite_path)
-			i += 1
-	elif current_mode == 1:
-		pass
+	var colors: Array = ["blue", "green", "red", "yellow"]
+
+	var i = 0
+	for color in colors:
+		plane_sprite_path = "res://assets/plane_pack/planes/plane_%d/plane_%d_%s.png" % [TunableVariables.player_sprite_number, TunableVariables.player_sprite_number, color]
+		rects[i].texture = load(plane_sprite_path)
+		i += 1
 
 
 func _on_back_button_pressed() -> void:
@@ -101,6 +128,9 @@ func _on_any_pipe_button_pressed(button: Button) -> void:
 	
 	var selected_style: String = button.get_parent().name.replace("Pipes", "")
 	TunableVariables.pipe_sprite_number = int(selected_style)
+	
+	disable_all_pipes(false)
+	button.disabled = true
 
 
 func _on_option_button_item_selected(index: int) -> void:
@@ -109,9 +139,23 @@ func _on_option_button_item_selected(index: int) -> void:
 	match index:
 		0:
 			$PipePanel/Pipes1.show()
+			TunableVariables.pipe_sprite_number = 1
 		1:
 			$PipePanel/Pipes2.show()
+			TunableVariables.pipe_sprite_number = 2
 		2:
 			$PipePanel/Pipes4.show()
+			TunableVariables.pipe_sprite_number = 4
 		3:
 			$PipePanel/Pipes5.show()
+			TunableVariables.pipe_sprite_number = 5
+
+
+func _on_randomize_check_box_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		disable_all_pipes()
+		TunableVariables.pipe_sprite_color = ""
+	else:
+		TunableVariables.pipe_sprite_color = "Green"
+		disable_all_pipes(false)
+		refresh_pipes()

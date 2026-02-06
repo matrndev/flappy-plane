@@ -26,13 +26,15 @@ var generate_station_on_fuel_level: float = TunableVariables.generate_station_on
 var hold: bool = false
 
 # TODO:
-# *** - ship first version
+# DONE: - ship first version
 # - more tunables (e.g. more granular fuel consumption, how easy the refueling station is)
-# - shop (find a use for coins)
+# - shop (find a use for coins, maybe unlocking skins)
 # - tutorial
 # - enemy torpedoes
+# - refueling station better design
 # - parallax effect
 # - ally airplanes?
+# - boss battles lol
 # - more different minigames in the refueling station
 # - change pipe skin / randomised pipe skin spawning
 # - calculate falling rotation instead of it being hardcoded
