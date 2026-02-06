@@ -1,37 +1,13 @@
-[gd_scene format=3 uid="uid://dliqpifu5ll0e"]
+[gd_scene format=4 uid="uid://dliqpifu5ll0e"]
 
 [ext_resource type="Texture2D" uid="uid://dmpexpwtfsxbd" path="res://assets/plane_pack/planes/plane_1/plane_1_red.png" id="1_viktg"]
 [ext_resource type="Script" uid="uid://dsm1yho6kp2b3" path="res://scripts/skin_menu.gd" id="1_xt7lh"]
 [ext_resource type="FontFile" uid="uid://byrn6tqmul438" path="res://fonts/Zen_Dots/ZenDots-Regular.ttf" id="2_xmlfx"]
 [ext_resource type="StyleBox" uid="uid://bbvt117ekb27v" path="res://styles/button_normal.tres" id="3_0edpv"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4mfo"]
-bg_color = Color(0, 0, 0, 1)
-border_color = Color(0.85882354, 0.85882354, 0.85882354, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-expand_margin_left = 14.0
-expand_margin_top = 10.0
-expand_margin_right = 14.0
-expand_margin_bottom = 10.0
-shadow_size = 7
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18at4"]
-bg_color = Color(0, 0, 0, 1)
-border_color = Color(0.85882354, 0.85882354, 0.85882354, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-expand_margin_left = 14.0
-expand_margin_top = 10.0
-expand_margin_right = 14.0
-expand_margin_bottom = 10.0
-shadow_size = 7
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_21u2u"]
+[ext_resource type="Texture2D" uid="uid://dy07tkx6kocsx" path="res://assets/Flappy Bird Assets/Tiles/Style 1/PipeStyle1.png" id="5_0edpv"]
+[ext_resource type="Texture2D" uid="uid://cfepisbiitgbh" path="res://assets/Flappy Bird Assets/Tiles/Style 2/PipeStyle2.png" id="6_21u2u"]
+[ext_resource type="Texture2D" uid="uid://boppv27n51ywm" path="res://assets/Flappy Bird Assets/Tiles/Style 4/PipeStyle4.png" id="7_x8k7v"]
+[ext_resource type="Texture2D" uid="uid://7chkmbob7j1x" path="res://assets/Flappy Bird Assets/Tiles/Style 5/PipeStyle5.png" id="8_3koou"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xmlfx"]
 bg_color = Color(0, 0, 0, 1)
@@ -67,6 +43,276 @@ shadow_size = 7
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x8k7v"]
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h4mfo"]
+texture = ExtResource("5_0edpv")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y8lym"]
+texture = ExtResource("6_21u2u")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5wt4"]
+texture = ExtResource("7_x8k7v")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_52myy"]
+texture = ExtResource("8_3koou")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_18at4"]
+sources/0 = SubResource("TileSetAtlasSource_h4mfo")
+sources/1 = SubResource("TileSetAtlasSource_y8lym")
+sources/2 = SubResource("TileSetAtlasSource_s5wt4")
+sources/3 = SubResource("TileSetAtlasSource_52myy")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4mfo"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0.85882354, 0.85882354, 0.85882354, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 14.0
+expand_margin_top = 10.0
+expand_margin_right = 14.0
+expand_margin_bottom = 10.0
+shadow_size = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18at4"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0.85882354, 0.85882354, 0.85882354, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 14.0
+expand_margin_top = 10.0
+expand_margin_right = 14.0
+expand_margin_bottom = 10.0
+shadow_size = 7
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_21u2u"]
+
 [node name="SkinMenu" type="Control" unique_id=1410875691]
 layout_mode = 3
 anchors_preset = 15
@@ -80,31 +326,6 @@ script = ExtResource("1_xt7lh")
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-
-[node name="BackButton" type="Button" parent="PlayerPanel" unique_id=1269919021]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -132.5
-offset_top = -123.0
-offset_right = 132.5
-offset_bottom = -80.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_xmlfx")
-theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = ExtResource("3_0edpv")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_h4mfo")
-theme_override_styles/hover = SubResource("StyleBoxFlat_18at4")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_21u2u")
-text = "Save"
 
 [node name="Label" type="Label" parent="PlayerPanel" unique_id=334408601]
 layout_mode = 1
@@ -260,7 +481,311 @@ grow_horizontal = 2
 grow_vertical = 2
 flat = true
 
+[node name="PipePanel" type="Panel" parent="." unique_id=1802990883]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionButton" type="OptionButton" parent="PipePanel" unique_id=231724628]
+layout_mode = 0
+offset_left = 744.0
+offset_top = 19.0
+offset_right = 909.0
+offset_bottom = 47.0
+selected = 0
+item_count = 4
+popup/item_0/text = "Style 1"
+popup/item_0/id = 0
+popup/item_1/text = "Style 2"
+popup/item_1/id = 1
+popup/item_2/text = "Style 3"
+popup/item_2/id = 2
+popup/item_3/text = "Style 4"
+popup/item_3/id = 3
+
+[node name="Pipes1" type="TileMapLayer" parent="PipePanel" unique_id=486181107 groups=["pipes"]]
+position = Vector2(128, 9)
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAADAAUAAAAAAAAAAAADAAYAAAAAAAEAAAADAAcAAAAAAAIAAAADAAgAAAAAAAMAAAADAAkAAAAAAAQAAAAEAAUAAAABAAAAAAAEAAYAAAABAAEAAAAEAAcAAAABAAIAAAAEAAgAAAABAAMAAAAEAAkAAAABAAQAAAAGAAUAAAACAAAAAAAGAAYAAAACAAEAAAAGAAcAAAACAAIAAAAGAAgAAAACAAMAAAAGAAkAAAACAAQAAAAHAAUAAAADAAAAAAAHAAYAAAADAAEAAAAHAAcAAAADAAIAAAAHAAgAAAADAAMAAAAHAAkAAAADAAQAAAAJAAUAAAAEAAAAAAAJAAYAAAAEAAEAAAAJAAcAAAAEAAIAAAAJAAgAAAAEAAMAAAAJAAkAAAAEAAQAAAAKAAUAAAAFAAAAAAAKAAYAAAAFAAEAAAAKAAcAAAAFAAIAAAAKAAgAAAAFAAMAAAAKAAkAAAAFAAQAAAAMAAUAAAAGAAAAAAAMAAYAAAAGAAEAAAAMAAcAAAAGAAIAAAAMAAgAAAAGAAMAAAAMAAkAAAAGAAQAAAANAAUAAAAHAAAAAAANAAYAAAAHAAEAAAANAAcAAAAHAAIAAAANAAgAAAAHAAMAAAANAAkAAAAHAAQAAAAPAAUAAAAAAAUAAAAPAAYAAAAAAAYAAAAPAAcAAAAAAAcAAAAPAAgAAAAAAAgAAAAPAAkAAAAAAAkAAAAQAAUAAAABAAUAAAAQAAYAAAABAAYAAAAQAAcAAAABAAcAAAAQAAgAAAABAAgAAAAQAAkAAAABAAkAAAASAAUAAAACAAUAAAASAAYAAAACAAYAAAASAAcAAAACAAcAAAASAAgAAAACAAgAAAASAAkAAAACAAkAAAATAAUAAAADAAUAAAATAAYAAAADAAYAAAATAAcAAAADAAcAAAATAAgAAAADAAgAAAATAAkAAAADAAkAAAAVAAUAAAAEAAUAAAAVAAYAAAAEAAYAAAAVAAcAAAAEAAcAAAAVAAgAAAAEAAgAAAAVAAkAAAAEAAkAAAAWAAUAAAAFAAUAAAAWAAYAAAAFAAYAAAAWAAcAAAAFAAcAAAAWAAgAAAAFAAgAAAAWAAkAAAAFAAkAAAAYAAUAAAAGAAUAAAAYAAYAAAAGAAYAAAAYAAcAAAAGAAcAAAAYAAgAAAAGAAgAAAAYAAkAAAAGAAkAAAAZAAUAAAAHAAUAAAAZAAYAAAAHAAYAAAAZAAcAAAAHAAcAAAAZAAgAAAAHAAgAAAAZAAkAAAAHAAkAAAA=")
+tile_set = SubResource("TileSet_18at4")
+
+[node name="PipeGreen" type="Button" parent="PipePanel/Pipes1" unique_id=392598235 groups=["pipe_buttons"]]
+offset_left = 48.0
+offset_top = 80.0
+offset_right = 80.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeYellow" type="Button" parent="PipePanel/Pipes1" unique_id=64659682 groups=["pipe_buttons"]]
+offset_left = 96.0
+offset_top = 80.0
+offset_right = 128.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeRed" type="Button" parent="PipePanel/Pipes1" unique_id=472738282 groups=["pipe_buttons"]]
+offset_left = 144.0
+offset_top = 80.0
+offset_right = 176.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeBlue" type="Button" parent="PipePanel/Pipes1" unique_id=1051864456 groups=["pipe_buttons"]]
+offset_left = 192.0
+offset_top = 80.0
+offset_right = 224.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeGray" type="Button" parent="PipePanel/Pipes1" unique_id=330682712 groups=["pipe_buttons"]]
+offset_left = 240.0
+offset_top = 80.0
+offset_right = 272.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipePurple" type="Button" parent="PipePanel/Pipes1" unique_id=1893730792 groups=["pipe_buttons"]]
+offset_left = 288.0
+offset_top = 80.0
+offset_right = 320.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeBrown" type="Button" parent="PipePanel/Pipes1" unique_id=157801650 groups=["pipe_buttons"]]
+offset_left = 336.0
+offset_top = 80.0
+offset_right = 368.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeOrange" type="Button" parent="PipePanel/Pipes1" unique_id=558098435 groups=["pipe_buttons"]]
+offset_left = 384.0
+offset_top = 80.0
+offset_right = 416.0
+offset_bottom = 160.0
+flat = true
+
+[node name="Pipes2" type="TileMapLayer" parent="PipePanel" unique_id=566454396 groups=["pipes"]]
+visible = false
+position = Vector2(128, 9)
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAADAAUAAQAAAAAAAAAEAAUAAQABAAAAAAADAAYAAQAAAAEAAAAEAAYAAQABAAEAAAADAAcAAQAAAAEAAAAEAAcAAQABAAEAAAADAAgAAQAAAAEAAAAEAAgAAQABAAEAAAADAAkAAQAAAAIAAAAEAAkAAQABAAIAAAAGAAUAAQACAAAAAAAHAAUAAQADAAAAAAAGAAYAAQACAAEAAAAHAAYAAQADAAEAAAAGAAcAAQACAAEAAAAHAAcAAQADAAEAAAAGAAgAAQACAAEAAAAHAAgAAQADAAEAAAAJAAYAAQAEAAEAAAAKAAYAAQAFAAEAAAAJAAcAAQAEAAEAAAAKAAcAAQAFAAEAAAAJAAgAAQAEAAEAAAAKAAgAAQAFAAEAAAAMAAYAAQAGAAEAAAANAAYAAQAHAAEAAAAMAAcAAQAGAAEAAAANAAcAAQAHAAEAAAAMAAgAAQAGAAEAAAANAAgAAQAHAAEAAAAPAAYAAQAAAAQAAAAQAAYAAQABAAQAAAAPAAcAAQAAAAQAAAAQAAcAAQABAAQAAAAPAAgAAQAAAAQAAAAQAAgAAQABAAQAAAASAAYAAQACAAQAAAATAAYAAQADAAQAAAASAAcAAQACAAQAAAATAAcAAQADAAQAAAASAAgAAQACAAQAAAATAAgAAQADAAQAAAAVAAYAAQAEAAQAAAAWAAYAAQAFAAQAAAAVAAcAAQAEAAQAAAAWAAcAAQAFAAQAAAAVAAgAAQAEAAQAAAAWAAgAAQAFAAQAAAAYAAYAAQAGAAQAAAAYAAcAAQAGAAQAAAAZAAYAAQAHAAQAAAAZAAcAAQAHAAQAAAAYAAgAAQAGAAQAAAAZAAgAAQAHAAQAAAAYAAkAAQAGAAUAAAAZAAkAAQAHAAUAAAAVAAkAAQAEAAUAAAAWAAkAAQAFAAUAAAASAAkAAQACAAUAAAATAAkAAQADAAUAAAAPAAkAAQAAAAUAAAAQAAkAAQABAAUAAAAGAAkAAQACAAIAAAAHAAkAAQADAAIAAAAJAAkAAQAEAAIAAAAKAAkAAQAFAAIAAAAMAAkAAQAGAAIAAAANAAkAAQAHAAIAAAAMAAUAAQAGAAAAAAANAAUAAQAHAAAAAAAJAAUAAQAEAAAAAAAKAAUAAQAFAAAAAAAPAAUAAQAAAAMAAAAQAAUAAQABAAMAAAASAAUAAQACAAMAAAATAAUAAQADAAMAAAAVAAUAAQAEAAMAAAAWAAUAAQAFAAMAAAAYAAUAAQAGAAMAAAAZAAUAAQAHAAMAAAA=")
+tile_set = SubResource("TileSet_18at4")
+
+[node name="PipeGreen" type="Button" parent="PipePanel/Pipes2" unique_id=518226302 groups=["pipe_buttons"]]
+offset_left = 48.0
+offset_top = 80.0
+offset_right = 80.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeYellow" type="Button" parent="PipePanel/Pipes2" unique_id=1099215332 groups=["pipe_buttons"]]
+offset_left = 96.0
+offset_top = 80.0
+offset_right = 128.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeRed" type="Button" parent="PipePanel/Pipes2" unique_id=453571458 groups=["pipe_buttons"]]
+offset_left = 144.0
+offset_top = 80.0
+offset_right = 176.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeBlue" type="Button" parent="PipePanel/Pipes2" unique_id=625201660 groups=["pipe_buttons"]]
+offset_left = 192.0
+offset_top = 80.0
+offset_right = 224.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeGray" type="Button" parent="PipePanel/Pipes2" unique_id=931285485 groups=["pipe_buttons"]]
+offset_left = 240.0
+offset_top = 80.0
+offset_right = 272.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipePurple" type="Button" parent="PipePanel/Pipes2" unique_id=740634712 groups=["pipe_buttons"]]
+offset_left = 288.0
+offset_top = 80.0
+offset_right = 320.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeBrown" type="Button" parent="PipePanel/Pipes2" unique_id=897247102 groups=["pipe_buttons"]]
+offset_left = 336.0
+offset_top = 80.0
+offset_right = 368.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeOrange" type="Button" parent="PipePanel/Pipes2" unique_id=1053317537 groups=["pipe_buttons"]]
+offset_left = 384.0
+offset_top = 80.0
+offset_right = 416.0
+offset_bottom = 160.0
+flat = true
+
+[node name="Pipes4" type="TileMapLayer" parent="PipePanel" unique_id=1240747280 groups=["pipes"]]
+visible = false
+position = Vector2(128, 9)
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAADAAUAAgAAAAAAAAAEAAUAAgABAAAAAAAGAAUAAgACAAAAAAAHAAUAAgADAAAAAAAJAAUAAgAEAAAAAAAKAAUAAgAFAAAAAAAMAAUAAgAGAAAAAAANAAUAAgAHAAAAAAAPAAUAAgAAAAMAAAAQAAUAAgABAAMAAAASAAUAAgACAAMAAAATAAUAAgADAAMAAAAVAAUAAgAEAAMAAAAWAAUAAgAFAAMAAAAYAAUAAgAGAAMAAAAZAAUAAgAHAAMAAAAYAAkAAgAGAAUAAAAZAAkAAgAHAAUAAAAVAAkAAgAEAAUAAAAWAAkAAgAFAAUAAAASAAkAAgACAAUAAAATAAkAAgADAAUAAAAPAAkAAgAAAAUAAAAQAAkAAgABAAUAAAAMAAkAAgAGAAIAAAANAAkAAgAHAAIAAAAJAAkAAgAEAAIAAAAKAAkAAgAFAAIAAAAGAAkAAgACAAIAAAAHAAkAAgADAAIAAAADAAkAAgAAAAIAAAAEAAkAAgABAAIAAAADAAYAAgAAAAEAAAAEAAYAAgABAAEAAAADAAcAAgAAAAEAAAAEAAcAAgABAAEAAAADAAgAAgAAAAEAAAAEAAgAAgABAAEAAAAGAAYAAgACAAEAAAAHAAYAAgADAAEAAAAGAAcAAgACAAEAAAAHAAcAAgADAAEAAAAGAAgAAgACAAEAAAAHAAgAAgADAAEAAAAJAAYAAgAEAAEAAAAKAAYAAgAFAAEAAAAJAAcAAgAEAAEAAAAKAAcAAgAFAAEAAAAJAAgAAgAEAAEAAAAKAAgAAgAFAAEAAAAMAAYAAgAGAAEAAAANAAYAAgAHAAEAAAAMAAcAAgAGAAEAAAANAAcAAgAHAAEAAAAMAAgAAgAGAAEAAAANAAgAAgAHAAEAAAAPAAYAAgAAAAQAAAAQAAYAAgABAAQAAAAPAAcAAgAAAAQAAAAQAAcAAgABAAQAAAAPAAgAAgAAAAQAAAAQAAgAAgABAAQAAAASAAYAAgACAAQAAAATAAYAAgADAAQAAAASAAcAAgACAAQAAAATAAcAAgADAAQAAAASAAgAAgACAAQAAAATAAgAAgADAAQAAAAVAAYAAgAEAAQAAAAWAAYAAgAFAAQAAAAVAAcAAgAEAAQAAAAWAAcAAgAFAAQAAAAVAAgAAgAEAAQAAAAWAAgAAgAFAAQAAAAYAAYAAgAGAAQAAAAZAAYAAgAHAAQAAAAYAAcAAgAGAAQAAAAZAAcAAgAHAAQAAAAYAAgAAgAGAAQAAAAZAAgAAgAHAAQAAAA=")
+tile_set = SubResource("TileSet_18at4")
+
+[node name="PipeGreen" type="Button" parent="PipePanel/Pipes4" unique_id=1074723661 groups=["pipe_buttons"]]
+offset_left = 48.0
+offset_top = 80.0
+offset_right = 80.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeYellow" type="Button" parent="PipePanel/Pipes4" unique_id=1979191383 groups=["pipe_buttons"]]
+offset_left = 96.0
+offset_top = 80.0
+offset_right = 128.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeRed" type="Button" parent="PipePanel/Pipes4" unique_id=620416989 groups=["pipe_buttons"]]
+offset_left = 144.0
+offset_top = 80.0
+offset_right = 176.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeBlue" type="Button" parent="PipePanel/Pipes4" unique_id=406829590 groups=["pipe_buttons"]]
+offset_left = 192.0
+offset_top = 80.0
+offset_right = 224.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeGray" type="Button" parent="PipePanel/Pipes4" unique_id=1663771924 groups=["pipe_buttons"]]
+offset_left = 240.0
+offset_top = 80.0
+offset_right = 272.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipePurple" type="Button" parent="PipePanel/Pipes4" unique_id=1054746001 groups=["pipe_buttons"]]
+offset_left = 288.0
+offset_top = 80.0
+offset_right = 320.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeBrown" type="Button" parent="PipePanel/Pipes4" unique_id=1777092538 groups=["pipe_buttons"]]
+offset_left = 336.0
+offset_top = 80.0
+offset_right = 368.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeOrange" type="Button" parent="PipePanel/Pipes4" unique_id=1702475205 groups=["pipe_buttons"]]
+offset_left = 384.0
+offset_top = 80.0
+offset_right = 416.0
+offset_bottom = 160.0
+flat = true
+
+[node name="Pipes5" type="TileMapLayer" parent="PipePanel" unique_id=480706177 groups=["pipes"]]
+visible = false
+position = Vector2(128, 9)
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAADAAUAAwAAAAAAAAAEAAUAAwABAAAAAAAGAAUAAwACAAAAAAAHAAUAAwADAAAAAAAJAAUAAwAEAAAAAAAKAAUAAwAFAAAAAAAMAAUAAwAGAAAAAAANAAUAAwAHAAAAAAAPAAUAAwAAAAMAAAAQAAUAAwABAAMAAAASAAUAAwACAAMAAAATAAUAAwADAAMAAAAVAAUAAwAEAAMAAAAWAAUAAwAFAAMAAAAYAAUAAwAGAAMAAAAZAAUAAwAHAAMAAAAYAAkAAwAGAAUAAAAZAAkAAwAHAAUAAAAVAAkAAwAEAAUAAAAWAAkAAwAFAAUAAAASAAkAAwACAAUAAAATAAkAAwADAAUAAAAPAAkAAwAAAAUAAAAQAAkAAwABAAUAAAAMAAkAAwAGAAIAAAANAAkAAwAHAAIAAAAJAAkAAwAEAAIAAAAKAAkAAwAFAAIAAAAGAAkAAwACAAIAAAAHAAkAAwADAAIAAAADAAkAAwAAAAIAAAAEAAkAAwABAAIAAAADAAYAAwAAAAEAAAAEAAYAAwABAAEAAAADAAcAAwAAAAEAAAAEAAcAAwABAAEAAAADAAgAAwAAAAEAAAAEAAgAAwABAAEAAAAGAAYAAwACAAEAAAAHAAYAAwADAAEAAAAGAAcAAwACAAEAAAAHAAcAAwADAAEAAAAGAAgAAwACAAEAAAAHAAgAAwADAAEAAAAJAAYAAwAEAAEAAAAKAAYAAwAFAAEAAAAJAAcAAwAEAAEAAAAKAAcAAwAFAAEAAAAJAAgAAwAEAAEAAAAKAAgAAwAFAAEAAAAMAAYAAwAGAAEAAAANAAYAAwAHAAEAAAAMAAcAAwAGAAEAAAANAAcAAwAHAAEAAAAMAAgAAwAGAAEAAAANAAgAAwAHAAEAAAAPAAYAAwAAAAQAAAAQAAYAAwABAAQAAAAPAAcAAwAAAAQAAAAQAAcAAwABAAQAAAAPAAgAAwAAAAQAAAAQAAgAAwABAAQAAAATAAYAAwADAAQAAAASAAcAAwACAAQAAAATAAcAAwADAAQAAAASAAgAAwACAAQAAAATAAgAAwADAAQAAAAVAAYAAwAEAAQAAAAWAAYAAwAFAAQAAAAVAAcAAwAEAAQAAAAWAAcAAwAFAAQAAAAVAAgAAwAEAAQAAAAWAAgAAwAFAAQAAAAYAAYAAwAGAAQAAAAZAAYAAwAHAAQAAAAYAAcAAwAGAAQAAAAZAAcAAwAHAAQAAAAYAAgAAwAGAAQAAAAZAAgAAwAHAAQAAAASAAYAAwACAAQAAAA=")
+tile_set = SubResource("TileSet_18at4")
+
+[node name="PipeGreen" type="Button" parent="PipePanel/Pipes5" unique_id=517184785 groups=["pipe_buttons"]]
+offset_left = 48.0
+offset_top = 80.0
+offset_right = 80.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeYellow" type="Button" parent="PipePanel/Pipes5" unique_id=1393031820 groups=["pipe_buttons"]]
+offset_left = 96.0
+offset_top = 80.0
+offset_right = 128.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeRed" type="Button" parent="PipePanel/Pipes5" unique_id=874202800 groups=["pipe_buttons"]]
+offset_left = 144.0
+offset_top = 80.0
+offset_right = 176.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeBlue" type="Button" parent="PipePanel/Pipes5" unique_id=837838486 groups=["pipe_buttons"]]
+offset_left = 192.0
+offset_top = 80.0
+offset_right = 224.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeGray" type="Button" parent="PipePanel/Pipes5" unique_id=1452510806 groups=["pipe_buttons"]]
+offset_left = 240.0
+offset_top = 80.0
+offset_right = 272.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipePurple" type="Button" parent="PipePanel/Pipes5" unique_id=1019074173 groups=["pipe_buttons"]]
+offset_left = 288.0
+offset_top = 80.0
+offset_right = 320.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeBrown" type="Button" parent="PipePanel/Pipes5" unique_id=1601698325 groups=["pipe_buttons"]]
+offset_left = 336.0
+offset_top = 80.0
+offset_right = 368.0
+offset_bottom = 160.0
+flat = true
+
+[node name="PipeOrange" type="Button" parent="PipePanel/Pipes5" unique_id=1696547114 groups=["pipe_buttons"]]
+offset_left = 384.0
+offset_top = 80.0
+offset_right = 416.0
+offset_bottom = 160.0
+flat = true
+
+[node name="BackButton" type="Button" parent="." unique_id=1269919021]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -132.5
+offset_top = -123.0
+offset_right = 132.5
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_xmlfx")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = ExtResource("3_0edpv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h4mfo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_18at4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_21u2u")
+text = "Save"
+
 [node name="TabBar" type="TabBar" parent="." unique_id=1515495654]
+z_index = 1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -279,11 +804,12 @@ tab_0/tooltip = "Customize your plane appearance"
 tab_1/title = "Pipe"
 tab_1/tooltip = "Customize how the pipes look"
 
-[connection signal="pressed" from="PlayerPanel/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="PlayerPanel/HBoxContainer/SwitchLeftButton" to="." method="_on_switch_left_button_pressed"]
 [connection signal="pressed" from="PlayerPanel/HBoxContainer/SwitchRightButton" to="." method="_on_switch_right_button_pressed"]
 [connection signal="pressed" from="PlayerPanel/HBoxContainer2/ColorSampleRect1/ColorSampleRectButton1" to="." method="_on_color_sample_rect_button_1_pressed"]
 [connection signal="pressed" from="PlayerPanel/HBoxContainer2/ColorSampleRect2/ColorSampleRectButton2" to="." method="_on_color_sample_rect_button_2_pressed"]
 [connection signal="pressed" from="PlayerPanel/HBoxContainer2/ColorSampleRect3/ColorSampleRectButton3" to="." method="_on_color_sample_rect_button_3_pressed"]
 [connection signal="pressed" from="PlayerPanel/HBoxContainer2/ColorSampleRect4/ColorSampleRectButton4" to="." method="_on_color_sample_rect_button_4_pressed"]
+[connection signal="item_selected" from="PipePanel/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="tab_changed" from="TabBar" to="." method="_on_tab_bar_tab_changed"]

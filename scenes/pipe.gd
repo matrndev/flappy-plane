@@ -8,6 +8,10 @@ var score_played: bool = false
 
 var collisions_enabled: bool = TunableVariables.collisions_enabled
 
+func _ready() -> void:
+	change_style(TunableVariables.pipe_sprite_number, TunableVariables.pipe_sprite_color)
+
+
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and collisions_enabled:
 		if not hit_played:
@@ -15,12 +19,14 @@ func _on_body_entered(body: Node2D) -> void:
 			hit_played = true
 		hit.emit()
 
+
 func _on_safe_zone_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		if not score_played:
 			$ScoreSound.play()
 			score_played = true
 		score.emit()
+
 
 func change_style(new_style_type: int, new_style_color: String) -> bool:
 	var changing_successful: bool = false

@@ -10,6 +10,8 @@ var current_mode: int = 0
 func _ready() -> void:
 	refresh_texture()
 	refresh_color_samples()
+	for pipe_button in get_tree().get_nodes_in_group("pipe_buttons"):
+		pipe_button.pressed.connect(_on_any_pipe_button_pressed.bind(pipe_button))
 
 
 func refresh_texture() -> void:
@@ -82,8 +84,34 @@ func _on_color_sample_rect_button_4_pressed() -> void:
 
 
 func _on_tab_bar_tab_changed(tab: int) -> void:
+	$PlayerPanel.hide()
+	$PipePanel.hide()
 	match tab:
 		0:
 			current_mode = 0
+			$PlayerPanel.show()
 		1:
 			current_mode = 1
+			$PipePanel.show()
+
+
+func _on_any_pipe_button_pressed(button: Button) -> void:
+	var selected_color: String = button.name.replace("Pipe", "")
+	TunableVariables.pipe_sprite_color = selected_color
+	
+	var selected_style: String = button.get_parent().name.replace("Pipes", "")
+	TunableVariables.pipe_sprite_number = int(selected_style)
+
+
+func _on_option_button_item_selected(index: int) -> void:
+	for node in get_tree().get_nodes_in_group("pipes"):
+		node.hide()
+	match index:
+		0:
+			$PipePanel/Pipes1.show()
+		1:
+			$PipePanel/Pipes2.show()
+		2:
+			$PipePanel/Pipes4.show()
+		3:
+			$PipePanel/Pipes5.show()
