@@ -8,8 +8,10 @@ var refueling_speed: float
 var generate_station_on_fuel_level: float
 var trail_length: int
 var pipe_variability: int
+var torpedo_variability: int
 var pipe_spawn_rate: float
 var coin_spawn_rate: float
+var torpedo_spawn_rate: float
 
 # player
 var jump_velocity: float
@@ -60,8 +62,10 @@ func load_config(path: String = "") -> void:
 		generate_station_on_fuel_level = config_file.get_value("game", "generate_station_on_fuel_level", generate_station_on_fuel_level)
 		trail_length = config_file.get_value("game", "trail_length", trail_length)
 		pipe_variability = config_file.get_value("game", "pipe_variability", pipe_variability)
+		torpedo_variability = config_file.get_value("game", "torpedo_variability", torpedo_variability)
 		pipe_spawn_rate = config_file.get_value("game", "pipe_spawn_rate", pipe_spawn_rate)
 		coin_spawn_rate = config_file.get_value("game", "coin_spawn_rate", coin_spawn_rate)
+		torpedo_spawn_rate = config_file.get_value("game", "torpedo_spawn_rate", torpedo_spawn_rate)
 		
 		# player
 		jump_velocity = config_file.get_value("player", "jump_velocity", jump_velocity)
@@ -99,8 +103,10 @@ func save_config(path: String = "") -> void:
 	config_file.set_value("game", "generate_station_on_fuel_level", generate_station_on_fuel_level)
 	config_file.set_value("game", "trail_length", trail_length)
 	config_file.set_value("game", "pipe_variability", pipe_variability)
+	config_file.set_value("game", "torpedo_variability", torpedo_variability)
 	config_file.set_value("game", "pipe_spawn_rate", pipe_spawn_rate)
 	config_file.set_value("game", "coin_spawn_rate", coin_spawn_rate)
+	config_file.set_value("game", "torpedo_spawn_rate", torpedo_spawn_rate)
 	
 	# player
 	config_file.set_value("player", "jump_velocity", jump_velocity)

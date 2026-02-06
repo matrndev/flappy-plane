@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cye2twaxip8lf"]
+
+[ext_resource type="Script" uid="uid://bichtjom6nqrt" path="res://scripts/torpedo.gd" id="1_0ddwc"]
+[ext_resource type="Texture2D" uid="uid://4l8ynkdqu7cy" path="res://assets/plane_pack/planes/torpedo/torpedo.png" id="1_w885k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ddwc"]
+height = 66.0
+
+[node name="Torpedo" type="Area2D" unique_id=158251700]
+rotation = -3.1415927
+script = ExtResource("1_0ddwc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=471096832]
+position = Vector2(1.0000153, 0)
+scale = Vector2(0.17699115, 0.17699115)
+texture = ExtResource("1_w885k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1935390000]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_0ddwc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

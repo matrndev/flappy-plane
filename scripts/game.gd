@@ -9,14 +9,17 @@ signal refueling_finalized
 @export var refueling_menu_scene: PackedScene
 @export var death_message_scene: PackedScene
 @export var cheat_code_menu_scene: PackedScene
+@export var torpedo_scene: PackedScene
 var pipes: Array
 var coins: Array
 var stations: Array
+var torpedoes: Array
 var screen_size: Vector2i
 var ground_scroll_pos: int
 var ground_height: int
 var trail_length: int = TunableVariables.trail_length
 var pipe_variability: int = TunableVariables.pipe_variability
+var torpedo_variability: int = TunableVariables.torpedo_variability
 var score: int = 0
 var coin_score: int = 0
 var scroll_speed = TunableVariables.scroll_speed
@@ -31,12 +34,15 @@ var hold: bool = false
 # - shop (find a use for coins, maybe unlocking skins)
 # - tutorial
 # - enemy torpedoes
+# - torpedoes remove your health instead of killing you instantly
+# - torpedoes come in waves
+# - more score = more torpedoes
 # - refueling station better design
 # - parallax effect
 # - ally airplanes?
 # - boss battles lol
 # - more different minigames in the refueling station
-# - change pipe skin / randomised pipe skin spawning
+# DONE: - change pipe skin / randomised pipe skin spawning
 # - calculate falling rotation instead of it being hardcoded
 # DONE: - change plane skin
 # DONE: - menu screen
@@ -55,6 +61,7 @@ func _ready() -> void:
 	TunableVariables.load_config()
 	$PipeTimer.wait_time = TunableVariables.pipe_spawn_rate
 	$CoinTimer.wait_time = TunableVariables.coin_spawn_rate
+	$TorpedoTimer.wait_time = TunableVariables.torpedo_spawn_rate
 	
 	# set trail color based on plane color
 	match TunableVariables.player_sprite_color:
@@ -74,8 +81,9 @@ func _ready() -> void:
 	generate_pipe()
 	hold = true
 	start.emit() # temp
+	#generate_torpedo()
 
-func _process(delta: float) -> void:	
+func _process(delta: float) -> void:
 	#scroll_speed = lerp(2.0, SCROLL_SPEED, $Player.fuel_remaining / 100.0) # idk with this one mate
 	#if Input.is_action_pressed("keyboard_a"): # !debug
 		#scroll_speed = 1
@@ -135,6 +143,9 @@ func _process(delta: float) -> void:
 	# station moving
 	for station in stations:
 		station.position.x -= scroll_speed
+	
+	for torpedo in torpedoes:
+		torpedo.position.x -= scroll_speed
 
 	# plane trail
 	$PlaneTrail.add_point(Vector2($Player.position.x + 20, $Player.position.y - 20))
@@ -147,10 +158,15 @@ func _process(delta: float) -> void:
 		if (i > trail_length):
 			$PlaneTrail.remove_point(0)
 
-
+func _on_torpedo_timer_timeout() -> void:
+	if hold or is_refueling:
+		return
+	if score < 5: # torpedoes don't spawn until certain score reached TODO: TunableVariables
+		return
+	generate_torpedo()
 
 func _on_pipe_timer_timeout() -> void:
-	if hold:
+	if hold or is_refueling:
 		return
 	generate_pipe()
 	# spawn station
@@ -158,7 +174,7 @@ func _on_pipe_timer_timeout() -> void:
 		generate_station()
 
 func _on_coin_timer_timeout() -> void:
-	if hold:
+	if hold or is_refueling:
 		return
 	if randf() < 0.67:
 		generate_coin()
@@ -172,6 +188,15 @@ func generate_pipe() -> void:
 	pipe.add_to_group("pipes")
 	add_child(pipe)
 	pipes.append(pipe)
+
+func generate_torpedo() -> void:
+	var torpedo: Area2D = torpedo_scene.instantiate()
+	torpedo.position.x = screen_size.x + 50
+	torpedo.position.y = (screen_size.y - ground_height) / 2.0 + randi_range(-torpedo_variability, torpedo_variability)
+	torpedo.hit.connect(torpedo_hit)
+	torpedo.add_to_group("torpedoes")
+	add_child(torpedo)
+	torpedoes.append(torpedo)
 
 func generate_coin() -> void:
 	var coin: Area2D = coin_scene.instantiate()
@@ -222,6 +247,8 @@ func refueling_done() -> void:
 	clear_stations()
 	refueling_finalized.emit()
 
+func torpedo_hit() -> void:
+	$Player.dead = true
 
 func coin_hit() -> void:
 	coin_score += 1
@@ -229,6 +256,11 @@ func coin_hit() -> void:
 
 func bird_score() -> void:
 	score += 1
+
+func clear_torpedoes() -> void:
+	torpedoes.clear()
+	for node in get_tree().get_nodes_in_group("torpedoes"):
+		node.queue_free()
 
 func clear_pipes() -> void:
 	pipes.clear()
@@ -263,9 +295,6 @@ func show_death_message(display: bool) -> void:
 		death_message.queue_free()
 		death_message = null
 
-func _on_ready() -> void:
-	pass # Replace with function body.
-
 
 func _on_player_died() -> void:
 	# reset game
@@ -273,6 +302,7 @@ func _on_player_died() -> void:
 	clear_coins()
 	clear_pipes()
 	clear_stations()
+	clear_torpedoes()
 	show_death_message(false)
 	$PlaneTrail.clear_points()
 	hold = true

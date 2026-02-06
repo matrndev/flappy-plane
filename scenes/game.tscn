@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b3nmbkfa4f8sp" path="res://scenes/cheat_code_menu.tscn" id="7_dinhu"]
 [ext_resource type="PackedScene" uid="uid://bemfcfq10ud1f" path="res://scenes/coin.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://btvo7t7jdda1m" path="res://scenes/refueling_station.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://cye2twaxip8lf" path="res://scenes/torpedo.tscn" id="8_trtic"]
 [ext_resource type="PackedScene" uid="uid://tv1so81v08fi" path="res://scenes/refueling_menu.tscn" id="9_0tnpc"]
 [ext_resource type="Script" uid="uid://d34yuumxrwwm5" path="res://scripts/player.gd" id="9_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://b6sttng1yxfx7" path="res://scenes/game_stats.tscn" id="10_vtaks"]
@@ -25,6 +26,7 @@ station_scene = ExtResource("8_gee14")
 refueling_menu_scene = ExtResource("9_0tnpc")
 death_message_scene = ExtResource("11_kvpfn")
 cheat_code_menu_scene = ExtResource("7_dinhu")
+torpedo_scene = ExtResource("8_trtic")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=302017982]
 position = Vector2(578, 236.00003)
@@ -106,6 +108,9 @@ theme_override_constants/outline_size = 18
 theme_override_fonts/font = ExtResource("13_kvuet")
 text = "Press SPACE or X to Resume Game"
 
+[node name="TorpedoTimer" type="Timer" parent="." unique_id=981358351]
+autostart = true
+
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="refueling_finalized" from="." to="Player" method="_on_game_refueling_finalized"]
 [connection signal="start" from="." to="Player" method="_on_game_start"]
@@ -116,3 +121,4 @@ text = "Press SPACE or X to Resume Game"
 [connection signal="body_entered" from="Ground" to="Player" method="_on_ground_body_entered"]
 [connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
 [connection signal="timeout" from="CoinTimer" to="." method="_on_coin_timer_timeout"]
+[connection signal="timeout" from="TorpedoTimer" to="." method="_on_torpedo_timer_timeout"]
