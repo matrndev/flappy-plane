@@ -3,7 +3,7 @@ extends Node
 const CONFIG_FILE_PATH: String = "user://tunables.cfg"
 
 # game
-var scroll_speed: float
+var scroll_speed: int
 var refueling_speed: float
 var generate_station_on_fuel_level: float
 var trail_length: int
@@ -12,6 +12,14 @@ var torpedo_variability: int
 var pipe_spawn_rate: float
 var coin_spawn_rate: float
 var torpedo_spawn_rate: float
+var score_multiplier: int
+var torpedo_damage: float
+var torpedo_speed_multiplier: float
+var torpedo_frequency_increase_on_score: int
+var torpedo_frequency_increase_multiplier: float
+var refueling_station_x_variability: int
+var coin_x_variability: int
+var coin_y_variability: int
 
 # player
 var jump_velocity: float
@@ -66,6 +74,14 @@ func load_config(path: String = "") -> void:
 		pipe_spawn_rate = config_file.get_value("game", "pipe_spawn_rate", pipe_spawn_rate)
 		coin_spawn_rate = config_file.get_value("game", "coin_spawn_rate", coin_spawn_rate)
 		torpedo_spawn_rate = config_file.get_value("game", "torpedo_spawn_rate", torpedo_spawn_rate)
+		score_multiplier = config_file.get_value("game", "score_multiplier", score_multiplier)
+		torpedo_damage = config_file.get_value("game", "torpedo_damage", torpedo_damage)
+		torpedo_speed_multiplier = config_file.get_value("game", "torpedo_speed_multiplier", torpedo_speed_multiplier)
+		torpedo_frequency_increase_on_score = config_file.get_value("game", "torpedo_frequency_increase_on_score", torpedo_frequency_increase_on_score)
+		torpedo_frequency_increase_multiplier = config_file.get_value("game", "torpedo_frequency_increase_multiplier", torpedo_frequency_increase_multiplier)
+		refueling_station_x_variability = config_file.get_value("game", "refueling_station_x_variability", refueling_station_x_variability)
+		coin_x_variability = config_file.get_value("game", "coin_x_variability", coin_x_variability)
+		coin_y_variability = config_file.get_value("game", "coin_y_variability", coin_y_variability)
 		
 		# player
 		jump_velocity = config_file.get_value("player", "jump_velocity", jump_velocity)
@@ -107,6 +123,14 @@ func save_config(path: String = "") -> void:
 	config_file.set_value("game", "pipe_spawn_rate", pipe_spawn_rate)
 	config_file.set_value("game", "coin_spawn_rate", coin_spawn_rate)
 	config_file.set_value("game", "torpedo_spawn_rate", torpedo_spawn_rate)
+	config_file.set_value("game", "score_multiplier", score_multiplier)
+	config_file.set_value("game", "torpedo_damage", torpedo_damage)
+	config_file.set_value("game", "torpedo_speed_multiplier", torpedo_speed_multiplier)
+	config_file.set_value("game", "torpedo_frequency_increase_on_score", torpedo_frequency_increase_on_score)
+	config_file.set_value("game", "torpedo_frequency_increase_multiplier", torpedo_frequency_increase_multiplier)
+	config_file.set_value("game", "refueling_station_x_variability", refueling_station_x_variability)
+	config_file.set_value("game", "coin_x_variability", coin_x_variability)
+	config_file.set_value("game", "coin_y_variability", coin_y_variability)
 	
 	# player
 	config_file.set_value("player", "jump_velocity", jump_velocity)

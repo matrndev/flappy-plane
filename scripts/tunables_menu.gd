@@ -10,14 +10,10 @@ func _on_back_button_pressed() -> void:
 func save_vars() -> void:
 	# save
 	for slider in get_tree().get_nodes_in_group("sliders"):
-		#if not slider.is_visible_in_tree():
-			#continue
 		var key := name_to_key(slider.name)
 		TunableVariables.set(key, slider.value)
 	
 	for check_box in get_tree().get_nodes_in_group("check_boxes"):
-		#if not check_box.is_visible_in_tree():
-			#continue
 		var key := name_to_key(check_box.name)
 		TunableVariables.set(key, check_box.button_pressed)
 
@@ -82,6 +78,7 @@ func _on_tab_bar_tab_changed(tab: int) -> void:
 	match tab:
 		0:
 			$Panel/Panel/GameConfigContainer.show()
+			$Panel/Panel/GameConfigContainer2.show()
 		1:
 			$Panel/Panel/PlayerConfigContainer.show()
 		2:

@@ -30,13 +30,13 @@ var hold: bool = false
 
 # TODO:
 # DONE: - ship first version
-# - more tunables (e.g. more granular fuel consumption, how easy the refueling station is)
+# DONE: - more tunables (e.g. more granular fuel consumption, how easy the refueling station is)
 # - shop (find a use for coins, maybe unlocking skins)
 # - tutorial
 # DONE: - enemy torpedoes
 # DONE: - torpedoes remove your health instead of killing you instantly
-# - torpedoes come in waves
-# - more score = more torpedoes
+# - torpedoes come in waves instead of spawning periodically?
+# DONE: - more score = more torpedoes (increased frequency)
 # - refueling station better design
 # - parallax effect
 # - ally airplanes?
@@ -137,28 +137,28 @@ func _process(delta: float) -> void:
 	for i in range(pipes.size() - 1, -1, -1):
 		var pipe = pipes[i]
 		pipe.position.x -= scroll_speed
-		if pipe.position.x < -100:
+		if pipe.position.x < -(scroll_speed * 100):
 			pipes.remove_at(i)
 			pipe.queue_free()
 
 	for i in range(coins.size() - 1, -1, -1):
 		var coin = coins[i]
 		coin.position.x -= scroll_speed
-		if coin.position.x < -100:
+		if coin.position.x < -(scroll_speed * 100):
 			coins.remove_at(i)
 			coin.queue_free()
 			
 	for i in range(stations.size() - 1, -1, -1):
 		var station = stations[i]
 		station.position.x -= scroll_speed
-		if station.position.x < -100:
+		if station.position.x < -(scroll_speed * 100):
 			stations.remove_at(i)
 			station.queue_free()
 
 	for i in range(torpedoes.size() - 1, -1, -1):
 		var torpedo = torpedoes[i]
-		torpedo.position.x -= scroll_speed * 2.5
-		if torpedo.position.x < -100:
+		torpedo.position.x -= scroll_speed * TunableVariables.torpedo_speed_multiplier
+		if torpedo.position.x < -(scroll_speed * 100 * TunableVariables.torpedo_speed_multiplier):
 			torpedoes.remove_at(i)
 			torpedo.queue_free()
 
@@ -173,6 +173,7 @@ func _process(delta: float) -> void:
 
 		if (i > trail_length):
 			$PlaneTrail.remove_point(0)
+
 
 func _on_torpedo_timer_timeout() -> void:
 	if hold or is_refueling:
@@ -217,8 +218,8 @@ func generate_torpedo() -> void:
 
 func generate_coin() -> void:
 	var coin: Area2D = coin_scene.instantiate()
-	coin.position.x = screen_size.x + 400 + randi_range(1000, 1600)
-	coin.position.y = (screen_size.y - ground_height) / 2.0 + randi_range(-pipe_variability, pipe_variability)
+	coin.position.x = screen_size.x + 400 + randi_range(-TunableVariables.coin_x_variability, TunableVariables.coin_x_variability)
+	coin.position.y = (screen_size.y - ground_height) / 2.0 + randi_range(-TunableVariables.coin_y_variability, TunableVariables.coin_y_variability)
 	coin.hit.connect(coin_hit)
 	coin.add_to_group("coins")
 	add_child(coin)
@@ -226,7 +227,7 @@ func generate_coin() -> void:
 
 func generate_station() -> void:
 	var station: StaticBody2D = station_scene.instantiate()
-	station.position.x = screen_size.x + 400 + randi_range(-200, 100)
+	station.position.x = screen_size.x + 400 + randi_range(-TunableVariables.refueling_station_x_variability, TunableVariables.refueling_station_x_variability)
 	station.position.y = 545
 	station.entered.connect(entered_refueling)
 	station.add_to_group("stations")
@@ -265,14 +266,20 @@ func refueling_done() -> void:
 	refueling_finalized.emit()
 
 func torpedo_hit() -> void:
-	$Player.health -= 25
+	$Player.health -= TunableVariables.torpedo_damage
 
 func coin_hit() -> void:
 	coin_score += 1
 	SavedStats.coin_score = coin_score
 
 func bird_score() -> void:
-	score += 1
+	score += 1 * TunableVariables.score_multiplier
+	if score % TunableVariables.torpedo_frequency_increase_on_score == 0 and not score == 0:
+		var new_wait_time: float = $TorpedoTimer.wait_time - $TorpedoTimer.wait_time * TunableVariables.torpedo_frequency_increase_multiplier # make torpedoes fire more often
+		if new_wait_time <= 0:
+			new_wait_time = 0.1
+		$TorpedoTimer.wait_time = new_wait_time
+		print($TorpedoTimer.wait_time)
 
 func clear_torpedoes() -> void:
 	torpedoes.clear()
@@ -316,6 +323,7 @@ func show_death_message(display: bool) -> void:
 func _on_player_died() -> void:
 	# reset game
 	score = 0
+	$TorpedoTimer.wait_time = TunableVariables.torpedo_spawn_rate
 	clear_coins()
 	clear_pipes()
 	clear_stations()

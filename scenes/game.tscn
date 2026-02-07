@@ -111,7 +111,6 @@ text = "Press SPACE or X to Resume Game"
 [node name="TorpedoTimer" type="Timer" parent="." unique_id=981358351]
 autostart = true
 
-[connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="refueling_finalized" from="." to="Player" method="_on_game_refueling_finalized"]
 [connection signal="start" from="." to="Player" method="_on_game_start"]
 [connection signal="died" from="Player" to="." method="_on_player_died"]

@@ -143,7 +143,7 @@ text = "Max Trail Length"
 
 [node name="PipeVariabilitySlider" type="HSlider" parent="Panel/Panel/GameConfigContainer" unique_id=1212219573 groups=["sliders"]]
 layout_mode = 2
-max_value = 300.0
+max_value = 400.0
 step = 5.0
 rounded = true
 
@@ -230,6 +230,272 @@ offset_bottom = -3.0
 tooltip_text = "Determines how often should coins spawn in seconds."
 mouse_filter = 0
 text = "Coin Spawn Rate"
+
+[node name="TorpedoSpawnRate" type="HSlider" parent="Panel/Panel/GameConfigContainer" unique_id=1806482646 groups=["sliders"]]
+layout_mode = 2
+max_value = 10.0
+step = 0.1
+
+[node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/GameConfigContainer/TorpedoSpawnRate" unique_id=463894197 groups=["line_edits"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.4375
+offset_top = -18.5
+offset_right = 74.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="DescLabel" type="Label" parent="Panel/Panel/GameConfigContainer/TorpedoSpawnRate" unique_id=944474588]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = -3.0
+tooltip_text = "Determines how often should torpedoes spawn in seconds."
+mouse_filter = 0
+text = "Torpedo Spawn Rate"
+
+[node name="ScoreMultiplier" type="HSlider" parent="Panel/Panel/GameConfigContainer" unique_id=964637491 groups=["sliders"]]
+layout_mode = 2
+min_value = 1.0
+value = 1.0
+
+[node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/GameConfigContainer/ScoreMultiplier" unique_id=2021516329 groups=["line_edits"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.4375
+offset_top = -18.5
+offset_right = 74.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="DescLabel" type="Label" parent="Panel/Panel/GameConfigContainer/ScoreMultiplier" unique_id=943191631]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = -3.0
+tooltip_text = "Determines how often should coins spawn in seconds."
+mouse_filter = 0
+text = "Score Multiplier"
+
+[node name="GameConfigContainer2" type="VBoxContainer" parent="Panel/Panel" unique_id=217898088 groups=["containers"]]
+layout_mode = 1
+offset_left = 348.0
+offset_top = 88.0
+offset_right = 646.8594
+offset_bottom = 578.0
+theme_override_constants/separation = 39
+
+[node name="TorpedoDamage" type="HSlider" parent="Panel/Panel/GameConfigContainer2" unique_id=408588548 groups=["sliders"]]
+layout_mode = 2
+
+[node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/GameConfigContainer2/TorpedoDamage" unique_id=975437951 groups=["line_edits"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.4375
+offset_top = -18.5
+offset_right = 74.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="DescLabel" type="Label" parent="Panel/Panel/GameConfigContainer2/TorpedoDamage" unique_id=678662487]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = -3.0
+tooltip_text = "Determines how often should coins spawn in seconds."
+mouse_filter = 0
+text = "Torpedo Damage Rate"
+
+[node name="TorpedoSpeedMultiplier" type="HSlider" parent="Panel/Panel/GameConfigContainer2" unique_id=522099810 groups=["sliders"]]
+layout_mode = 2
+max_value = 10.0
+step = 0.1
+
+[node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/GameConfigContainer2/TorpedoSpeedMultiplier" unique_id=1248740563 groups=["line_edits"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.4375
+offset_top = -18.5
+offset_right = 74.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="DescLabel" type="Label" parent="Panel/Panel/GameConfigContainer2/TorpedoSpeedMultiplier" unique_id=715625528]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = -3.0
+tooltip_text = "Determines how often should coins spawn in seconds."
+mouse_filter = 0
+text = "Torpedo Speed Multiplier"
+
+[node name="TorpedoFrequencyIncreaseOnScore" type="HSlider" parent="Panel/Panel/GameConfigContainer2" unique_id=1660019848 groups=["sliders"]]
+layout_mode = 2
+
+[node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/GameConfigContainer2/TorpedoFrequencyIncreaseOnScore" unique_id=1449498957 groups=["line_edits"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.4375
+offset_top = -18.5
+offset_right = 74.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="DescLabel" type="Label" parent="Panel/Panel/GameConfigContainer2/TorpedoFrequencyIncreaseOnScore" unique_id=1119794549]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = -3.0
+tooltip_text = "Define every nth score when the torpedo spawning frequency should increase."
+mouse_filter = 0
+text = "Torpedo Frequency Increase On Score"
+
+[node name="TorpedoFrequencyIncreaseMultiplier" type="HSlider" parent="Panel/Panel/GameConfigContainer2" unique_id=1251641293 groups=["sliders"]]
+layout_mode = 2
+max_value = 10.0
+step = 0.1
+
+[node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/GameConfigContainer2/TorpedoFrequencyIncreaseMultiplier" unique_id=813029960 groups=["line_edits"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.4375
+offset_top = -18.5
+offset_right = 74.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="DescLabel" type="Label" parent="Panel/Panel/GameConfigContainer2/TorpedoFrequencyIncreaseMultiplier" unique_id=528702560]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = -3.0
+tooltip_text = "Defines by how much should the torpedo spawning frequency increase on trigger.
+Note: triggers every nth score (set value above)"
+mouse_filter = 0
+text = "Torpedo Frequency Increase Multiplier"
+
+[node name="RefuelingStationXVariability" type="HSlider" parent="Panel/Panel/GameConfigContainer2" unique_id=1614747374 groups=["sliders"]]
+layout_mode = 2
+max_value = 400.0
+step = 5.0
+
+[node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/GameConfigContainer2/RefuelingStationXVariability" unique_id=1153687938 groups=["line_edits"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.4375
+offset_top = -18.5
+offset_right = 74.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="DescLabel" type="Label" parent="Panel/Panel/GameConfigContainer2/RefuelingStationXVariability" unique_id=687126273]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = -3.0
+tooltip_text = "Determines how often should coins spawn in seconds."
+mouse_filter = 0
+text = "Refueling Station X Axis Variability"
+
+[node name="CoinXVariability" type="HSlider" parent="Panel/Panel/GameConfigContainer2" unique_id=1989751004 groups=["sliders"]]
+layout_mode = 2
+max_value = 400.0
+step = 5.0
+
+[node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/GameConfigContainer2/CoinXVariability" unique_id=671778722 groups=["line_edits"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.4375
+offset_top = -18.5
+offset_right = 74.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="DescLabel" type="Label" parent="Panel/Panel/GameConfigContainer2/CoinXVariability" unique_id=1179930008]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = -3.0
+tooltip_text = "Determines how often should coins spawn in seconds."
+mouse_filter = 0
+text = "Coin X Variability"
+
+[node name="CoinYVariability" type="HSlider" parent="Panel/Panel/GameConfigContainer2" unique_id=2143571833 groups=["sliders"]]
+layout_mode = 2
+max_value = 400.0
+step = 5.0
+
+[node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/GameConfigContainer2/CoinYVariability" unique_id=873537271 groups=["line_edits"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.4375
+offset_top = -18.5
+offset_right = 74.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="DescLabel" type="Label" parent="Panel/Panel/GameConfigContainer2/CoinYVariability" unique_id=328333123]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = -3.0
+tooltip_text = "Determines how often should coins spawn in seconds."
+mouse_filter = 0
+text = "Coin Y Variability"
 
 [node name="PlayerConfigContainer" type="VBoxContainer" parent="Panel/Panel" unique_id=1943693623 groups=["containers"]]
 visible = false
