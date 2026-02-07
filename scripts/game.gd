@@ -161,7 +161,7 @@ func _process(delta: float) -> void:
 func _on_torpedo_timer_timeout() -> void:
 	if hold or is_refueling:
 		return
-	if score < 5: # torpedoes don't spawn until certain score reached TODO: TunableVariables
+	if score < 0: # torpedoes don't spawn until certain score reached TODO: TunableVariables
 		return
 	generate_torpedo()
 
@@ -194,6 +194,7 @@ func generate_torpedo() -> void:
 	torpedo.position.x = screen_size.x + 50
 	torpedo.position.y = (screen_size.y - ground_height) / 2.0 + randi_range(-torpedo_variability, torpedo_variability)
 	torpedo.hit.connect(torpedo_hit)
+	torpedo.hit.connect($Player.hit_animation)
 	torpedo.add_to_group("torpedoes")
 	add_child(torpedo)
 	torpedoes.append(torpedo)
@@ -248,7 +249,7 @@ func refueling_done() -> void:
 	refueling_finalized.emit()
 
 func torpedo_hit() -> void:
-	$Player.dead = true
+	$Player.health -= 25
 
 func coin_hit() -> void:
 	coin_score += 1

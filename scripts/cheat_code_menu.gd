@@ -16,6 +16,8 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 			$"../Player".fuel_remaining += 2000
 		"CLEARSTATS":
 			SavedStats.reset_all()
+		"ANAPPLE":
+			$"../Player".health += 500
 		"":
 			pass
 		_:

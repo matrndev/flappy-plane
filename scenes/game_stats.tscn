@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6sttng1yxfx7"]
+[gd_scene format=3 uid="uid://b6sttng1yxfx7"]
 
 [ext_resource type="Script" uid="uid://becpgv5l8r6vy" path="res://scripts/game_stats.gd" id="1_ul0qu"]
 [ext_resource type="FontFile" uid="uid://byrn6tqmul438" path="res://fonts/Zen_Dots/ZenDots-Regular.ttf" id="2_thv0x"]
@@ -32,6 +32,17 @@ corner_radius_bottom_left = 8
 corner_detail = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_thv0x"]
+bg_color = Color(0.6816288, 0.5742902, 0.09210732, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_bottom = 4
+border_color = Color(0.8640058, 0.7160659, 0.052937835, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kqpaf"]
 bg_color = Color(0.6322254, 1.9492954e-06, 3.3691526e-07, 1)
 border_width_left = 4
 border_width_top = 4
@@ -42,17 +53,7 @@ corner_radius_top_left = 8
 corner_radius_bottom_left = 8
 corner_detail = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kqpaf"]
-bg_color = Color(0.28627452, 0, 1, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_bottom = 4
-border_color = Color(0.4580359, 0.30179226, 1, 1)
-border_blend = true
-corner_radius_top_left = 8
-corner_radius_bottom_left = 8
-
-[node name="GameStats" type="Control"]
+[node name="GameStats" type="Control" unique_id=622121016]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,41 +62,40 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ul0qu")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=363102599]
 layout_mode = 0
 offset_left = 13.714233
 offset_right = 1152.0
 offset_bottom = 83.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8j22x")
 
-[node name="FuelBar" type="ProgressBar" parent="."]
+[node name="FuelBar" type="ProgressBar" parent="." unique_id=454286152]
 layout_mode = 0
 offset_left = 789.0
-offset_top = 12.0
+offset_top = 11.0
 offset_right = 1133.0
-offset_bottom = 72.0
+offset_bottom = 36.0
 theme_override_styles/background = SubResource("StyleBoxFlat_ul0qu")
 theme_override_styles/fill = SubResource("StyleBoxFlat_thv0x")
 value = 25.0
 show_percentage = false
 
-[node name="FuelBar2" type="ProgressBar" parent="."]
-visible = false
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=544855285]
 layout_mode = 0
-offset_left = 796.0
-offset_top = 91.0
-offset_right = 1140.0
-offset_bottom = 117.0
+offset_left = 789.0
+offset_top = 45.0
+offset_right = 1133.0
+offset_bottom = 71.0
 theme_override_styles/background = SubResource("StyleBoxFlat_ul0qu")
 theme_override_styles/fill = SubResource("StyleBoxFlat_kqpaf")
 value = 25.0
 show_percentage = false
 
-[node name="FlashTimer" type="Timer" parent="."]
+[node name="FlashTimer" type="Timer" parent="." unique_id=596606602]
 wait_time = 0.25
 autostart = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=19860865]
 layout_mode = 0
 offset_left = 206.0
 offset_top = 19.0
@@ -103,19 +103,19 @@ offset_right = 316.0
 offset_bottom = 64.0
 theme_override_constants/separation = 17
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2" unique_id=1966667800]
 custom_minimum_size = Vector2(25.67, 26.585)
 layout_mode = 2
 texture = ExtResource("3_kqpaf")
 expand_mode = 2
 
-[node name="CoinLabel" type="Label" parent="HBoxContainer2"]
+[node name="CoinLabel" type="Label" parent="HBoxContainer2" unique_id=1142905640]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_thv0x")
 theme_override_font_sizes/font_size = 37
 text = "21"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=699071543]
 layout_mode = 0
 offset_left = 485.0
 offset_top = 2.0
@@ -123,7 +123,7 @@ offset_right = 608.0
 offset_bottom = 47.0
 theme_override_constants/separation = 17
 
-[node name="ScoreLabel2" type="Label" parent="HBoxContainer"]
+[node name="ScoreLabel2" type="Label" parent="HBoxContainer" unique_id=870677127]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.6052743, 0.6052744, 0.6052741, 1)
@@ -131,14 +131,14 @@ theme_override_fonts/font = ExtResource("2_thv0x")
 theme_override_font_sizes/font_size = 15
 text = "Score"
 
-[node name="ScoreLabel" type="Label" parent="HBoxContainer"]
+[node name="ScoreLabel" type="Label" parent="HBoxContainer" unique_id=62980470]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_thv0x")
 theme_override_font_sizes/font_size = 37
 text = "21"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="."]
+[node name="HBoxContainer3" type="HBoxContainer" parent="." unique_id=172591682]
 layout_mode = 0
 offset_left = 485.0
 offset_top = 43.0
@@ -146,7 +146,7 @@ offset_right = 608.0
 offset_bottom = 88.0
 theme_override_constants/separation = 17
 
-[node name="BestScoreLabel2" type="Label" parent="HBoxContainer3"]
+[node name="BestScoreLabel2" type="Label" parent="HBoxContainer3" unique_id=1439032158]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.6052743, 0.6052744, 0.6052741, 1)
@@ -154,7 +154,7 @@ theme_override_fonts/font = ExtResource("2_thv0x")
 theme_override_font_sizes/font_size = 15
 text = "Best  "
 
-[node name="BestScoreLabel" type="Label" parent="HBoxContainer3"]
+[node name="BestScoreLabel" type="Label" parent="HBoxContainer3" unique_id=552619016]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_thv0x")

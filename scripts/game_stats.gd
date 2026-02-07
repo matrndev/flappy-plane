@@ -5,8 +5,10 @@ var score: int = 0
 var coins: int = 0
 var fuel_warning: bool = false
 var best_score: int = 0
+var health_remaining: float = 0.0
 
 @onready var fuel_bar: ProgressBar = $FuelBar
+@onready var health_bar: ProgressBar = $HealthBar
 @onready var score_label: Label = $HBoxContainer/ScoreLabel
 @onready var coin_label: Label = $HBoxContainer2/CoinLabel
 @onready var best_score_label: Label = $HBoxContainer3/BestScoreLabel
@@ -22,6 +24,7 @@ func _process(delta: float) -> void:
 	if score < best_score:
 		$HBoxContainer/ScoreLabel.modulate = Color("#ffffff")
 	fuel_bar.value = fuel_remaining
+	health_bar.value = health_remaining
 	best_score_label.text = str(best_score)
 	score_label.text = str(score)
 	coin_label.text = str(coins)

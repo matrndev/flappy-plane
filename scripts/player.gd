@@ -16,6 +16,7 @@ var dead: bool = false
 var ready_to_start: bool = true
 var gravity_enabled: bool = true
 var fuel_remaining: float = 100.0
+var health: float = 100.0
 
 var sprite_path: String
 
@@ -34,6 +35,9 @@ func _physics_process(delta: float) -> void:
 	if dead and is_on_floor():
 		$Sprite2D.self_modulate.a -= 0.02 # vanish
 		return
+	
+	if dead:
+		health = 0
 	  	
 	if not is_on_floor() and gravity_enabled:
 		velocity.y += gravity * delta
@@ -63,6 +67,10 @@ func _physics_process(delta: float) -> void:
 		fuel_remaining -= fuel_consumption * 50
 		$WingSound.play()
 	
+	if health <= 0:
+		health = 0
+		dead = true
+	
 	if not dead:
 		fuel_remaining -= fuel_consumption
 		if fuel_remaining <= 0:
@@ -72,6 +80,9 @@ func _physics_process(delta: float) -> void:
 		$"../GameStats".fuel_remaining = fuel_remaining
 		$"../GameStats".fuel_warning = true
 	
+	$"../GameStats".health_remaining = health
+	
+	
 	move_and_slide()
 
 func die() -> void:
@@ -80,6 +91,7 @@ func die() -> void:
 func reset() -> void:
 	die()
 	dead = false
+	health = 100.0
 	$"../GameStats".fuel_warning = false
 	position.y = 200
 	velocity.y = 0
@@ -101,3 +113,8 @@ func _on_game_refueling_finalized() -> void:
 	# jump
 	velocity.y = jump_velocity
 	# make first jump free fuel_remaining -= fuel_consumption * 50
+
+func hit_animation() -> void:
+	$Sprite2D.modulate = Color("ff0000")
+	var tween: Tween = create_tween()
+	tween.tween_property($Sprite2D, "modulate", Color.WHITE, 1.0)

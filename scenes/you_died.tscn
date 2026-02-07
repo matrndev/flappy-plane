@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dlhmbm8et6p6h"]
+[gd_scene format=3 uid="uid://dlhmbm8et6p6h"]
 
 [ext_resource type="FontFile" uid="uid://byrn6tqmul438" path="res://fonts/Zen_Dots/ZenDots-Regular.ttf" id="1_0hmh4"]
 [ext_resource type="Script" uid="uid://bqaiogudlkm6c" path="res://scripts/you_died.gd" id="1_k4bmk"]
@@ -35,7 +35,7 @@ shadow_size = 7
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cl810"]
 
-[node name="YouDied" type="Control"]
+[node name="YouDied" type="Control" unique_id=105552005]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,18 +46,18 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_k4bmk")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1221607728]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Panel" type="Panel" parent="Control"]
+[node name="Panel" type="Panel" parent="Control" unique_id=858512873]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_cl810")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=131561783]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -72,7 +72,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 239
 
-[node name="MainMenuButton" type="Button" parent="Control/HBoxContainer"]
+[node name="MainMenuButton" type="Button" parent="Control/HBoxContainer" unique_id=1414107854]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
@@ -85,7 +85,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_qk8dk")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cl810")
 text = "Main Menu"
 
-[node name="PlayAgainButton" type="Button" parent="Control/HBoxContainer"]
+[node name="PlayAgainButton" type="Button" parent="Control/HBoxContainer" unique_id=1543377978]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
@@ -98,7 +98,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_qk8dk")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cl810")
 text = "Play Again"
 
-[node name="YouDiedLabel" type="Label" parent="Control"]
+[node name="YouDiedLabel" type="Label" parent="Control" unique_id=690004120]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
