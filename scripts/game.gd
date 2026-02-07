@@ -33,8 +33,8 @@ var hold: bool = false
 # - more tunables (e.g. more granular fuel consumption, how easy the refueling station is)
 # - shop (find a use for coins, maybe unlocking skins)
 # - tutorial
-# - enemy torpedoes
-# - torpedoes remove your health instead of killing you instantly
+# DONE: - enemy torpedoes
+# DONE: - torpedoes remove your health instead of killing you instantly
 # - torpedoes come in waves
 # - more score = more torpedoes
 # - refueling station better design
@@ -131,21 +131,37 @@ func _process(delta: float) -> void:
 	if ground_scroll_pos >= screen_size.x:
 		ground_scroll_pos = 0
 	$Ground.position.x = -ground_scroll_pos
-
-	# pipe moving
-	for pipe in pipes:
-		pipe.position.x -= scroll_speed
-
-	# coin moving
-	for coin in coins:
-		coin.position.x -= scroll_speed
-
-	# station moving
-	for station in stations:
-		station.position.x -= scroll_speed
 	
-	for torpedo in torpedoes:
-		torpedo.position.x -= scroll_speed
+	# move objects + remove those off-screen
+	
+	for i in range(pipes.size() - 1, -1, -1):
+		var pipe = pipes[i]
+		pipe.position.x -= scroll_speed
+		if pipe.position.x < -100:
+			pipes.remove_at(i)
+			pipe.queue_free()
+
+	for i in range(coins.size() - 1, -1, -1):
+		var coin = coins[i]
+		coin.position.x -= scroll_speed
+		if coin.position.x < -100:
+			coins.remove_at(i)
+			coin.queue_free()
+			
+	for i in range(stations.size() - 1, -1, -1):
+		var station = stations[i]
+		station.position.x -= scroll_speed
+		if station.position.x < -100:
+			stations.remove_at(i)
+			station.queue_free()
+
+	for i in range(torpedoes.size() - 1, -1, -1):
+		var torpedo = torpedoes[i]
+		torpedo.position.x -= scroll_speed * 2.5
+		if torpedo.position.x < -100:
+			torpedoes.remove_at(i)
+			torpedo.queue_free()
+
 
 	# plane trail
 	$PlaneTrail.add_point(Vector2($Player.position.x + 20, $Player.position.y - 20))
@@ -161,7 +177,7 @@ func _process(delta: float) -> void:
 func _on_torpedo_timer_timeout() -> void:
 	if hold or is_refueling:
 		return
-	if score < 0: # torpedoes don't spawn until certain score reached TODO: TunableVariables
+	if score < 5: # torpedoes don't spawn until certain score reached TODO: TunableVariables
 		return
 	generate_torpedo()
 
@@ -201,7 +217,7 @@ func generate_torpedo() -> void:
 
 func generate_coin() -> void:
 	var coin: Area2D = coin_scene.instantiate()
-	coin.position.x = screen_size.x + randi_range(1000, 1600)
+	coin.position.x = screen_size.x + 400 + randi_range(1000, 1600)
 	coin.position.y = (screen_size.y - ground_height) / 2.0 + randi_range(-pipe_variability, pipe_variability)
 	coin.hit.connect(coin_hit)
 	coin.add_to_group("coins")
