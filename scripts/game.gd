@@ -80,8 +80,13 @@ func _ready() -> void:
 	ground_height = $Ground.get_node("TileMapLayer").tile_set.tile_size.y * 7 # ground is made of 7 tiles
 	generate_pipe()
 	hold = true
-	start.emit() # temp
-	#generate_torpedo()
+	start.emit()
+	if TunableVariables.torpedo_spawn_rate == 0.0:
+		$TorpedoTimer.stop()
+	if TunableVariables.pipe_spawn_rate == 0.0:
+		$PipeTimer.stop()
+	if TunableVariables.coin_spawn_rate == 0.0:
+		$CoinTimer.stop()
 
 func _process(delta: float) -> void:
 	#scroll_speed = lerp(2.0, SCROLL_SPEED, $Player.fuel_remaining / 100.0) # idk with this one mate
@@ -176,14 +181,14 @@ func _process(delta: float) -> void:
 
 
 func _on_torpedo_timer_timeout() -> void:
-	if hold or is_refueling:
+	if hold or is_refueling or $Player.dead:
 		return
-	if score < 5: # torpedoes don't spawn until certain score reached TODO: TunableVariables
+	if score < TunableVariables.torpedo_start_spawning_on_score:
 		return
 	generate_torpedo()
 
 func _on_pipe_timer_timeout() -> void:
-	if hold or is_refueling:
+	if hold or is_refueling or $Player.dead:
 		return
 	generate_pipe()
 	# spawn station
@@ -191,7 +196,7 @@ func _on_pipe_timer_timeout() -> void:
 		generate_station()
 
 func _on_coin_timer_timeout() -> void:
-	if hold or is_refueling:
+	if hold or is_refueling or $Player.dead:
 		return
 	if randf() < 0.67:
 		generate_coin()
@@ -279,7 +284,7 @@ func bird_score() -> void:
 		if new_wait_time <= 0:
 			new_wait_time = 0.1
 		$TorpedoTimer.wait_time = new_wait_time
-		print($TorpedoTimer.wait_time)
+		print("torpedo frequency increased to ", new_wait_time)
 
 func clear_torpedoes() -> void:
 	torpedoes.clear()
