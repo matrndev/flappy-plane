@@ -17,6 +17,7 @@ var torpedo_damage: float
 var torpedo_speed_multiplier: float
 var torpedo_frequency_increase_on_score: int
 var torpedo_frequency_increase_multiplier: float
+var torpedo_start_spawning_on_score: int
 var refueling_station_x_variability: int
 var coin_x_variability: int
 var coin_y_variability: int
@@ -79,6 +80,7 @@ func load_config(path: String = "") -> void:
 		torpedo_speed_multiplier = config_file.get_value("game", "torpedo_speed_multiplier", torpedo_speed_multiplier)
 		torpedo_frequency_increase_on_score = config_file.get_value("game", "torpedo_frequency_increase_on_score", torpedo_frequency_increase_on_score)
 		torpedo_frequency_increase_multiplier = config_file.get_value("game", "torpedo_frequency_increase_multiplier", torpedo_frequency_increase_multiplier)
+		torpedo_start_spawning_on_score = config_file.get_value("game", "torpedo_start_spawning_on_score", torpedo_start_spawning_on_score)
 		refueling_station_x_variability = config_file.get_value("game", "refueling_station_x_variability", refueling_station_x_variability)
 		coin_x_variability = config_file.get_value("game", "coin_x_variability", coin_x_variability)
 		coin_y_variability = config_file.get_value("game", "coin_y_variability", coin_y_variability)
@@ -97,7 +99,7 @@ func load_config(path: String = "") -> void:
 		# pipe
 		collisions_enabled = config_file.get_value("pipe", "collisions_enabled", collisions_enabled)
 		
-		# sprite settings are controlled by separate menu and should not be overriden by loading custom config!
+		# sprite settings are controlled by separate menu (skin_menu) and should not be overriden by loading custom config!
 		# hence, load sprite settings only if loading user configuration from tunables.cfg (user-saved)
 		if path == CONFIG_FILE_PATH: # only when loading from tunables.cfg
 			player_sprite_number = config_file.get_value("player", "player_sprite_number", player_sprite_number)
@@ -128,6 +130,7 @@ func save_config(path: String = "") -> void:
 	config_file.set_value("game", "torpedo_speed_multiplier", torpedo_speed_multiplier)
 	config_file.set_value("game", "torpedo_frequency_increase_on_score", torpedo_frequency_increase_on_score)
 	config_file.set_value("game", "torpedo_frequency_increase_multiplier", torpedo_frequency_increase_multiplier)
+	config_file.set_value("game", "torpedo_start_spawning_on_score", torpedo_start_spawning_on_score)
 	config_file.set_value("game", "refueling_station_x_variability", refueling_station_x_variability)
 	config_file.set_value("game", "coin_x_variability", coin_x_variability)
 	config_file.set_value("game", "coin_y_variability", coin_y_variability)
