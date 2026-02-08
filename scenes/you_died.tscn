@@ -3,6 +3,8 @@
 [ext_resource type="FontFile" uid="uid://byrn6tqmul438" path="res://fonts/Zen_Dots/ZenDots-Regular.ttf" id="1_0hmh4"]
 [ext_resource type="Script" uid="uid://bqaiogudlkm6c" path="res://scripts/you_died.gd" id="1_k4bmk"]
 [ext_resource type="StyleBox" uid="uid://bbvt117ekb27v" path="res://styles/button_normal.tres" id="2_qk8dk"]
+[ext_resource type="Texture2D" uid="uid://ctrhv3rpvm6vx" path="res://assets/plane_pack/flying_coins/animatable_parts/gold_coin.png" id="4_cl810"]
+[ext_resource type="AudioStream" uid="uid://c6t23plxfr007" path="res://assets/audio/buzzer.mp3" id="5_fpi8n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cl810"]
 bg_color = Color(0.42318475, 5.655363e-07, 9.62615e-08, 0.39215687)
@@ -115,5 +117,64 @@ theme_override_fonts/font = ExtResource("1_0hmh4")
 theme_override_font_sizes/font_size = 77
 text = "You Died!"
 
+[node name="ReviveButton" type="Button" parent="Control" unique_id=1459767158]
+layout_mode = 0
+offset_left = 632.0
+offset_top = 312.0
+offset_right = 757.0
+offset_bottom = 364.0
+theme_override_fonts/font = ExtResource("1_0hmh4")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = ExtResource("2_qk8dk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k4bmk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qk8dk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cl810")
+text = "20"
+icon = ExtResource("4_cl810")
+expand_icon = true
+
+[node name="ReviveLabel" type="Label" parent="Control" unique_id=824642645]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 364.0
+offset_top = 300.0
+offset_right = 523.0
+offset_bottom = 338.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_0hmh4")
+theme_override_font_sizes/font_size = 31
+text = "Revive?"
+
+[node name="InsufficientFundsLabel" type="Label" parent="Control" unique_id=17755421]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 568.0
+offset_top = 364.0
+offset_right = 913.0
+offset_bottom = 402.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("1_0hmh4")
+theme_override_font_sizes/font_size = 19
+text = "Not enough coins!"
+
+[node name="BuzzerPlayer" type="AudioStreamPlayer2D" parent="." unique_id=332461483]
+stream = ExtResource("5_fpi8n")
+volume_db = 10.041
+
 [connection signal="pressed" from="Control/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="Control/ReviveButton" to="." method="_on_revive_button_pressed"]

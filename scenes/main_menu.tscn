@@ -131,7 +131,12 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_oa1go")
 text = "Credits"
 
+[node name="HellSoundsCheckbox" type="CheckBox" parent="Panel/VBoxContainer" unique_id=1073137786]
+layout_mode = 2
+text = "SOUNDS FROM HELL 👹👹👹"
+
 [connection signal="pressed" from="Panel/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/TunablesButton" to="." method="_on_tunables_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/SkinButton" to="." method="_on_skin_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="toggled" from="Panel/VBoxContainer/HellSoundsCheckbox" to="." method="_on_hell_sounds_checkbox_toggled"]

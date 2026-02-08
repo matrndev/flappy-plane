@@ -31,7 +31,7 @@ var hold: bool = false
 # TODO:
 # DONE: - ship first version
 # DONE: - more tunables (e.g. more granular fuel consumption, how easy the refueling station is)
-# - shop (find a use for coins, maybe unlocking skins)
+# DONE: - shop (find a use for coins, maybe unlocking skins)
 # - tutorial
 # DONE: - enemy torpedoes
 # DONE: - torpedoes remove your health instead of killing you instantly
@@ -324,6 +324,12 @@ func show_death_message(display: bool) -> void:
 		death_message.queue_free()
 		death_message = null
 
+func clear_objects() -> void:
+	clear_coins()
+	clear_pipes()
+	clear_stations()
+	clear_torpedoes()
+	$PlaneTrail.clear_points()
 
 func _on_player_died() -> void:
 	# reset game
