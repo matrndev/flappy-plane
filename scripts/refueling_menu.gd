@@ -18,6 +18,7 @@ func _input(event: InputEvent) -> void:
 		started = false
 		fuel_picked = (200 - cursor.position.y) / 2
 		fuel_picked_label.text = "%.f" % fuel_picked
+		$RefuelingDoneSound.play()
 		if "%.f" % fuel_picked == "67":
 			fuel_picked_label.add_theme_color_override("font_color", Color("#ff0000"))
 			fuel_picked_label.add_theme_font_size_override("font_size", 67)

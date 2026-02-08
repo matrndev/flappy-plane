@@ -17,10 +17,12 @@ func _ready() -> void:
 	var bus: int = AudioServer.get_bus_index("Master")
 	if AudioServer.is_bus_effect_enabled(bus, 0):
 		$Panel/VBoxContainer/HellSoundsCheckbox.button_pressed = true
+		$LoudSoundsDialog.hide()
 
 func _on_hell_sounds_checkbox_toggled(toggled_on: bool) -> void:
 	var bus: int = AudioServer.get_bus_index("Master")
 	if toggled_on:
+		$LoudSoundsDialog.show()
 		for i in AudioServer.get_bus_effect_count(bus):
 			AudioServer.set_bus_effect_enabled(bus, i, true)
 	else:

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://becpgv5l8r6vy" path="res://scripts/game_stats.gd" id="1_ul0qu"]
 [ext_resource type="FontFile" uid="uid://byrn6tqmul438" path="res://fonts/Zen_Dots/ZenDots-Regular.ttf" id="2_thv0x"]
 [ext_resource type="Texture2D" uid="uid://ctrhv3rpvm6vx" path="res://assets/plane_pack/flying_coins/animatable_parts/gold_coin.png" id="3_kqpaf"]
+[ext_resource type="AudioStream" uid="uid://c8jkay3ypp4ok" path="res://assets/audio/low_fuel.mp3" id="4_8j22x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8j22x"]
 bg_color = Color(0.16565639, 0.16565642, 0.16565636, 0.76862746)
@@ -160,5 +161,8 @@ size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_thv0x")
 theme_override_font_sizes/font_size = 26
 text = "21"
+
+[node name="LowFuelPlayer" type="AudioStreamPlayer2D" parent="." unique_id=865724248]
+stream = ExtResource("4_8j22x")
 
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]

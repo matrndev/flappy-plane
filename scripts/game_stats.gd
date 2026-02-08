@@ -39,3 +39,6 @@ func _on_flash_timer_timeout() -> void:
 		fuel_bar.modulate = Color("#ff0000")
 	else:
 		fuel_bar.modulate = Color("#ffffff")
+	
+	if not $LowFuelPlayer.playing:
+		$LowFuelPlayer.play()

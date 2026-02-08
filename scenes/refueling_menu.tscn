@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://tv1so81v08fi"]
+[gd_scene format=3 uid="uid://tv1so81v08fi"]
 
 [ext_resource type="Script" uid="uid://1it6pnc7hy8k" path="res://scripts/refueling_menu.gd" id="1_hcs6c"]
 [ext_resource type="FontFile" uid="uid://byrn6tqmul438" path="res://fonts/Zen_Dots/ZenDots-Regular.ttf" id="2_cqm0w"]
+[ext_resource type="AudioStream" uid="uid://d4bnjs3as5brp" path="res://assets/audio/refueling_done.mp3" id="3_p5r2i"]
 
 [sub_resource type="Gradient" id="Gradient_hcs6c"]
 offsets = PackedFloat32Array(0, 0.5, 1)
@@ -11,7 +12,7 @@ colors = PackedColorArray(0, 1, 0, 1, 1, 0.76862746, 0, 1, 1, 0, 0, 1)
 gradient = SubResource("Gradient_hcs6c")
 width = 160
 
-[node name="RefuelingMenu" type="Control"]
+[node name="RefuelingMenu" type="Control" unique_id=1454882050]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,14 +21,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hcs6c")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1288263318]
 layout_mode = 0
 offset_left = -19.0
 offset_top = -74.0
 offset_right = 303.0
 offset_bottom = 218.0
 
-[node name="Bar" type="TextureRect" parent="."]
+[node name="Bar" type="TextureRect" parent="." unique_id=1839975334]
 layout_mode = 1
 offset_left = 33.097855
 offset_right = 233.9847
@@ -35,14 +36,14 @@ offset_bottom = 33.097847
 rotation = 1.5707964
 texture = SubResource("GradientTexture1D_cqm0w")
 
-[node name="Cursor" type="ColorRect" parent="."]
+[node name="Cursor" type="ColorRect" parent="." unique_id=1833999639]
 layout_mode = 0
 offset_top = 15.0
 offset_right = 33.0
 offset_bottom = 21.0
 color = Color(0, 0, 0, 1)
 
-[node name="FuelPicked" type="Label" parent="."]
+[node name="FuelPicked" type="Label" parent="." unique_id=2033508226]
 layout_mode = 0
 offset_left = 150.0
 offset_top = 76.0
@@ -52,7 +53,7 @@ theme_override_colors/font_color = Color(0, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_cqm0w")
 theme_override_font_sizes/font_size = 34
 
-[node name="Label2" type="Label" parent="."]
+[node name="Label2" type="Label" parent="." unique_id=246878763]
 layout_mode = 0
 offset_left = 38.0
 offset_top = -1.0
@@ -61,7 +62,7 @@ offset_bottom = 22.0
 theme_override_fonts/font = ExtResource("2_cqm0w")
 text = "+ 100"
 
-[node name="Label3" type="Label" parent="."]
+[node name="Label3" type="Label" parent="." unique_id=86984758]
 layout_mode = 0
 offset_left = 38.0
 offset_top = 87.0
@@ -70,7 +71,7 @@ offset_bottom = 110.0
 theme_override_fonts/font = ExtResource("2_cqm0w")
 text = "+ 50"
 
-[node name="Label4" type="Label" parent="."]
+[node name="Label4" type="Label" parent="." unique_id=1867164417]
 layout_mode = 0
 offset_left = 38.0
 offset_top = 180.0
@@ -79,7 +80,7 @@ offset_bottom = 203.0
 theme_override_fonts/font = ExtResource("2_cqm0w")
 text = "+ 0"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=2087302043]
 layout_mode = 1
 offset_left = 21.0
 offset_top = -55.0
@@ -89,3 +90,6 @@ theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_cqm0w")
 theme_override_font_sizes/font_size = 23
 text = "Refueling Station"
+
+[node name="RefuelingDoneSound" type="AudioStreamPlayer2D" parent="." unique_id=1420974177]
+stream = ExtResource("3_p5r2i")

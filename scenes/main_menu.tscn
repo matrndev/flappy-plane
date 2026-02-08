@@ -67,10 +67,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -135.0
-offset_top = -66.5
-offset_right = 135.0
-offset_bottom = 146.5
+offset_left = -173.5
+offset_top = -109.5
+offset_right = 173.5
+offset_bottom = 253.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 40
@@ -133,7 +133,15 @@ text = "Credits"
 
 [node name="HellSoundsCheckbox" type="CheckBox" parent="Panel/VBoxContainer" unique_id=1073137786]
 layout_mode = 2
-text = "SOUNDS FROM HELL 👹👹👹"
+text = "ENABLE SOUNDS FROM HELL 👹👹👹"
+
+[node name="LoudSoundsDialog" type="AcceptDialog" parent="." unique_id=2108957513]
+oversampling_override = 1.0
+title = "WARNING"
+initial_position = 2
+size = Vector2i(229, 106)
+dialog_text = "Lower your system volume.
+You have been warned."
 
 [connection signal="pressed" from="Panel/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/TunablesButton" to="." method="_on_tunables_button_pressed"]
