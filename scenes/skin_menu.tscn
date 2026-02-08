@@ -4,12 +4,14 @@
 [ext_resource type="Script" uid="uid://dsm1yho6kp2b3" path="res://scripts/skin_menu.gd" id="1_xt7lh"]
 [ext_resource type="FontFile" uid="uid://byrn6tqmul438" path="res://fonts/Zen_Dots/ZenDots-Regular.ttf" id="2_xmlfx"]
 [ext_resource type="StyleBox" uid="uid://bbvt117ekb27v" path="res://styles/button_normal.tres" id="3_0edpv"]
+[ext_resource type="Texture2D" uid="uid://evi1gjpyjmun" path="res://assets/images/locked.png" id="4_s5wt4"]
 [ext_resource type="Texture2D" uid="uid://dy07tkx6kocsx" path="res://assets/Flappy Bird Assets/Tiles/Style 1/PipeStyle1.png" id="5_0edpv"]
 [ext_resource type="Texture2D" uid="uid://cfepisbiitgbh" path="res://assets/Flappy Bird Assets/Tiles/Style 2/PipeStyle2.png" id="6_21u2u"]
 [ext_resource type="Texture2D" uid="uid://boppv27n51ywm" path="res://assets/Flappy Bird Assets/Tiles/Style 4/PipeStyle4.png" id="7_x8k7v"]
 [ext_resource type="Texture2D" uid="uid://7chkmbob7j1x" path="res://assets/Flappy Bird Assets/Tiles/Style 5/PipeStyle5.png" id="8_3koou"]
 [ext_resource type="StyleBox" uid="uid://cpfkyngm2uuyj" path="res://styles/pipes/pipe_selected.tres" id="8_x8k7v"]
 [ext_resource type="StyleBox" uid="uid://bakimb3152nmd" path="res://styles/pipes/pipe_hover.tres" id="8_y8lym"]
+[ext_resource type="Texture2D" uid="uid://ctrhv3rpvm6vx" path="res://assets/plane_pack/flying_coins/animatable_parts/gold_coin.png" id="11_y8lym"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xmlfx"]
 bg_color = Color(0, 0, 0, 1)
@@ -393,6 +395,16 @@ layout_mode = 2
 texture = ExtResource("1_viktg")
 expand_mode = 3
 
+[node name="LockedOverlay" type="TextureRect" parent="PlayerPanel/HBoxContainer/TextureRect" unique_id=1270081880]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_s5wt4")
+expand_mode = 3
+
 [node name="SwitchRightButton" type="Button" parent="PlayerPanel/HBoxContainer" unique_id=1255409348]
 layout_mode = 2
 size_flags_vertical = 3
@@ -444,7 +456,18 @@ layout_mode = 2
 texture = ExtResource("1_viktg")
 expand_mode = 3
 
+[node name="LockedOverlay" type="TextureRect" parent="PlayerPanel/HBoxContainer2/ColorSampleRect1" unique_id=2001349993]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_s5wt4")
+expand_mode = 1
+
 [node name="ColorSampleRectButton1" type="Button" parent="PlayerPanel/HBoxContainer2/ColorSampleRect1" unique_id=382101556 groups=["buttons"]]
+z_index = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -458,7 +481,18 @@ layout_mode = 2
 texture = ExtResource("1_viktg")
 expand_mode = 3
 
+[node name="LockedOverlay" type="TextureRect" parent="PlayerPanel/HBoxContainer2/ColorSampleRect2" unique_id=1148313825]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_s5wt4")
+expand_mode = 1
+
 [node name="ColorSampleRectButton2" type="Button" parent="PlayerPanel/HBoxContainer2/ColorSampleRect2" unique_id=1307113059 groups=["buttons"]]
+z_index = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -472,7 +506,18 @@ layout_mode = 2
 texture = ExtResource("1_viktg")
 expand_mode = 3
 
+[node name="LockedOverlay" type="TextureRect" parent="PlayerPanel/HBoxContainer2/ColorSampleRect3" unique_id=952393846]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_s5wt4")
+expand_mode = 1
+
 [node name="ColorSampleRectButton3" type="Button" parent="PlayerPanel/HBoxContainer2/ColorSampleRect3" unique_id=1525561752 groups=["buttons"]]
+z_index = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -486,7 +531,18 @@ layout_mode = 2
 texture = ExtResource("1_viktg")
 expand_mode = 3
 
+[node name="LockedOverlay" type="TextureRect" parent="PlayerPanel/HBoxContainer2/ColorSampleRect4" unique_id=1796108927]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_s5wt4")
+expand_mode = 1
+
 [node name="ColorSampleRectButton4" type="Button" parent="PlayerPanel/HBoxContainer2/ColorSampleRect4" unique_id=1273392718 groups=["buttons"]]
+z_index = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -494,6 +550,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 flat = true
+
+[node name="UnlockButton" type="Button" parent="PlayerPanel" unique_id=1823258600]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -71.5
+offset_right = 73.0
+offset_bottom = -40.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Unlock for 10 coins"
 
 [node name="PipePanel" type="Panel" parent="." unique_id=1802990883]
 visible = false
@@ -1004,12 +1075,41 @@ tab_0/tooltip = "Customize your plane appearance"
 tab_1/title = "Pipe"
 tab_1/tooltip = "Customize how the pipes look"
 
+[node name="CoinDisplay" type="HBoxContainer" parent="." unique_id=211913395]
+layout_mode = 0
+offset_left = 981.0
+offset_top = 19.0
+offset_right = 1091.0
+offset_bottom = 64.0
+theme_override_constants/separation = 17
+
+[node name="TextureRect" type="TextureRect" parent="CoinDisplay" unique_id=414025601]
+custom_minimum_size = Vector2(25.67, 26.585)
+layout_mode = 2
+texture = ExtResource("11_y8lym")
+expand_mode = 2
+
+[node name="CoinLabel" type="Label" parent="CoinDisplay" unique_id=1627482457]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xmlfx")
+theme_override_font_sizes/font_size = 37
+text = "21"
+
+[node name="InsufficientCoinsDialog" type="AcceptDialog" parent="." unique_id=348010600]
+oversampling_override = 1.0
+title = "Error"
+initial_position = 3
+size = Vector2i(352, 100)
+current_screen = 0
+dialog_text = "You don't have enough coins to unlock this."
+
 [connection signal="pressed" from="PlayerPanel/HBoxContainer/SwitchLeftButton" to="." method="_on_switch_left_button_pressed"]
 [connection signal="pressed" from="PlayerPanel/HBoxContainer/SwitchRightButton" to="." method="_on_switch_right_button_pressed"]
 [connection signal="pressed" from="PlayerPanel/HBoxContainer2/ColorSampleRect1/ColorSampleRectButton1" to="." method="_on_color_sample_rect_button_1_pressed"]
 [connection signal="pressed" from="PlayerPanel/HBoxContainer2/ColorSampleRect2/ColorSampleRectButton2" to="." method="_on_color_sample_rect_button_2_pressed"]
 [connection signal="pressed" from="PlayerPanel/HBoxContainer2/ColorSampleRect3/ColorSampleRectButton3" to="." method="_on_color_sample_rect_button_3_pressed"]
 [connection signal="pressed" from="PlayerPanel/HBoxContainer2/ColorSampleRect4/ColorSampleRectButton4" to="." method="_on_color_sample_rect_button_4_pressed"]
+[connection signal="pressed" from="PlayerPanel/UnlockButton" to="." method="_on_unlock_button_pressed"]
 [connection signal="item_selected" from="PipePanel/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="toggled" from="PipePanel/RandomizeCheckBox" to="." method="_on_randomize_check_box_toggled"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

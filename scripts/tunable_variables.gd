@@ -52,6 +52,15 @@ func _ready() -> void:
 	else:
 		load_config()
 		save_config()
+	
+	SavedStats.load_stats()
+	if not SavedStats.unlocked_player_sprite_colors.has(player_sprite_color):
+		SavedStats.unlocked_player_sprite_colors.append(player_sprite_color)
+		SavedStats.save_stats()
+	
+	if not SavedStats.unlocked_player_sprite_numbers.has(player_sprite_number):
+		SavedStats.unlocked_player_sprite_numbers.append(player_sprite_number)
+		SavedStats.save_stats()
 
 
 func reset_all() -> void:

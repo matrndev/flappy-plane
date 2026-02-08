@@ -7,7 +7,11 @@ var current_mode: int = 0
 # 0: player
 # 1: pipe
 
+var currently_selected_texture_locked: bool = false
+
 func _ready() -> void:
+	$CoinDisplay/CoinLabel.text = str(SavedStats.coin_score)
+	
 	refresh_texture()
 	refresh_color_samples()
 	refresh_pipes()
@@ -47,6 +51,16 @@ func disable_all_pipes(disable: bool = true) -> void:
 		
 
 func refresh_texture() -> void:
+	# show locked overlay if sprite not unlocked
+	if SavedStats.unlocked_player_sprite_numbers.has(TunableVariables.player_sprite_number) and SavedStats.unlocked_player_sprite_colors.has(TunableVariables.player_sprite_color):
+		$PlayerPanel/HBoxContainer/TextureRect/LockedOverlay.hide()
+		currently_selected_texture_locked = false
+		load_unlock_button(false)
+	else:
+		$PlayerPanel/HBoxContainer/TextureRect/LockedOverlay.show()
+		currently_selected_texture_locked = true
+		load_unlock_button()
+	
 	plane_sprite_path = "res://assets/plane_pack/planes/plane_%d/plane_%d_%s.png" % [TunableVariables.player_sprite_number, TunableVariables.player_sprite_number, TunableVariables.player_sprite_color]
 	$PlayerPanel/HBoxContainer/TextureRect.texture = load(plane_sprite_path)
 
@@ -59,16 +73,34 @@ func refresh_color_samples() -> void:
 		$PlayerPanel/HBoxContainer2/ColorSampleRect4
 	]
 	
+	var overlays = [
+		$PlayerPanel/HBoxContainer2/ColorSampleRect1/LockedOverlay,
+		$PlayerPanel/HBoxContainer2/ColorSampleRect2/LockedOverlay,
+		$PlayerPanel/HBoxContainer2/ColorSampleRect3/LockedOverlay,
+		$PlayerPanel/HBoxContainer2/ColorSampleRect4/LockedOverlay
+	]
+	
 	var colors: Array = ["blue", "green", "red", "yellow"]
 
 	var i = 0
+	
 	for color in colors:
 		plane_sprite_path = "res://assets/plane_pack/planes/plane_%d/plane_%d_%s.png" % [TunableVariables.player_sprite_number, TunableVariables.player_sprite_number, color]
 		rects[i].texture = load(plane_sprite_path)
+		
+		if SavedStats.unlocked_player_sprite_numbers.has(TunableVariables.player_sprite_number) and SavedStats.unlocked_player_sprite_colors.has(color):
+			overlays[i].hide()
+		else:
+			overlays[i].show()
+		
 		i += 1
 
 
 func _on_back_button_pressed() -> void:
+	if currently_selected_texture_locked:
+		print("can't do that buddy")
+		return
+	
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 	TunableVariables.save_config()
 
@@ -158,3 +190,23 @@ func _on_randomize_check_box_toggled(toggled_on: bool) -> void:
 		TunableVariables.pipe_sprite_color = "Green"
 		disable_all_pipes(false)
 		refresh_pipes()
+
+
+func load_unlock_button(load: bool = true) -> void:
+	if load:
+		$PlayerPanel/UnlockButton.show()
+	else:
+		$PlayerPanel/UnlockButton.hide()
+
+
+func _on_unlock_button_pressed() -> void:
+	if SavedStats.coin_score - 10 < 0:
+		$InsufficientCoinsDialog.show()
+		return
+	
+	SavedStats.coin_score -= 10
+	$CoinDisplay/CoinLabel.text = str(SavedStats.coin_score)
+	SavedStats.unlocked_player_sprite_colors.append(TunableVariables.player_sprite_color)
+	SavedStats.unlocked_player_sprite_numbers.append(TunableVariables.player_sprite_number)
+	refresh_texture()
+	refresh_color_samples()
