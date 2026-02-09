@@ -218,6 +218,7 @@ func generate_torpedo() -> void:
 	torpedo.hit.connect(torpedo_hit)
 	torpedo.hit.connect($Player.hit_animation)
 	torpedo.add_to_group("torpedoes")
+	torpedo.z_index = 1
 	add_child(torpedo)
 	torpedoes.append(torpedo)
 
@@ -227,6 +228,7 @@ func generate_coin() -> void:
 	coin.position.y = (screen_size.y - ground_height) / 2.0 + randi_range(-TunableVariables.coin_y_variability, TunableVariables.coin_y_variability)
 	coin.hit.connect(coin_hit)
 	coin.add_to_group("coins")
+	coin.z_index = 1
 	add_child(coin)
 	coins.append(coin)
 
@@ -282,9 +284,9 @@ func bird_score() -> void:
 	if score % TunableVariables.torpedo_frequency_increase_on_score == 0 and not score == 0:
 		var new_wait_time: float = $TorpedoTimer.wait_time - $TorpedoTimer.wait_time * TunableVariables.torpedo_frequency_increase_multiplier # make torpedoes fire more often
 		if new_wait_time <= 0:
-			new_wait_time = 0.1
+			new_wait_time = 0.0001
 		$TorpedoTimer.wait_time = new_wait_time
-		print("torpedo frequency increased to ", new_wait_time)
+		print("1 torpedo/", new_wait_time)
 
 func clear_torpedoes() -> void:
 	torpedoes.clear()

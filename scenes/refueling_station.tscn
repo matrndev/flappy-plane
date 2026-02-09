@@ -1,30 +1,43 @@
-[gd_scene load_steps=3 format=3 uid="uid://btvo7t7jdda1m"]
+[gd_scene format=3 uid="uid://btvo7t7jdda1m"]
 
 [ext_resource type="Script" uid="uid://cb5wsishb5ejb" path="res://scenes/refueling_station.gd" id="1_a1jmi"]
+[ext_resource type="FontFile" uid="uid://byrn6tqmul438" path="res://fonts/Zen_Dots/ZenDots-Regular.ttf" id="2_raijh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0bmjl"]
 size = Vector2(236, 21.1875)
 
-[node name="RefuelingStation" type="StaticBody2D"]
+[node name="RefuelingStation" type="StaticBody2D" unique_id=540549296]
 script = ExtResource("1_a1jmi")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=541804193]
 offset_left = 3.0
 offset_top = 1.0
 offset_right = 239.0
 offset_bottom = 20.0
 color = Color(0, 0, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=135040645]
+visible = false
 position = Vector2(121, 11)
 shape = SubResource("RectangleShape2D_0bmjl")
 debug_color = Color(0.9543596, 1.2513996e-06, 0.5513451, 0.41960785)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=739386948]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=842651138]
+visible = false
 position = Vector2(121, 3)
 shape = SubResource("RectangleShape2D_0bmjl")
+
+[node name="Label" type="Label" parent="." unique_id=524459550]
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 239.0
+offset_bottom = 21.0
+theme_override_fonts/font = ExtResource("2_raijh")
+theme_override_font_sizes/font_size = 13
+text = "Refueling Station"
+horizontal_alignment = 1
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -24,9 +24,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -497.85938
-offset_top = -305.5
+offset_top = -319.5
 offset_right = 497.85938
-offset_bottom = 241.5
+offset_bottom = 246.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -37,12 +37,14 @@ offset_top = 16.0
 offset_right = 1020.0
 offset_bottom = 52.0
 current_tab = 0
-tab_count = 3
+tab_count = 4
 tab_0/title = "Game"
 tab_1/title = "Player"
 tab_2/title = "Pipe"
+tab_3/title = "Torpedo"
 
 [node name="GameConfigContainer" type="VBoxContainer" parent="Panel/Panel" unique_id=728586781 groups=["containers"]]
+visible = false
 layout_mode = 1
 offset_left = 28.0
 offset_top = 88.0
@@ -77,7 +79,7 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
-tooltip_text = "The overall speed of the game."
+tooltip_text = "The general speed of the game."
 mouse_filter = 0
 text = "Scrolling Speed"
 
@@ -260,6 +262,35 @@ tooltip_text = "Determines how often should torpedoes spawn in seconds."
 mouse_filter = 0
 text = "Torpedo Spawn Rate"
 
+[node name="TorpedoVariability" type="HSlider" parent="Panel/Panel/GameConfigContainer" unique_id=951601612 groups=["sliders"]]
+layout_mode = 2
+max_value = 300.0
+step = 5.0
+
+[node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/GameConfigContainer/TorpedoVariability" unique_id=1893076468 groups=["line_edits"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.4375
+offset_top = -18.5
+offset_right = 74.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="DescLabel" type="Label" parent="Panel/Panel/GameConfigContainer/TorpedoVariability" unique_id=413347165]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = -3.0
+tooltip_text = "Controls how much the vertical position of spawned torpedoes can vary."
+mouse_filter = 0
+text = "Torpedo Variability"
+
 [node name="ScoreMultiplier" type="HSlider" parent="Panel/Panel/GameConfigContainer" unique_id=964637491 groups=["sliders"]]
 layout_mode = 2
 min_value = 1.0
@@ -285,11 +316,12 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
-tooltip_text = "Determines how often should coins spawn in seconds."
+tooltip_text = "Set how much score a player receives when a pipe is successfully cleared."
 mouse_filter = 0
 text = "Score Multiplier"
 
 [node name="GameConfigContainer2" type="VBoxContainer" parent="Panel/Panel" unique_id=217898088 groups=["containers"]]
+visible = false
 layout_mode = 1
 offset_left = 348.0
 offset_top = 88.0
@@ -320,7 +352,7 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
-tooltip_text = "Determines how often should coins spawn in seconds."
+tooltip_text = "Set how much damage is dealt when a collision with a torpedo occures."
 mouse_filter = 0
 text = "Torpedo Damage Rate"
 
@@ -349,7 +381,8 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
-tooltip_text = "Determines how often should coins spawn in seconds."
+tooltip_text = "Define how fast will torpedoes go.
+A multiplier of 1.0 means torpedoes will appear stationary."
 mouse_filter = 0
 text = "Torpedo Speed Multiplier"
 
@@ -382,8 +415,8 @@ text = "Torpedo Frequency Increase On Score"
 
 [node name="TorpedoFrequencyIncreaseMultiplier" type="HSlider" parent="Panel/Panel/GameConfigContainer2" unique_id=1251641293 groups=["sliders"]]
 layout_mode = 2
-max_value = 10.0
-step = 0.1
+max_value = 1.0
+step = 0.01
 
 [node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/GameConfigContainer2/TorpedoFrequencyIncreaseMultiplier" unique_id=813029960 groups=["line_edits"]]
 layout_mode = 1
@@ -463,7 +496,7 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
-tooltip_text = "Determines how often should coins spawn in seconds."
+tooltip_text = "Determines how much can the position of refueling stations deviate from the default."
 mouse_filter = 0
 text = "Refueling Station X Axis Variability"
 
@@ -492,13 +525,13 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
-tooltip_text = "Determines how often should coins spawn in seconds."
+tooltip_text = "Controls how much the horizontal position of spawned coins can vary."
 mouse_filter = 0
 text = "Coin X Variability"
 
 [node name="CoinYVariability" type="HSlider" parent="Panel/Panel/GameConfigContainer2" unique_id=2143571833 groups=["sliders"]]
 layout_mode = 2
-max_value = 400.0
+max_value = 300.0
 step = 5.0
 
 [node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/GameConfigContainer2/CoinYVariability" unique_id=873537271 groups=["line_edits"]]
@@ -521,16 +554,15 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
-tooltip_text = "Determines how often should coins spawn in seconds."
+tooltip_text = "Controls how much the vertical position of spawned coins can vary."
 mouse_filter = 0
 text = "Coin Y Variability"
 
 [node name="PlayerConfigContainer" type="VBoxContainer" parent="Panel/Panel" unique_id=1943693623 groups=["containers"]]
-visible = false
 layout_mode = 1
 offset_left = 28.0
 offset_top = 88.0
-offset_right = 248.0
+offset_right = 365.85938
 offset_bottom = 639.0
 theme_override_constants/separation = 39
 
@@ -656,6 +688,62 @@ Note: Jumping and pausing gravity uses more fuel. You can adjust those values be
 mouse_filter = 0
 text = "Base Fuel Consumption"
 
+[node name="JumpFuelConsumptionMultiplierSlider" type="HSlider" parent="Panel/Panel/PlayerConfigContainer" unique_id=420171550 groups=["sliders"]]
+layout_mode = 2
+max_value = 1000.0
+
+[node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/PlayerConfigContainer/JumpFuelConsumptionMultiplierSlider" unique_id=1530495481 groups=["line_edits"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.4375
+offset_top = -18.5
+offset_right = 74.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="DescLabel" type="Label" parent="Panel/Panel/PlayerConfigContainer/JumpFuelConsumptionMultiplierSlider" unique_id=341314590]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = -3.0
+tooltip_text = "Set the multiplier for fuel consumption when the player jumps."
+mouse_filter = 0
+text = "Jump Fuel Consumption Multiplier"
+
+[node name="GravityPauseFuelConsumptionMultiplier" type="HSlider" parent="Panel/Panel/PlayerConfigContainer" unique_id=1643906728 groups=["sliders"]]
+layout_mode = 2
+max_value = 500.0
+
+[node name="ValueLineEdit" type="LineEdit" parent="Panel/Panel/PlayerConfigContainer/GravityPauseFuelConsumptionMultiplier" unique_id=1469003229 groups=["line_edits"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.4375
+offset_top = -18.5
+offset_right = 74.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="DescLabel" type="Label" parent="Panel/Panel/PlayerConfigContainer/GravityPauseFuelConsumptionMultiplier" unique_id=2144161859]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = -3.0
+tooltip_text = "Set the multiplier for fuel consumption while gravity is paused."
+mouse_filter = 0
+text = "Gravity Pause Fuel Consumption Multiplier"
+
 [node name="PipeConfigContainer" type="VBoxContainer" parent="Panel/Panel" unique_id=868444271 groups=["containers"]]
 visible = false
 layout_mode = 1
@@ -669,6 +757,20 @@ theme_override_constants/separation = 39
 layout_mode = 2
 tooltip_text = "Enables death by collision of the player with pipes."
 text = "Enable Collisions"
+
+[node name="TorpedoConfigContainer" type="VBoxContainer" parent="Panel/Panel" unique_id=177861414 groups=["containers"]]
+visible = false
+layout_mode = 1
+offset_left = 28.0
+offset_top = 88.0
+offset_right = 248.0
+offset_bottom = 639.0
+theme_override_constants/separation = 39
+
+[node name="DealDamageCheckBox" type="CheckBox" parent="Panel/Panel/TorpedoConfigContainer" unique_id=1237534218 groups=["check_boxes"]]
+layout_mode = 2
+tooltip_text = "If enabled, damage will be dealt to the player on collision with a torpedo."
+text = "Deal Damage"
 
 [node name="Label" type="Label" parent="Panel/Panel" unique_id=431391762]
 layout_mode = 1
@@ -693,10 +795,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -316.5
-offset_top = 260.0
-offset_right = 316.5
-offset_bottom = 300.0
+offset_left = -465.0
+offset_top = 256.0
+offset_right = 465.0
+offset_bottom = 314.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 59

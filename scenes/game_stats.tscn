@@ -81,6 +81,21 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_thv0x")
 value = 25.0
 show_percentage = false
 
+[node name="Label" type="Label" parent="FuelBar" unique_id=1225867235]
+modulate = Color(1, 1, 1, 0.36078432)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_thv0x")
+theme_override_font_sizes/font_size = 20
+text = "Fuel"
+horizontal_alignment = 1
+
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=544855285]
 layout_mode = 0
 offset_left = 789.0
@@ -91,6 +106,21 @@ theme_override_styles/background = SubResource("StyleBoxFlat_ul0qu")
 theme_override_styles/fill = SubResource("StyleBoxFlat_kqpaf")
 value = 25.0
 show_percentage = false
+
+[node name="Label2" type="Label" parent="HealthBar" unique_id=1420790241]
+modulate = Color(1, 1, 1, 0.36078432)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_thv0x")
+theme_override_font_sizes/font_size = 20
+text = "Health"
+horizontal_alignment = 1
 
 [node name="FlashTimer" type="Timer" parent="." unique_id=596606602]
 wait_time = 0.25

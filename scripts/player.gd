@@ -56,7 +56,7 @@ func _physics_process(delta: float) -> void:
 		gravity_enabled = false
 		velocity.y = 7
 		modulate = "#bf7aff"
-		fuel_consumption = TunableVariables.fuel_consumption * 10
+		fuel_consumption = TunableVariables.fuel_consumption * TunableVariables.gravity_pause_fuel_consumption_multiplier
 	else:
 		gravity_enabled = true
 		modulate = "#ffffff"
@@ -64,7 +64,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("keyboard_space") and not dead and not ready_to_start:
 		velocity.y = jump_velocity
-		fuel_remaining -= fuel_consumption * 50
+		fuel_remaining -= fuel_consumption * TunableVariables.jump_fuel_consumption_multiplier
 		$WingSound.play()
 	
 	if health <= 0:

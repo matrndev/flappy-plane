@@ -34,11 +34,16 @@ var trail_density: int
 var fuel_consumption: float
 var player_sprite_number: int
 var player_sprite_color: String
+var jump_fuel_consumption_multiplier: float
+var gravity_pause_fuel_consumption_multiplier: float
 
 # pipe
 var collisions_enabled: bool
 var pipe_sprite_number: int
 var pipe_sprite_color: String
+
+# torpedo
+var deal_damage: bool
 
 func _ready() -> void:
 	var config_file = ConfigFile.new()
@@ -104,9 +109,14 @@ func load_config(path: String = "") -> void:
 		rotation_up_limit = config_file.get_value("player", "rotation_up_limit", rotation_up_limit)
 		trail_density = config_file.get_value("player", "trail_density", trail_density)
 		fuel_consumption = config_file.get_value("player", "fuel_consumption", fuel_consumption)
+		jump_fuel_consumption_multiplier = config_file.get_value("player", "jump_fuel_consumption_multiplier", jump_fuel_consumption_multiplier)
+		gravity_pause_fuel_consumption_multiplier = config_file.get_value("player", "gravity_pause_fuel_consumption_multiplier", gravity_pause_fuel_consumption_multiplier)
 		
 		# pipe
 		collisions_enabled = config_file.get_value("pipe", "collisions_enabled", collisions_enabled)
+		
+		# torpedo
+		deal_damage = config_file.get_value("torpedo", "deal_damage", deal_damage)
 		
 		# sprite settings are controlled by separate menu (skin_menu) and should not be overriden by loading custom config!
 		# hence, load sprite settings only if loading user configuration from tunables.cfg (user-saved)
@@ -156,11 +166,16 @@ func save_config(path: String = "") -> void:
 	config_file.set_value("player", "fuel_consumption", fuel_consumption)
 	config_file.set_value("player", "player_sprite_number", player_sprite_number)
 	config_file.set_value("player", "player_sprite_color", player_sprite_color)
+	config_file.set_value("player", "jump_fuel_consumption_multiplier", jump_fuel_consumption_multiplier)
+	config_file.set_value("player", "gravity_pause_fuel_consumption_multiplier", gravity_pause_fuel_consumption_multiplier)
 	
 	# pipe
 	config_file.set_value("pipe", "collisions_enabled", collisions_enabled)
 	config_file.set_value("pipe", "pipe_sprite_number", pipe_sprite_number)
 	config_file.set_value("pipe", "pipe_sprite_color", pipe_sprite_color)
+	
+	# torpedo
+	config_file.set_value("torpedo", "deal_damage", deal_damage)
 	
 	
 	config_file.save(path)

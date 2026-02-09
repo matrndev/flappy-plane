@@ -83,6 +83,8 @@ func _on_tab_bar_tab_changed(tab: int) -> void:
 			$Panel/Panel/PlayerConfigContainer.show()
 		2:
 			$Panel/Panel/PipeConfigContainer.show()
+		3:
+			$Panel/Panel/TorpedoConfigContainer.show()
 	
 
 
