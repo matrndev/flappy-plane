@@ -10,10 +10,12 @@ signal refueling_finalized
 @export var death_message_scene: PackedScene
 @export var cheat_code_menu_scene: PackedScene
 @export var torpedo_scene: PackedScene
+@export var pew_pew_scene: PackedScene
 var pipes: Array
 var coins: Array
 var stations: Array
 var torpedoes: Array
+var pew_pews: Array
 var screen_size: Vector2i
 var ground_scroll_pos: int
 var ground_height: int
@@ -97,6 +99,16 @@ func _process(delta: float) -> void:
 		##scroll_speed = 3
 		#pass
 	
+	if Input.is_action_just_pressed("keyboard_v"):
+		var pew_pew: Area2D = pew_pew_scene.instantiate()
+		pew_pew.position.x = $Player.position.x
+		pew_pew.position.y = $Player.position.y - 20
+		pew_pew.add_to_group("pew_pews")
+		add_child(pew_pew)
+		pew_pew.name = "PewPew" + str(pew_pews.size())
+		pew_pews.append(pew_pew)
+		
+	
 	if Input.is_action_just_pressed("keyboard_t"):
 		$CheatCodeMenu.show()
 		hold = true
@@ -166,6 +178,13 @@ func _process(delta: float) -> void:
 		if torpedo.position.x < -(scroll_speed * 100 * TunableVariables.torpedo_speed_multiplier):
 			torpedoes.remove_at(i)
 			torpedo.queue_free()
+	
+	for i in range(pew_pews.size() - 1, -1, -1):
+		var pew_pew = pew_pews[i]
+		pew_pew.position.x += scroll_speed * TunableVariables.torpedo_speed_multiplier
+		if pew_pew.position.x > screen_size.x:
+			pew_pews.remove_at(i)
+			pew_pew.queue_free()
 
 
 	# plane trail
@@ -215,6 +234,7 @@ func generate_torpedo() -> void:
 	var torpedo: Area2D = torpedo_scene.instantiate()
 	torpedo.position.x = screen_size.x + 50
 	torpedo.position.y = (screen_size.y - ground_height) / 2.0 + randi_range(-torpedo_variability, torpedo_variability)
+	torpedo.name = "Torpedo" + str(randi())
 	torpedo.hit.connect(torpedo_hit)
 	torpedo.hit.connect($Player.hit_animation)
 	torpedo.add_to_group("torpedoes")

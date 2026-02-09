@@ -44,7 +44,6 @@ tab_2/title = "Pipe"
 tab_3/title = "Torpedo"
 
 [node name="GameConfigContainer" type="VBoxContainer" parent="Panel/Panel" unique_id=728586781 groups=["containers"]]
-visible = false
 layout_mode = 1
 offset_left = 28.0
 offset_top = 88.0
@@ -321,7 +320,6 @@ mouse_filter = 0
 text = "Score Multiplier"
 
 [node name="GameConfigContainer2" type="VBoxContainer" parent="Panel/Panel" unique_id=217898088 groups=["containers"]]
-visible = false
 layout_mode = 1
 offset_left = 348.0
 offset_top = 88.0
@@ -559,6 +557,7 @@ mouse_filter = 0
 text = "Coin Y Variability"
 
 [node name="PlayerConfigContainer" type="VBoxContainer" parent="Panel/Panel" unique_id=1943693623 groups=["containers"]]
+visible = false
 layout_mode = 1
 offset_left = 28.0
 offset_top = 88.0

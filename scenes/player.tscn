@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://qee546yqe1ne"]
+[gd_scene format=3 uid="uid://qee546yqe1ne"]
 
 [ext_resource type="Texture2D" uid="uid://ks8usda6jg4v" path="res://assets/plane_pack/planes/plane_3/plane_3_green.png" id="1_3vyb7"]
 [ext_resource type="AudioStream" uid="uid://y4auib3nnycj" path="res://assets/flappy-bird-assets-master/audio/wing.wav" id="2_g2els"]
@@ -8,23 +8,23 @@
 radius = 16.0
 height = 100.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=115332894]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=547271422]
 position = Vector2(79.953964, -29.312489)
 scale = Vector2(0.12609895, 0.12609896)
 texture = ExtResource("1_3vyb7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1279781525]
 position = Vector2(83, -23)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_g2els")
 
-[node name="WingSound" type="AudioStreamPlayer2D" parent="."]
+[node name="WingSound" type="AudioStreamPlayer2D" parent="." unique_id=1299714602]
 stream = ExtResource("2_g2els")
 
-[node name="DieSound" type="AudioStreamPlayer2D" parent="."]
+[node name="DieSound" type="AudioStreamPlayer2D" parent="." unique_id=1892323354]
 stream = ExtResource("3_qhqgy")
 
-[node name="AudioListener2D" type="AudioListener2D" parent="."]
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=839463635]
 current = true

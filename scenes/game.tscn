@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://btvo7t7jdda1m" path="res://scenes/refueling_station.tscn" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://cye2twaxip8lf" path="res://scenes/torpedo.tscn" id="8_trtic"]
 [ext_resource type="PackedScene" uid="uid://tv1so81v08fi" path="res://scenes/refueling_menu.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://juehevapv27c" path="res://scenes/pew_pew.tscn" id="9_ir15t"]
 [ext_resource type="Script" uid="uid://d34yuumxrwwm5" path="res://scripts/player.gd" id="9_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://b6sttng1yxfx7" path="res://scenes/game_stats.tscn" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://dlhmbm8et6p6h" path="res://scenes/you_died.tscn" id="11_kvpfn"]
@@ -27,6 +28,7 @@ refueling_menu_scene = ExtResource("9_0tnpc")
 death_message_scene = ExtResource("11_kvpfn")
 cheat_code_menu_scene = ExtResource("7_dinhu")
 torpedo_scene = ExtResource("8_trtic")
+pew_pew_scene = ExtResource("9_ir15t")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=302017982]
 position = Vector2(578, 236.00003)

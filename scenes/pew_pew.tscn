@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://juehevapv27c"]
+
+[ext_resource type="Script" uid="uid://ddv0ybwu8n3h0" path="res://scripts/pew_pew.gd" id="1_mtf7x"]
+[ext_resource type="Texture2D" uid="uid://qdnyfwl3ifnt" path="res://assets/plane_pack/planes/torpedo/fire_ball_1.png" id="2_j8djy"]
+[ext_resource type="Texture2D" uid="uid://4l8ynkdqu7cy" path="res://assets/plane_pack/planes/torpedo/torpedo.png" id="3_4nwah"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8js7m"]
+size = Vector2(54, 61)
+
+[node name="PewPew" type="Area2D" unique_id=1905454062]
+script = ExtResource("1_mtf7x")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1532150804]
+visible = false
+offset_right = 46.0
+offset_bottom = 8.0
+color = Color(1, 0, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1899990197]
+position = Vector2(27, 4.5)
+shape = SubResource("RectangleShape2D_8js7m")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=212453041]
+visible = false
+position = Vector2(25, 4.0000014)
+scale = Vector2(0.3460378, 0.34603778)
+texture = ExtResource("2_j8djy")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=2129168469]
+position = Vector2(18, 1.7881393e-07)
+scale = Vector2(0.175005, 0.175005)
+texture = ExtResource("3_4nwah")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

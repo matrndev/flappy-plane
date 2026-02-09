@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bichtjom6nqrt" path="res://scripts/torpedo.gd" id="1_0ddwc"]
 [ext_resource type="Texture2D" uid="uid://4l8ynkdqu7cy" path="res://assets/plane_pack/planes/torpedo/torpedo.png" id="1_w885k"]
+[ext_resource type="Texture2D" uid="uid://qdnyfwl3ifnt" path="res://assets/plane_pack/planes/torpedo/fire_ball_1.png" id="3_8idko"]
 [ext_resource type="AudioStream" uid="uid://dvn1sq1p2nrx0" path="res://assets/audio/explosion.mp3" id="3_agymq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ddwc"]
@@ -12,9 +13,15 @@ rotation = -3.1415927
 script = ExtResource("1_0ddwc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=471096832]
+visible = false
 position = Vector2(1.0000153, 0)
 scale = Vector2(0.17699115, 0.17699115)
 texture = ExtResource("1_w885k")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1420908958]
+position = Vector2(2.9999998, 1.0000002)
+scale = Vector2(0.36959988, 0.36959988)
+texture = ExtResource("3_8idko")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1935390000]
 rotation = -1.5707964
@@ -23,4 +30,5 @@ shape = SubResource("CapsuleShape2D_0ddwc")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=958028966]
 stream = ExtResource("3_agymq")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -12,3 +12,9 @@ func _on_body_entered(body: Node2D) -> void:
 		if TunableVariables.deal_damage:
 			hit.emit()
 		hide()
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.name.begins_with("PewPew"):
+		was_hit = true
+		hide()
