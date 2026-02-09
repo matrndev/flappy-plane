@@ -17,7 +17,6 @@ offset_bottom = 20.0
 color = Color(0, 0, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=135040645]
-visible = false
 position = Vector2(121, 11)
 shape = SubResource("RectangleShape2D_0bmjl")
 debug_color = Color(0.9543596, 1.2513996e-06, 0.5513451, 0.41960785)
@@ -25,7 +24,6 @@ debug_color = Color(0.9543596, 1.2513996e-06, 0.5513451, 0.41960785)
 [node name="Area2D" type="Area2D" parent="." unique_id=739386948]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=842651138]
-visible = false
 position = Vector2(121, 3)
 shape = SubResource("RectangleShape2D_0bmjl")
 

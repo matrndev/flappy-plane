@@ -98,7 +98,7 @@ func refresh_color_samples() -> void:
 
 func _on_back_button_pressed() -> void:
 	if currently_selected_texture_locked:
-		print("can't do that buddy")
+		$CantContinueDialog.show()
 		return
 	
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

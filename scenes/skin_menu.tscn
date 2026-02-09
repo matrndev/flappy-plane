@@ -1103,6 +1103,13 @@ size = Vector2i(352, 100)
 current_screen = 0
 dialog_text = "You don't have enough coins to unlock this."
 
+[node name="CantContinueDialog" type="AcceptDialog" parent="." unique_id=1974645571]
+oversampling_override = 1.0
+title = "Error"
+initial_position = 2
+size = Vector2i(294, 100)
+dialog_text = "Select an unlocked skin to continue."
+
 [connection signal="pressed" from="PlayerPanel/HBoxContainer/SwitchLeftButton" to="." method="_on_switch_left_button_pressed"]
 [connection signal="pressed" from="PlayerPanel/HBoxContainer/SwitchRightButton" to="." method="_on_switch_right_button_pressed"]
 [connection signal="pressed" from="PlayerPanel/HBoxContainer2/ColorSampleRect1/ColorSampleRectButton1" to="." method="_on_color_sample_rect_button_1_pressed"]
