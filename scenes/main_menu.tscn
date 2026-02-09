@@ -32,6 +32,18 @@ shadow_size = 7
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oa1go"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
+bg_color = Color(0.6392157, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 1, 0, 1)
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
 [node name="MainMenu" type="Control" unique_id=829053334]
 layout_mode = 3
 anchors_preset = 15
@@ -89,6 +101,23 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_oa1go")
 text = "Play"
 
+[node name="LoudSoundsLabel" type="Label" parent="Panel/VBoxContainer/PlayButton" unique_id=1251717967]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -176.5
+offset_top = -48.0
+offset_right = 176.5
+offset_bottom = -22.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 21
+text = "WARNING: LOUD SOUNDS!"
+horizontal_alignment = 1
+
 [node name="TunablesButton" type="Button" parent="Panel/VBoxContainer" unique_id=599319513]
 layout_mode = 2
 size_flags_vertical = 3
@@ -139,12 +168,18 @@ text = "ENABLE SOUNDS FROM HELL 👹👹👹"
 oversampling_override = 1.0
 title = "WARNING"
 initial_position = 2
-size = Vector2i(229, 106)
-dialog_text = "Lower your system volume.
+size = Vector2i(621, 132)
+force_native = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_bqqt6")
+ok_button_text = "Continue"
+dialog_text = "GENEROUSLY LOWER YOUR SYSTEM VOLUME!
+Extremely loud sounds will play if you start the game with this option enabled.
 You have been warned."
+dialog_close_on_escape = false
 
 [connection signal="pressed" from="Panel/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/TunablesButton" to="." method="_on_tunables_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/SkinButton" to="." method="_on_skin_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="toggled" from="Panel/VBoxContainer/HellSoundsCheckbox" to="." method="_on_hell_sounds_checkbox_toggled"]
+[connection signal="confirmed" from="LoudSoundsDialog" to="." method="_on_loud_sounds_dialog_confirmed"]

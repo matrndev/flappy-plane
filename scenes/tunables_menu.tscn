@@ -41,7 +41,7 @@ tab_count = 4
 tab_0/title = "Game"
 tab_1/title = "Player"
 tab_2/title = "Pipe"
-tab_3/title = "Torpedo"
+tab_3/title = "Fireball"
 
 [node name="GameConfigContainer" type="VBoxContainer" parent="Panel/Panel" unique_id=728586781 groups=["containers"]]
 layout_mode = 1
@@ -257,9 +257,9 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
-tooltip_text = "Determines how often should torpedoes spawn in seconds."
+tooltip_text = "Determines how often should fireballs spawn in seconds."
 mouse_filter = 0
-text = "Torpedo Spawn Rate"
+text = "Fireball Spawn Rate"
 
 [node name="TorpedoVariability" type="HSlider" parent="Panel/Panel/GameConfigContainer" unique_id=951601612 groups=["sliders"]]
 layout_mode = 2
@@ -286,9 +286,9 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
-tooltip_text = "Controls how much the vertical position of spawned torpedoes can vary."
+tooltip_text = "Controls how much the vertical position of spawned fireballs can vary."
 mouse_filter = 0
-text = "Torpedo Variability"
+text = "Fireball Variability"
 
 [node name="ScoreMultiplier" type="HSlider" parent="Panel/Panel/GameConfigContainer" unique_id=964637491 groups=["sliders"]]
 layout_mode = 2
@@ -350,9 +350,9 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
-tooltip_text = "Set how much damage is dealt when a collision with a torpedo occures."
+tooltip_text = "Set how much damage is dealt when a collision with a fireball occures."
 mouse_filter = 0
-text = "Torpedo Damage Rate"
+text = "Fireball Damage Rate"
 
 [node name="TorpedoSpeedMultiplier" type="HSlider" parent="Panel/Panel/GameConfigContainer2" unique_id=522099810 groups=["sliders"]]
 layout_mode = 2
@@ -379,10 +379,10 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
-tooltip_text = "Define how fast will torpedoes go.
-A multiplier of 1.0 means torpedoes will appear stationary."
+tooltip_text = "Define how fast will fireballs go.
+A multiplier of 1.0 means fireballs will appear stationary."
 mouse_filter = 0
-text = "Torpedo Speed Multiplier"
+text = "Fireball Speed Multiplier"
 
 [node name="TorpedoFrequencyIncreaseOnScore" type="HSlider" parent="Panel/Panel/GameConfigContainer2" unique_id=1660019848 groups=["sliders"]]
 layout_mode = 2
@@ -407,9 +407,9 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
-tooltip_text = "Define every nth score when the torpedo spawning frequency should increase."
+tooltip_text = "Define every nth score when the fireball spawning frequency should increase."
 mouse_filter = 0
-text = "Torpedo Frequency Increase On Score"
+text = "Fireball Frequency Increase On Score"
 
 [node name="TorpedoFrequencyIncreaseMultiplier" type="HSlider" parent="Panel/Panel/GameConfigContainer2" unique_id=1251641293 groups=["sliders"]]
 layout_mode = 2
@@ -436,10 +436,10 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
-tooltip_text = "Defines by how much should the torpedo spawning frequency increase on trigger.
+tooltip_text = "Defines by how much should the fireball spawning frequency increase on trigger.
 Note: triggers every nth score (set value above)"
 mouse_filter = 0
-text = "Torpedo Frequency Increase Multiplier"
+text = "Fireball Frequency Increase Multiplier"
 
 [node name="TorpedoStartSpawningOnScore" type="HSlider" parent="Panel/Panel/GameConfigContainer2" unique_id=98023851 groups=["sliders"]]
 layout_mode = 2
@@ -464,10 +464,10 @@ layout_mode = 0
 offset_top = -26.0
 offset_right = 95.0
 offset_bottom = -3.0
-tooltip_text = "Defines by how much should the torpedo spawning frequency increase on trigger.
+tooltip_text = "Defines by how much should the fireball spawning frequency increase on trigger.
 Note: triggers every nth score (set value above)"
 mouse_filter = 0
-text = "Torpedo Start Spawning On Score"
+text = "Fireball Start Spawning On Score"
 
 [node name="RefuelingStationXVariability" type="HSlider" parent="Panel/Panel/GameConfigContainer2" unique_id=1614747374 groups=["sliders"]]
 layout_mode = 2
@@ -768,7 +768,7 @@ theme_override_constants/separation = 39
 
 [node name="DealDamageCheckBox" type="CheckBox" parent="Panel/Panel/TorpedoConfigContainer" unique_id=1237534218 groups=["check_boxes"]]
 layout_mode = 2
-tooltip_text = "If enabled, damage will be dealt to the player on collision with a torpedo."
+tooltip_text = "If enabled, damage will be dealt to the player on collision with a fireball."
 text = "Deal Damage"
 
 [node name="Label" type="Label" parent="Panel/Panel" unique_id=431391762]
@@ -845,7 +845,7 @@ popup/item_3/id = 3
 popup/item_4/text = "Hard"
 popup/item_4/id = 4
 popup/item_5/text = "Fun"
-popup/item_5/id = 5
+popup	item_5/id = 5
 popup/item_5/separator = true
 popup/item_6/text = "Money Maker"
 popup/item_6/id = 6

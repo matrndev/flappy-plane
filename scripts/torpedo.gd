@@ -16,5 +16,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.name.begins_with("PewPew"):
+		$"../.".score += 1
+		$AudioStreamPlayer2D2.play()
 		was_hit = true
 		hide()

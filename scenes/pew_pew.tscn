@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://4l8ynkdqu7cy" path="res://assets/plane_pack/planes/torpedo/torpedo.png" id="3_4nwah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8js7m"]
-size = Vector2(54, 61)
+size = Vector2(50, 47)
 
 [node name="PewPew" type="Area2D" unique_id=1905454062]
 script = ExtResource("1_mtf7x")
@@ -17,7 +17,7 @@ offset_bottom = 8.0
 color = Color(1, 0, 1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1899990197]
-position = Vector2(27, 4.5)
+position = Vector2(19, 0.5)
 shape = SubResource("RectangleShape2D_8js7m")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=212453041]
@@ -27,8 +27,8 @@ scale = Vector2(0.3460378, 0.34603778)
 texture = ExtResource("2_j8djy")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=2129168469]
-position = Vector2(18, 1.7881393e-07)
-scale = Vector2(0.175005, 0.175005)
+position = Vector2(16.999998, -1.9073486e-06)
+scale = Vector2(0.100776844, 0.10077683)
 texture = ExtResource("3_4nwah")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -38,9 +38,9 @@ texture = SubResource("GradientTexture1D_cqm0w")
 
 [node name="Cursor" type="ColorRect" parent="." unique_id=1833999639]
 layout_mode = 0
-offset_top = 15.0
+offset_top = 194.0
 offset_right = 33.0
-offset_bottom = 21.0
+offset_bottom = 200.0
 color = Color(0, 0, 0, 1)
 
 [node name="FuelPicked" type="Label" parent="." unique_id=2033508226]

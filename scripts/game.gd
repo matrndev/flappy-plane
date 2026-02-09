@@ -312,6 +312,10 @@ func clear_torpedoes() -> void:
 	torpedoes.clear()
 	for node in get_tree().get_nodes_in_group("torpedoes"):
 		node.queue_free()
+	
+	pew_pews.clear()
+	for node in get_tree().get_nodes_in_group("pew_pews"):
+		node.queue_free()
 
 func clear_pipes() -> void:
 	pipes.clear()

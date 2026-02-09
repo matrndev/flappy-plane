@@ -28,6 +28,7 @@ pitch_scale = 0.37
 oversampling = 32
 
 [resource]
+bus/0/volume_db = -12.461078
 bus/0/effect/0/effect = SubResource("AudioEffectAmplify_j3pel")
 bus/0/effect/0/enabled = false
 bus/0/effect/1/effect = SubResource("AudioEffectDistortion_j3pel")
