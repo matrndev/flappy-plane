@@ -4,16 +4,19 @@ A Flappy Bird adaptation with a plane instead of a bird. This is my first ever g
 
 Your plane needs periodic refueling to stay in air.
 
-Land on refueling stations on the ground *(currently displayed as a black rectangle)* and complete the minigame to fill up your tank!
+Land on refueling stations displayed on the ground and complete the minigame to fill up your tank!
 
+You will get attacked by fireballs, which take away your health points. Combat them with missiles by pressing **`V`**!
 
-You can pause gravity by holding **`C`** on your keyboard. This makes it easier to get through the pipes.
+You can pause gravity by holding **`C`** on your keyboard. This makes it easier to get through the pipes. **But keep in mind that pausing gravity consumes a lot more fuel!**
 
-**But keep in mind that pausing gravity consumes a lot of fuel!**
+Don't forget to collect coins, with which you can unlock new planes or revive yourself and get a second chance if you die!
 
 
 ## Hotkeys
 **`SPACE`** -- jump
+
+**`V`** -- shoot missiles
 
 **`X`** -- pause/resume game
 
@@ -33,12 +36,15 @@ You can pause gravity by holding **`C`** on your keyboard. This makes it easier 
 
 **`CLEARSTATS`** -- clears saved high score and coins
 
+# Config Files
+This game uses .cfg files with lots of adjustable game variables.
+
+You can export these files right from the in-game Tunables menu and share your custom configurations with your friends! How convenient!
 
 ## Assets
 I used free assets from the internet with non-restrictive licenses.
 
-
-You can find their respective licenses in the `assets/` folder or displayed in the Credits menu in-game.
+You can find their respective licenses/attributions in the `assets/` folder or displayed in the Credits menu in-game.
 
 ## AI Disclaimer
 AI (LLMs) was used during the creation of this project.
