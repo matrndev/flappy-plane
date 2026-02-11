@@ -98,6 +98,7 @@ func refresh_color_samples() -> void:
 
 func _on_back_button_pressed() -> void:
 	if currently_selected_texture_locked:
+		$TabBar.current_tab = 0
 		$CantContinueDialog.show()
 		return
 	

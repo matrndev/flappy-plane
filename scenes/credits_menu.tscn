@@ -34,9 +34,9 @@ text = "Return"
 [node name="AssetsPanel" type="Panel" parent="." unique_id=1547965935]
 layout_mode = 1
 offset_left = 40.0
-offset_top = 32.0
+offset_top = 31.0
 offset_right = 268.0
-offset_bottom = 340.0
+offset_bottom = 280.0
 
 [node name="Label" type="Label" parent="AssetsPanel" unique_id=44541893]
 layout_mode = 1
@@ -51,37 +51,109 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 28
 text = "Assets"
 
-[node name="LicenseButton1" type="Button" parent="AssetsPanel" unique_id=412640712]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 61.0
-offset_right = 206.0
+[node name="Label2" type="Label" parent="AssetsPanel" unique_id=1537046556]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -105.0
+offset_top = 53.0
+offset_right = 105.0
 offset_bottom = 92.0
-text = "flappy-bird-assets"
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 12
+text = "Click on one of the buttons below
+to display a license/attribution."
+horizontal_alignment = 1
 
-[node name="LicenseButton2" type="Button" parent="AssetsPanel" unique_id=2035907476]
+[node name="LicenseButton1" type="Button" parent="AssetsPanel" unique_id=412640712]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 109.0
 offset_right = 206.0
 offset_bottom = 140.0
-text = "Flappy Bird Assets"
+text = "flappy-bird-assets"
 
-[node name="LicenseButton3" type="Button" parent="AssetsPanel" unique_id=502359665]
+[node name="LicenseButton2" type="Button" parent="AssetsPanel" unique_id=2035907476]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 157.0
 offset_right = 206.0
 offset_bottom = 188.0
-text = "plane_pack"
+text = "Flappy Bird Assets"
 
-[node name="LicenseButton4" type="Button" parent="AssetsPanel" unique_id=1523983155]
+[node name="LicenseButton3" type="Button" parent="AssetsPanel" unique_id=502359665]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 205.0
 offset_right = 206.0
 offset_bottom = 236.0
-text = "Cash Sound Effect"
+text = "plane_pack"
+
+[node name="Panel2" type="Panel" parent="." unique_id=1676349136]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 357.0
+offset_right = 268.0
+offset_bottom = 576.0
+
+[node name="Label" type="Label" parent="Panel2" unique_id=78447000]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 8.0
+offset_bottom = 35.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 19
+text = "Flappy Plane"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel2" unique_id=2105636929]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 33.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 11
+text = "v2.0 (11022026)"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Panel2" unique_id=430198896]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 5.0
+offset_top = 73.0
+offset_right = -5.0
+offset_bottom = 208.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 14
+text = "Made By:
+
+Source Code:
+
+This software is open-source
+provided under the MIT License."
+
+[node name="LinkButton" type="LinkButton" parent="Panel2/Label3" unique_id=2068082554]
+layout_mode = 1
+offset_left = 67.0
+offset_right = 172.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 14
+text = "Matyáš Trnka"
+uri = "https://matrn.dev"
+
+[node name="LinkButton2" type="LinkButton" parent="Panel2/Label3" unique_id=1706173624]
+layout_mode = 1
+offset_left = 92.0
+offset_top = 46.0
+offset_right = 197.0
+offset_bottom = 86.0
+theme_override_font_sizes/font_size = 14
+text = "Project's GitHub"
+uri = "https://github.com/matrndev/flappy-plane"
 
 [node name="TextEdit" type="TextEdit" parent="." unique_id=220790442]
 layout_mode = 1
@@ -100,4 +172,3 @@ wrap_mode = 1
 [connection signal="pressed" from="AssetsPanel/LicenseButton1" to="." method="_on_license_button_1_pressed"]
 [connection signal="pressed" from="AssetsPanel/LicenseButton2" to="." method="_on_license_button_2_pressed"]
 [connection signal="pressed" from="AssetsPanel/LicenseButton3" to="." method="_on_license_button_3_pressed"]
-[connection signal="pressed" from="AssetsPanel/LicenseButton4" to="." method="_on_license_button_4_pressed"]

@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dxkk2h2t6tq6h" path="res://scripts/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="FontFile" uid="uid://byrn6tqmul438" path="res://fonts/Zen_Dots/ZenDots-Regular.ttf" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://b05bp23ggbg10" path="res://assets/plane_pack/sky_background/example/sky_background_mountains.png" id="2_wu84c"]
 [ext_resource type="StyleBox" uid="uid://bbvt117ekb27v" path="res://styles/button_normal.tres" id="3_wu84c"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ln24"]
+texture = ExtResource("2_wu84c")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
 bg_color = Color(0, 0, 0, 1)
@@ -57,6 +61,7 @@ script = ExtResource("1_bqqt6")
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_8ln24")
 
 [node name="Label" type="Label" parent="Panel" unique_id=985635854]
 layout_mode = 1
@@ -68,6 +73,7 @@ offset_top = 48.0
 offset_right = 342.0
 offset_bottom = 152.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0.0012032207, 0.13994381, 0.5880189, 1)
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 86
 text = "Flappy Plane"
@@ -162,6 +168,10 @@ text = "Credits"
 
 [node name="HellSoundsCheckbox" type="CheckBox" parent="Panel/VBoxContainer" unique_id=1073137786]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.14117648, 0.5882353, 1)
+theme_override_colors/font_focus_color = Color(0, 0.14117648, 0.5882353, 1)
+theme_override_colors/font_pressed_color = Color(0.003921569, 0.27058825, 0.99607843, 1)
+theme_override_colors/font_hover_color = Color(0.003367805, 0.27013353, 0.99795955, 1)
 text = "ENABLE SOUNDS FROM HELL 👹👹👹"
 
 [node name="LoudSoundsDialog" type="AcceptDialog" parent="." unique_id=2108957513]

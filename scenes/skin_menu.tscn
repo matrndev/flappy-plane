@@ -1107,8 +1107,8 @@ dialog_text = "You don't have enough coins to unlock this."
 oversampling_override = 1.0
 title = "Error"
 initial_position = 2
-size = Vector2i(294, 100)
-dialog_text = "Select an unlocked skin to continue."
+size = Vector2i(341, 100)
+dialog_text = "Select an unlocked plane skin to continue."
 
 [connection signal="pressed" from="PlayerPanel/HBoxContainer/SwitchLeftButton" to="." method="_on_switch_left_button_pressed"]
 [connection signal="pressed" from="PlayerPanel/HBoxContainer/SwitchRightButton" to="." method="_on_switch_right_button_pressed"]

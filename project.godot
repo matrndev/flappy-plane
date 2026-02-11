@@ -14,10 +14,14 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="flappy-plane-1"
+config/name="Flappy Plane"
+config/version="2.0"
 run/main_scene="uid://bhg8xxkoha6hy"
 config/features=PackedStringArray("4.6", "Mobile")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
+boot_splash/use_filter=false
+config/icon="uid://0f4qp38f4lr1"
 
 [audio]
 
@@ -27,6 +31,10 @@ buses/default_bus_layout="uid://b0bgnspsgg65y"
 
 TunableVariables="*res://scripts/tunable_variables.gd"
 SavedStats="*uid://y86kk74n3ily"
+
+[display]
+
+window/size/resizable=false
 
 [editor_plugins]
 

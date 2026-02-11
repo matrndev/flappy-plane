@@ -30,11 +30,13 @@ func _on_hell_sounds_checkbox_toggled(toggled_on: bool) -> void:
 		$Panel/VBoxContainer/PlayButton/LoudSoundsLabel.show()
 		$LoudSoundsDialog.show()
 		$Panel/VBoxContainer/HellSoundsCheckbox.modulate = Color(1.0, 0.0, 0.0, 1.0)
+		$Panel.modulate = Color("f34e4a")
 		for i in AudioServer.get_bus_effect_count(bus):
 			AudioServer.set_bus_effect_enabled(bus, i, true)
 	else:
 		$Panel/VBoxContainer/PlayButton/LoudSoundsLabel.hide()
 		$Panel/VBoxContainer/HellSoundsCheckbox.modulate = Color(1.0, 1.0, 1.0, 1.0)
+		$Panel.modulate = Color(1.0, 1.0, 1.0, 1.0)
 		for i in AudioServer.get_bus_effect_count(bus):
 			AudioServer.set_bus_effect_enabled(bus, i, false)
 		

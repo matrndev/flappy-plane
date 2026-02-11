@@ -90,16 +90,13 @@ func _ready() -> void:
 	if TunableVariables.coin_spawn_rate == 0.0:
 		$CoinTimer.stop()
 
+var pew_pew_debounce: float = 0.0
 func _process(delta: float) -> void:
-	#scroll_speed = lerp(2.0, SCROLL_SPEED, $Player.fuel_remaining / 100.0) # idk with this one mate
-	#if Input.is_action_pressed("keyboard_a"): # !debug
-		#scroll_speed = 1
-	#else:
-		#scroll_speed = TunableVariables.scroll_speed
-		##scroll_speed = 3
-		#pass
+	if pew_pew_debounce > 0.1:
+		pew_pew_debounce -= 0.1
 	
-	if Input.is_action_just_pressed("keyboard_v"):
+	if Input.is_action_just_pressed("keyboard_v") and pew_pew_debounce < 0.1:
+		pew_pew_debounce = 10.0
 		var pew_pew: Area2D = pew_pew_scene.instantiate()
 		pew_pew.position.x = $Player.position.x
 		pew_pew.position.y = $Player.position.y - 20

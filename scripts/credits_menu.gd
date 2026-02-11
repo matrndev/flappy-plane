@@ -22,8 +22,3 @@ func _on_license_button_2_pressed() -> void:
 
 func _on_license_button_3_pressed() -> void:
 	load_file("res://assets/plane_pack/sky_background/info.TXT")
-
-
-
-func _on_license_button_4_pressed() -> void:
-	load_file("res://assets/audio/cash_attrib.txt")
