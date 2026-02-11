@@ -53,6 +53,8 @@ func _ready() -> void:
 	if config_file.get_sections().is_empty():
 		player_sprite_number = 2
 		player_sprite_color = "green"
+		pipe_sprite_number = 1
+		pipe_sprite_color = ""
 		reset_all()
 	else:
 		load_config()
